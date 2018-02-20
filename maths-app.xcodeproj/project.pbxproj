@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		F00EBDE3203C1F1600125618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBDE2203C1F1600125618 /* AppDelegate.swift */; };
-		F00EBDE5203C1F1600125618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBDE4203C1F1600125618 /* ViewController.swift */; };
 		F00EBDE8203C1F1600125618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F00EBDE6203C1F1600125618 /* Main.storyboard */; };
 		F00EBDEA203C1F1600125618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00EBDE9203C1F1600125618 /* Assets.xcassets */; };
 		F00EBDED203C1F1600125618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F00EBDEB203C1F1600125618 /* LaunchScreen.storyboard */; };
 		F00EBDF8203C1F1600125618 /* maths_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBDF7203C1F1600125618 /* maths_appTests.swift */; };
 		F00EBE03203C1F1600125618 /* maths_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE02203C1F1600125618 /* maths_appUITests.swift */; };
+		F00EBE16203C215000125618 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE15203C215000125618 /* Constants.swift */; };
+		F00EBE18203C235700125618 /* AuthorisationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE17203C235700125618 /* AuthorisationService.swift */; };
+		F00EBE1A203C46BE00125618 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE19203C46BE00125618 /* InitialViewController.swift */; };
+		F00EBE1C203C4B2700125618 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE1B203C4B2700125618 /* MenuViewController.swift */; };
+		F00EBE1E203C4B3B00125618 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE1D203C4B3B00125618 /* LoginViewController.swift */; };
+		F00EBE20203C4B4E00125618 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE1F203C4B4E00125618 /* RegisterViewController.swift */; };
+		F00EBE22203C4E5A00125618 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE21203C4E5A00125618 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +42,6 @@
 /* Begin PBXFileReference section */
 		F00EBDDF203C1F1600125618 /* maths-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "maths-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F00EBDE2203C1F1600125618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F00EBDE4203C1F1600125618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F00EBDE7203C1F1600125618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F00EBDE9203C1F1600125618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F00EBDEC203C1F1600125618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +52,13 @@
 		F00EBDFE203C1F1600125618 /* maths-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "maths-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F00EBE02203C1F1600125618 /* maths_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maths_appUITests.swift; sourceTree = "<group>"; };
 		F00EBE04203C1F1600125618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F00EBE15203C215000125618 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F00EBE17203C235700125618 /* AuthorisationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationService.swift; sourceTree = "<group>"; };
+		F00EBE19203C46BE00125618 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		F00EBE1B203C4B2700125618 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		F00EBE1D203C4B3B00125618 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F00EBE1F203C4B4E00125618 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F00EBE21203C4E5A00125618 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +89,11 @@
 		F00EBDD6203C1F1600125618 = {
 			isa = PBXGroup;
 			children = (
+				F00EBE14203C1FAA00125618 /* Services */,
+				F00EBE13203C1FA200125618 /* Controller */,
+				F00EBE12203C1F8C00125618 /* View */,
+				F00EBE11203C1F8800125618 /* Model */,
+				F00EBE10203C1F7A00125618 /* Resources */,
 				F00EBDE1203C1F1600125618 /* maths-app */,
 				F00EBDF6203C1F1600125618 /* maths-appTests */,
 				F00EBE01203C1F1600125618 /* maths-appUITests */,
@@ -97,12 +114,6 @@
 		F00EBDE1203C1F1600125618 /* maths-app */ = {
 			isa = PBXGroup;
 			children = (
-				F00EBDE2203C1F1600125618 /* AppDelegate.swift */,
-				F00EBDE4203C1F1600125618 /* ViewController.swift */,
-				F00EBDE6203C1F1600125618 /* Main.storyboard */,
-				F00EBDE9203C1F1600125618 /* Assets.xcassets */,
-				F00EBDEB203C1F1600125618 /* LaunchScreen.storyboard */,
-				F00EBDEE203C1F1600125618 /* Info.plist */,
 			);
 			path = "maths-app";
 			sourceTree = "<group>";
@@ -123,6 +134,53 @@
 				F00EBE04203C1F1600125618 /* Info.plist */,
 			);
 			path = "maths-appUITests";
+			sourceTree = "<group>";
+		};
+		F00EBE10203C1F7A00125618 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F00EBDE9203C1F1600125618 /* Assets.xcassets */,
+				F00EBDEE203C1F1600125618 /* Info.plist */,
+				F00EBE15203C215000125618 /* Constants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F00EBE11203C1F8800125618 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F00EBE12203C1F8C00125618 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F00EBDEB203C1F1600125618 /* LaunchScreen.storyboard */,
+				F00EBDE6203C1F1600125618 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F00EBE13203C1FA200125618 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F00EBDE2203C1F1600125618 /* AppDelegate.swift */,
+				F00EBE19203C46BE00125618 /* InitialViewController.swift */,
+				F00EBE1B203C4B2700125618 /* MenuViewController.swift */,
+				F00EBE1D203C4B3B00125618 /* LoginViewController.swift */,
+				F00EBE1F203C4B4E00125618 /* RegisterViewController.swift */,
+				F00EBE21203C4E5A00125618 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F00EBE14203C1FAA00125618 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F00EBE17203C235700125618 /* AuthorisationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +317,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F00EBDE5203C1F1600125618 /* ViewController.swift in Sources */,
+				F00EBE1E203C4B3B00125618 /* LoginViewController.swift in Sources */,
 				F00EBDE3203C1F1600125618 /* AppDelegate.swift in Sources */,
+				F00EBE20203C4B4E00125618 /* RegisterViewController.swift in Sources */,
+				F00EBE22203C4E5A00125618 /* HomeViewController.swift in Sources */,
+				F00EBE1C203C4B2700125618 /* MenuViewController.swift in Sources */,
+				F00EBE18203C235700125618 /* AuthorisationService.swift in Sources */,
+				F00EBE16203C215000125618 /* Constants.swift in Sources */,
+				F00EBE1A203C46BE00125618 /* InitialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,7 +492,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YRYEG2DL8;
-				INFOPLIST_FILE = "maths-app/Info.plist";
+				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.landahoy55.maths-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -443,7 +507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YRYEG2DL8;
-				INFOPLIST_FILE = "maths-app/Info.plist";
+				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.landahoy55.maths-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -459,7 +523,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YRYEG2DL8;
-				INFOPLIST_FILE = "maths-appTests/Info.plist";
+				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.landahoy55.maths-appTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -476,7 +540,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YRYEG2DL8;
-				INFOPLIST_FILE = "maths-appTests/Info.plist";
+				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.landahoy55.maths-appTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -492,7 +556,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YRYEG2DL8;
-				INFOPLIST_FILE = "maths-appUITests/Info.plist";
+				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.landahoy55.maths-appUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,7 +572,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YRYEG2DL8;
-				INFOPLIST_FILE = "maths-appUITests/Info.plist";
+				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.landahoy55.maths-appUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
