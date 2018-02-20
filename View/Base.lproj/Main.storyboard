@@ -47,34 +47,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm3-c4-Ran">
-                                <rect key="frame" x="24" y="724" width="327" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm3-c4-Ran" customClass="RoundedButton" customModule="maths_app" customModuleProvider="target">
+                                <rect key="frame" x="60" y="694" width="255" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="hOJ-En-ek0"/>
+                                    <constraint firstAttribute="height" constant="60" id="hOJ-En-ek0"/>
                                 </constraints>
-                                <state key="normal" title="Sign Up"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="cJ2-uH-lfz" kind="show" identifier="toRegisterVC" animates="NO" id="tTP-hO-iC8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY0-wl-nYv">
-                                <rect key="frame" x="24" y="670" width="327" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bY0-wl-nYv" customClass="RoundedButton" customModule="maths_app" customModuleProvider="target">
+                                <rect key="frame" x="60" y="610" width="255" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="fqM-gY-bwq"/>
+                                    <constraint firstAttribute="height" constant="60" id="fqM-gY-bwq"/>
                                 </constraints>
-                                <state key="normal" title="Log In"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="k0o-kZ-o5F" kind="show" identifier="toLoginVC" animates="NO" id="7Im-rD-iSc"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="bY0-wl-nYv" firstAttribute="leading" secondItem="m9V-9S-m70" secondAttribute="leading" constant="24" id="0aD-Db-owm"/>
+                            <constraint firstItem="bY0-wl-nYv" firstAttribute="leading" secondItem="m9V-9S-m70" secondAttribute="leading" constant="60" id="0aD-Db-owm"/>
                             <constraint firstItem="Qm3-c4-Ran" firstAttribute="top" secondItem="bY0-wl-nYv" secondAttribute="bottom" constant="24" id="RB7-3w-nc8"/>
-                            <constraint firstItem="m9V-9S-m70" firstAttribute="trailing" secondItem="Qm3-c4-Ran" secondAttribute="trailing" constant="24" id="TZr-zd-lfv"/>
-                            <constraint firstItem="Qm3-c4-Ran" firstAttribute="leading" secondItem="m9V-9S-m70" secondAttribute="leading" constant="24" id="kp3-Hs-UOR"/>
-                            <constraint firstItem="m9V-9S-m70" firstAttribute="trailing" secondItem="bY0-wl-nYv" secondAttribute="trailing" constant="24" id="sM3-FZ-N4A"/>
+                            <constraint firstItem="m9V-9S-m70" firstAttribute="trailing" secondItem="Qm3-c4-Ran" secondAttribute="trailing" constant="60" id="TZr-zd-lfv"/>
+                            <constraint firstItem="Qm3-c4-Ran" firstAttribute="leading" secondItem="m9V-9S-m70" secondAttribute="leading" constant="60" id="kp3-Hs-UOR"/>
+                            <constraint firstItem="m9V-9S-m70" firstAttribute="trailing" secondItem="bY0-wl-nYv" secondAttribute="trailing" constant="60" id="sM3-FZ-N4A"/>
                             <constraint firstItem="m9V-9S-m70" firstAttribute="bottom" secondItem="Qm3-c4-Ran" secondAttribute="bottom" constant="24" id="z48-t7-BBC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m9V-9S-m70"/>
@@ -102,7 +108,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtq-Op-yrC">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtq-Op-yrC" customClass="RoundedButton" customModule="maths_app" customModuleProvider="target">
                                 <rect key="frame" x="160" y="457" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log Out"/>
@@ -183,7 +189,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZr-qE-7Dh">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZr-qE-7Dh" customClass="RoundedButton" customModule="maths_app" customModuleProvider="target">
                                 <rect key="frame" x="162" y="380" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
@@ -267,7 +273,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP0-m8-Rx8">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP0-m8-Rx8" customClass="RoundedButton" customModule="maths_app" customModuleProvider="target">
                                 <rect key="frame" x="155" y="473" width="54" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Regster"/>

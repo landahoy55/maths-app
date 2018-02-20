@@ -20,6 +20,9 @@
 		F00EBE1E203C4B3B00125618 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE1D203C4B3B00125618 /* LoginViewController.swift */; };
 		F00EBE20203C4B4E00125618 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE1F203C4B4E00125618 /* RegisterViewController.swift */; };
 		F00EBE22203C4E5A00125618 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE21203C4E5A00125618 /* HomeViewController.swift */; };
+		F00EBE25203C792600125618 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE24203C792600125618 /* View+Extension.swift */; };
+		F00EBE27203C7CBB00125618 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE26203C7CBB00125618 /* RoundedButton.swift */; };
+		F00EBE29203C808B00125618 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE28203C808B00125618 /* UIButton+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		F00EBE1D203C4B3B00125618 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F00EBE1F203C4B4E00125618 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F00EBE21203C4E5A00125618 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F00EBE24203C792600125618 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		F00EBE26203C7CBB00125618 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		F00EBE28203C808B00125618 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,7 @@
 		F00EBDD6203C1F1600125618 = {
 			isa = PBXGroup;
 			children = (
+				F00EBE23203C790C00125618 /* Extensions */,
 				F00EBE14203C1FAA00125618 /* Services */,
 				F00EBE13203C1FA200125618 /* Controller */,
 				F00EBE12203C1F8C00125618 /* View */,
@@ -158,6 +165,7 @@
 			children = (
 				F00EBDEB203C1F1600125618 /* LaunchScreen.storyboard */,
 				F00EBDE6203C1F1600125618 /* Main.storyboard */,
+				F00EBE26203C7CBB00125618 /* RoundedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +189,15 @@
 				F00EBE17203C235700125618 /* AuthorisationService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		F00EBE23203C790C00125618 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F00EBE24203C792600125618 /* View+Extension.swift */,
+				F00EBE28203C808B00125618 /* UIButton+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,12 +335,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F00EBE1E203C4B3B00125618 /* LoginViewController.swift in Sources */,
+				F00EBE27203C7CBB00125618 /* RoundedButton.swift in Sources */,
 				F00EBDE3203C1F1600125618 /* AppDelegate.swift in Sources */,
 				F00EBE20203C4B4E00125618 /* RegisterViewController.swift in Sources */,
 				F00EBE22203C4E5A00125618 /* HomeViewController.swift in Sources */,
 				F00EBE1C203C4B2700125618 /* MenuViewController.swift in Sources */,
 				F00EBE18203C235700125618 /* AuthorisationService.swift in Sources */,
 				F00EBE16203C215000125618 /* Constants.swift in Sources */,
+				F00EBE25203C792600125618 /* View+Extension.swift in Sources */,
+				F00EBE29203C808B00125618 /* UIButton+Extensions.swift in Sources */,
 				F00EBE1A203C46BE00125618 /* InitialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

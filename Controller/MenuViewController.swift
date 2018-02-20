@@ -18,11 +18,15 @@ class MenuViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //print(AuthorisationService.instance.isAuthenticated!)
         
+        //Move forward if authenticated
+        //print(AuthorisationService.instance.isAuthenticated!)
         if AuthorisationService.instance.isAuthenticated == true {
             performSegue(withIdentifier: "toHomeVC", sender: nil)
         }
+        
+        //set gradient
+        view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         
     }
     

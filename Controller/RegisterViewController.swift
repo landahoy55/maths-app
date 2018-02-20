@@ -20,9 +20,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         //Part of keyboard handling
-//        self.nameText.delegate = self
-//        self.passwordText.delegate = self
-//        self.emailText.delegate = self
+        //        self.nameText.delegate = self
+        //        self.passwordText.delegate = self
+        //        self.emailText.delegate = self
+    
+        //set gradient
+        view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
     }
 
     
