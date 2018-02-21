@@ -23,6 +23,8 @@
 		F00EBE25203C792600125618 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE24203C792600125618 /* View+Extension.swift */; };
 		F00EBE27203C7CBB00125618 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE26203C7CBB00125618 /* RoundedButton.swift */; };
 		F00EBE29203C808B00125618 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE28203C808B00125618 /* UIButton+Extensions.swift */; };
+		F00EBE2B203D7B2D00125618 /* onboarding.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00EBE2A203D7B2D00125618 /* onboarding.xib */; };
+		F00EBE33203D80A900125618 /* onboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE32203D80A900125618 /* onboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		F00EBE24203C792600125618 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		F00EBE26203C7CBB00125618 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		F00EBE28203C808B00125618 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		F00EBE2A203D7B2D00125618 /* onboarding.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = onboarding.xib; sourceTree = "<group>"; };
+		F00EBE32203D80A900125618 /* onboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,8 @@
 				F00EBDEB203C1F1600125618 /* LaunchScreen.storyboard */,
 				F00EBDE6203C1F1600125618 /* Main.storyboard */,
 				F00EBE26203C7CBB00125618 /* RoundedButton.swift */,
+				F00EBE2A203D7B2D00125618 /* onboarding.xib */,
+				F00EBE32203D80A900125618 /* onboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 			files = (
 				F00EBDED203C1F1600125618 /* LaunchScreen.storyboard in Resources */,
 				F00EBDEA203C1F1600125618 /* Assets.xcassets in Resources */,
+				F00EBE2B203D7B2D00125618 /* onboarding.xib in Resources */,
 				F00EBDE8203C1F1600125618 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +351,7 @@
 				F00EBE16203C215000125618 /* Constants.swift in Sources */,
 				F00EBE25203C792600125618 /* View+Extension.swift in Sources */,
 				F00EBE29203C808B00125618 /* UIButton+Extensions.swift in Sources */,
+				F00EBE33203D80A900125618 /* onboardingView.swift in Sources */,
 				F00EBE1A203C46BE00125618 /* InitialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

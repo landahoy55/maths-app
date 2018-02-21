@@ -73,19 +73,41 @@
                                     <segue destination="k0o-kZ-o5F" kind="show" identifier="toLoginVC" animates="NO" id="7Im-rD-iSc"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ENx-jx-1mV">
+                                <rect key="frame" x="62.5" y="144" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="XuH-BL-kd7"/>
+                                    <constraint firstAttribute="height" constant="250" id="fkD-od-TVe"/>
+                                </constraints>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="xsB-dT-gQh">
+                                <rect key="frame" x="168" y="392" width="39" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="D1v-23-KI4"/>
+                                    <constraint firstAttribute="width" constant="39" id="QOQ-84-0e7"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bY0-wl-nYv" firstAttribute="leading" secondItem="m9V-9S-m70" secondAttribute="leading" constant="60" id="0aD-Db-owm"/>
+                            <constraint firstItem="ENx-jx-1mV" firstAttribute="centerX" secondItem="BbB-lN-aj1" secondAttribute="centerX" id="6p6-Gb-y9U"/>
+                            <constraint firstItem="ENx-jx-1mV" firstAttribute="top" secondItem="m9V-9S-m70" secondAttribute="top" constant="100" id="7t7-6k-11g"/>
+                            <constraint firstItem="xsB-dT-gQh" firstAttribute="centerX" secondItem="BbB-lN-aj1" secondAttribute="centerX" id="FG3-Fo-l8n"/>
                             <constraint firstItem="Qm3-c4-Ran" firstAttribute="top" secondItem="bY0-wl-nYv" secondAttribute="bottom" constant="24" id="RB7-3w-nc8"/>
                             <constraint firstItem="m9V-9S-m70" firstAttribute="trailing" secondItem="Qm3-c4-Ran" secondAttribute="trailing" constant="60" id="TZr-zd-lfv"/>
                             <constraint firstItem="Qm3-c4-Ran" firstAttribute="leading" secondItem="m9V-9S-m70" secondAttribute="leading" constant="60" id="kp3-Hs-UOR"/>
                             <constraint firstItem="m9V-9S-m70" firstAttribute="trailing" secondItem="bY0-wl-nYv" secondAttribute="trailing" constant="60" id="sM3-FZ-N4A"/>
                             <constraint firstItem="m9V-9S-m70" firstAttribute="bottom" secondItem="Qm3-c4-Ran" secondAttribute="bottom" constant="24" id="z48-t7-BBC"/>
+                            <constraint firstItem="ENx-jx-1mV" firstAttribute="bottom" secondItem="xsB-dT-gQh" secondAttribute="top" constant="2" id="zZV-DN-kv3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m9V-9S-m70"/>
                     </view>
                     <connections>
+                        <outlet property="onboardingPageControl" destination="xsB-dT-gQh" id="fN1-GY-pxR"/>
+                        <outlet property="onboardingScrollView" destination="ENx-jx-1mV" id="WXK-aD-dPy"/>
                         <segue destination="FjF-v6-nwn" kind="show" identifier="toHomeVC" animates="NO" id="1UK-v8-aBZ"/>
                     </connections>
                 </viewController>
@@ -147,7 +169,7 @@
                                 <rect key="frame" x="30" y="102" width="315" height="266"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWw-qO-jgz">
-                                        <rect key="frame" x="127.66666666666666" y="18" width="61" height="38"/>
+                                        <rect key="frame" x="127" y="18" width="61" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="61" id="fWw-r2-heE"/>
                                             <constraint firstAttribute="height" constant="38" id="sHS-4r-Yco"/>
