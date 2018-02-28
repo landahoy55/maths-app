@@ -19,6 +19,7 @@ class ProtoQuizViewController: UIViewController {
     //time, score
     var timer = Timer()
     var score = 0 //CURRENTLY USING QUESITON INDEX... WHAT ABOUT INCORRECT
+    var isHalfTime = false
     
     //Outlets
     @IBOutlet weak var questionLabel: UILabel!
@@ -67,6 +68,7 @@ class ProtoQuizViewController: UIViewController {
         //        }
         
         //unwrap optional, perform ternary operator
+        //close when question index reaches count of questions.
         if let subT = subTopic {
             questionIndex < subT.questions.count ? setQuestionLayout() : close()
         }
@@ -91,37 +93,41 @@ class ProtoQuizViewController: UIViewController {
             countdownLabel.blink()
         }
         
+        if isHalfTime {
+            countdownLabel.blink()
+        }
+        
     }
     
     //timer functions
     func startTimer() {
-        timerProgressView.tintColor = UIColor.green
-        timerProgressView.trackTintColor = UIColor.clear
+        timerProgressView.tintColor = timerGreen
+        timerProgressView.trackTintColor = UIColor.white
         timerProgressView.progress = 1.0
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimerProgress), userInfo: nil, repeats: true)
-        
     }
     
     @objc func updateTimerProgress(){
         
         timerProgressView.progress -= 0.01/30
         
-        //countdown timer - 100% accurate
+        //countdown timer - not 100% accurate
         let countdown = Int((timerProgressView.progress / 3.33) * 100)
         countdownLabel.text = String(countdown)
        
         if timerProgressView.progress <= 0 {
             print("Out of time")
-            timer.invalidate()
+            close()
         } else if timerProgressView.progress <= 0.2 {
             
-            timerProgressView.progressTintColor = UIColor.red
+            timerProgressView.progressTintColor = timerRed
         } else if timerProgressView.progress <= 0.5 {
-            timerProgressView.progressTintColor = UIColor.orange
+            timerProgressView.progressTintColor = timerOrange
+            isHalfTime = true
         }
     }
     
-    func close(){
+    func close() {
         timer.invalidate() //timer was running between screens
         dismiss(animated: true, completion: nil)
     }

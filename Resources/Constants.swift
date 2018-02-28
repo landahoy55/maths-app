@@ -37,3 +37,8 @@ let DEFAULTS_TOKEN = "authToken"
 //colours
 let primaryColor = UIColor(red: 210/255, green: 109/255, blue: 180/255, alpha: 1)
 let secondaryColor = UIColor(red: 52/255, green: 148/255, blue: 230/255, alpha: 1)
+
+//timer colours - http://uicolor.xyz/#/hex-to-ui
+let timerGreen = UIColor(red:0.15, green:0.65, blue:0.36, alpha:1.0)
+let timerOrange = UIColor(red:1.00, green:0.64, blue:0.00, alpha:1.0)
+let timerRed = UIColor(red:0.86, green:0.19, blue:0.14, alpha:1.0)

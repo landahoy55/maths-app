@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let protoQuizViewController = segue.destination as? ProtoQuizViewController {
-            protoQuizViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[3]
+            protoQuizViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[1]
         }
     }
     
@@ -54,6 +54,6 @@ class HomeViewController: UIViewController {
 extension HomeViewController: DataServiceDelegate {
     func topicsLoaded() {
         print("********* Clicked")
-        print(DataService.instance.downloadedTopics[0].subTopics[3])
+        print(DataService.instance.downloadedTopics[0].subTopics[1])
     }
 }
