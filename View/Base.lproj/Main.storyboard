@@ -191,36 +191,59 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dmj-vk-bIU">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="61"/>
                                                 <subviews>
-                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Iv7-nR-XTK">
-                                                        <rect key="frame" x="0.0" y="23" width="345" height="15"/>
+                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="Iv7-nR-XTK">
+                                                        <rect key="frame" x="50" y="23" width="245" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="Lmm-Fc-e50"/>
                                                         </constraints>
                                                     </progressView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJo-ar-QfC">
+                                                        <rect key="frame" x="295" y="0.0" width="50" height="61"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="fJC-tN-odm"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlQ-2R-80F">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="61"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="9Tr-Jr-Jj3"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="Iv7-nR-XTK" secondAttribute="trailing" id="0ai-LF-5ty"/>
+                                                    <constraint firstItem="ZJo-ar-QfC" firstAttribute="leading" secondItem="Iv7-nR-XTK" secondAttribute="trailing" id="0ai-LF-5ty"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ZJo-ar-QfC" secondAttribute="bottom" id="27g-HA-nB2"/>
                                                     <constraint firstItem="Iv7-nR-XTK" firstAttribute="centerY" secondItem="Dmj-vk-bIU" secondAttribute="centerY" id="8P1-KB-UWi"/>
-                                                    <constraint firstItem="Iv7-nR-XTK" firstAttribute="leading" secondItem="Dmj-vk-bIU" secondAttribute="leading" id="ySk-Oc-Z2Z"/>
+                                                    <constraint firstItem="HlQ-2R-80F" firstAttribute="leading" secondItem="Dmj-vk-bIU" secondAttribute="leading" id="Dvm-ks-gAL"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ZJo-ar-QfC" secondAttribute="trailing" id="Ny2-A7-r9C"/>
+                                                    <constraint firstItem="HlQ-2R-80F" firstAttribute="top" secondItem="Dmj-vk-bIU" secondAttribute="top" id="cEW-ZL-6zv"/>
+                                                    <constraint firstItem="ZJo-ar-QfC" firstAttribute="top" secondItem="Dmj-vk-bIU" secondAttribute="top" id="n68-Qw-7WY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="HlQ-2R-80F" secondAttribute="bottom" id="pmb-cs-XMi"/>
+                                                    <constraint firstItem="Iv7-nR-XTK" firstAttribute="leading" secondItem="HlQ-2R-80F" secondAttribute="trailing" id="ySk-Oc-Z2Z"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5o-8N-LWB">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5o-8N-LWB" customClass="slightRoundedView" customModule="maths_app" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="75" width="345" height="312"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psm-EV-D2Q">
-                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="312"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="30" y="15" width="285" height="282"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="Psm-EV-D2Q" secondAttribute="trailing" id="3CS-DA-9eI"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Psm-EV-D2Q" secondAttribute="bottom" id="Ouu-0h-iru"/>
-                                                    <constraint firstItem="Psm-EV-D2Q" firstAttribute="top" secondItem="T5o-8N-LWB" secondAttribute="top" id="QHR-OP-Ycx"/>
-                                                    <constraint firstItem="Psm-EV-D2Q" firstAttribute="leading" secondItem="T5o-8N-LWB" secondAttribute="leading" id="eDa-NA-klA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Psm-EV-D2Q" secondAttribute="trailing" constant="30" id="3CS-DA-9eI"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Psm-EV-D2Q" secondAttribute="bottom" constant="15" id="Ouu-0h-iru"/>
+                                                    <constraint firstItem="Psm-EV-D2Q" firstAttribute="top" secondItem="T5o-8N-LWB" secondAttribute="top" constant="15" id="QHR-OP-Ycx"/>
+                                                    <constraint firstItem="Psm-EV-D2Q" firstAttribute="leading" secondItem="T5o-8N-LWB" secondAttribute="leading" constant="30" id="eDa-NA-klA"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -237,8 +260,9 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ecz-6C-K3L">
                                                         <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="153.66666666666666"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-ss-pdO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="153.66666666666666"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-ss-pdO" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
+                                                                <rect key="frame" x="5" y="5" width="157.66666666666666" height="143.66666666666666"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <state key="normal" title="Button">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -247,19 +271,19 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="dyS-ss-pdO" secondAttribute="trailing" id="FMy-7C-WX0"/>
-                                                            <constraint firstAttribute="bottom" secondItem="dyS-ss-pdO" secondAttribute="bottom" id="RF1-I1-Pz5"/>
-                                                            <constraint firstItem="dyS-ss-pdO" firstAttribute="top" secondItem="Ecz-6C-K3L" secondAttribute="top" id="yQe-7k-sbW"/>
-                                                            <constraint firstItem="dyS-ss-pdO" firstAttribute="leading" secondItem="Ecz-6C-K3L" secondAttribute="leading" id="yTL-zC-pD9"/>
+                                                            <constraint firstAttribute="trailing" secondItem="dyS-ss-pdO" secondAttribute="trailing" constant="5" id="FMy-7C-WX0"/>
+                                                            <constraint firstAttribute="bottom" secondItem="dyS-ss-pdO" secondAttribute="bottom" constant="5" id="RF1-I1-Pz5"/>
+                                                            <constraint firstItem="dyS-ss-pdO" firstAttribute="top" secondItem="Ecz-6C-K3L" secondAttribute="top" constant="5" id="yQe-7k-sbW"/>
+                                                            <constraint firstItem="dyS-ss-pdO" firstAttribute="leading" secondItem="Ecz-6C-K3L" secondAttribute="leading" constant="5" id="yTL-zC-pD9"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xma-UQ-sw9">
                                                         <rect key="frame" x="177.66666666666663" y="0.0" width="167.33333333333337" height="153.66666666666666"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsF-xz-4B1">
-                                                                <rect key="frame" x="0.0" y="0.0" width="167.33333333333334" height="153.66666666666666"/>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsF-xz-4B1" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
+                                                                <rect key="frame" x="5" y="5" width="157.33333333333334" height="143.66666666666666"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <state key="normal" title="Button">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
@@ -268,12 +292,11 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstItem="JsF-xz-4B1" firstAttribute="leading" secondItem="xma-UQ-sw9" secondAttribute="leading" id="EET-cW-YZ0"/>
-                                                            <constraint firstAttribute="trailing" secondItem="JsF-xz-4B1" secondAttribute="trailing" id="HAY-3s-DwZ"/>
-                                                            <constraint firstAttribute="bottom" secondItem="JsF-xz-4B1" secondAttribute="bottom" id="vcm-n0-zW4"/>
-                                                            <constraint firstItem="JsF-xz-4B1" firstAttribute="top" secondItem="xma-UQ-sw9" secondAttribute="top" id="yLl-XF-uwr"/>
+                                                            <constraint firstItem="JsF-xz-4B1" firstAttribute="leading" secondItem="xma-UQ-sw9" secondAttribute="leading" constant="5" id="EET-cW-YZ0"/>
+                                                            <constraint firstAttribute="trailing" secondItem="JsF-xz-4B1" secondAttribute="trailing" constant="5" id="HAY-3s-DwZ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="JsF-xz-4B1" secondAttribute="bottom" constant="5" id="vcm-n0-zW4"/>
+                                                            <constraint firstItem="JsF-xz-4B1" firstAttribute="top" secondItem="xma-UQ-sw9" secondAttribute="top" constant="5" id="yLl-XF-uwr"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -284,8 +307,9 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sq-uP-WzP">
                                                         <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="153.33333333333334"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqj-zC-NBL">
-                                                                <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="153.33333333333334"/>
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqj-zC-NBL" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
+                                                                <rect key="frame" x="5" y="5" width="157.66666666666666" height="143.33333333333334"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <state key="normal" title="Button">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
@@ -294,19 +318,19 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="Hqj-zC-NBL" secondAttribute="trailing" id="4Tn-3Q-jlF"/>
-                                                            <constraint firstItem="Hqj-zC-NBL" firstAttribute="top" secondItem="4sq-uP-WzP" secondAttribute="top" id="TPh-ZX-SBz"/>
-                                                            <constraint firstItem="Hqj-zC-NBL" firstAttribute="leading" secondItem="4sq-uP-WzP" secondAttribute="leading" id="ZyU-9Q-cr9"/>
-                                                            <constraint firstAttribute="bottom" secondItem="Hqj-zC-NBL" secondAttribute="bottom" id="fya-Tf-miz"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Hqj-zC-NBL" secondAttribute="trailing" constant="5" id="4Tn-3Q-jlF"/>
+                                                            <constraint firstItem="Hqj-zC-NBL" firstAttribute="top" secondItem="4sq-uP-WzP" secondAttribute="top" constant="5" id="TPh-ZX-SBz"/>
+                                                            <constraint firstItem="Hqj-zC-NBL" firstAttribute="leading" secondItem="4sq-uP-WzP" secondAttribute="leading" constant="5" id="ZyU-9Q-cr9"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Hqj-zC-NBL" secondAttribute="bottom" constant="5" id="fya-Tf-miz"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0my-0e-iqX">
                                                         <rect key="frame" x="177.66666666666663" y="0.0" width="167.33333333333337" height="153.33333333333334"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I8-8x-shg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="167.33333333333334" height="153.33333333333334"/>
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I8-8x-shg" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
+                                                                <rect key="frame" x="5" y="5" width="157.33333333333334" height="143.33333333333334"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <state key="normal" title="Button">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
@@ -315,12 +339,11 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="7I8-8x-shg" secondAttribute="bottom" id="7Wm-8v-CSb"/>
-                                                            <constraint firstAttribute="trailing" secondItem="7I8-8x-shg" secondAttribute="trailing" id="fMd-st-n85"/>
-                                                            <constraint firstItem="7I8-8x-shg" firstAttribute="top" secondItem="0my-0e-iqX" secondAttribute="top" id="qWY-DW-QTy"/>
-                                                            <constraint firstItem="7I8-8x-shg" firstAttribute="leading" secondItem="0my-0e-iqX" secondAttribute="leading" id="rK4-4t-4Kp"/>
+                                                            <constraint firstAttribute="bottom" secondItem="7I8-8x-shg" secondAttribute="bottom" constant="5" id="7Wm-8v-CSb"/>
+                                                            <constraint firstAttribute="trailing" secondItem="7I8-8x-shg" secondAttribute="trailing" constant="5" id="fMd-st-n85"/>
+                                                            <constraint firstItem="7I8-8x-shg" firstAttribute="top" secondItem="0my-0e-iqX" secondAttribute="top" constant="5" id="qWY-DW-QTy"/>
+                                                            <constraint firstItem="7I8-8x-shg" firstAttribute="leading" secondItem="0my-0e-iqX" secondAttribute="leading" constant="5" id="rK4-4t-4Kp"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -347,7 +370,9 @@
                         <outlet property="answerButton1" destination="JsF-xz-4B1" id="H4y-W2-5xJ"/>
                         <outlet property="answerButton2" destination="Hqj-zC-NBL" id="vMY-vK-SGM"/>
                         <outlet property="answerButton3" destination="7I8-8x-shg" id="pQ5-YV-X9N"/>
+                        <outlet property="countdownLabel" destination="HlQ-2R-80F" id="MqL-DS-hbJ"/>
                         <outlet property="questionLabel" destination="Psm-EV-D2Q" id="oXq-04-Rjb"/>
+                        <outlet property="scoreLabel" destination="ZJo-ar-QfC" id="Ftg-8v-AiZ"/>
                         <outlet property="timerProgressView" destination="Iv7-nR-XTK" id="FcL-2r-d61"/>
                     </connections>
                 </viewController>

@@ -17,7 +17,7 @@ class RoundedButton: UIButton {
     
     func setUp() {
         //style
-        print("here")
+//        print("here")
         self.layer.borderColor = UIColor.white.cgColor
         self.layer.borderWidth = 2.0
         self.layer.cornerRadius = self.frame.height / 2
