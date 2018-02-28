@@ -31,7 +31,6 @@
 		F00EBE37203D9BD000125618 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE15203C215000125618 /* Constants.swift */; };
 		F0F854BB20459931007A794A /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854BA20459931007A794A /* Topics.swift */; };
 		F0F854BD20459B8B007A794A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854BC20459B8B007A794A /* DataService.swift */; };
-		F0F854BF2045AE23007A794A /* ProtoQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854BE2045AE23007A794A /* ProtoQuizViewController.swift */; };
 		F0F854C12045B3A8007A794A /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854C02045B3A8007A794A /* Topic.swift */; };
 		F0F854C32045B3B9007A794A /* SubTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854C22045B3B9007A794A /* SubTopic.swift */; };
 		F0F854C52045B3C7007A794A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854C42045B3C7007A794A /* Question.swift */; };
@@ -39,6 +38,8 @@
 		F0F854CB2046C483007A794A /* slightRoundedButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854CA2046C483007A794A /* slightRoundedButtons.swift */; };
 		F0F854CD2046C71D007A794A /* slightRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854CC2046C71D007A794A /* slightRoundedView.swift */; };
 		F0F854CF2046DB1A007A794A /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854CE2046DB1A007A794A /* UILabel+Extensions.swift */; };
+		F0F854D120470640007A794A /* InputAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854D020470640007A794A /* InputAnswerViewController.swift */; };
+		F0F854D520470811007A794A /* MultipleChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854D420470811007A794A /* MultipleChoiceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +86,6 @@
 		F00EBE32203D80A900125618 /* onboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingView.swift; sourceTree = "<group>"; };
 		F0F854BA20459931007A794A /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
 		F0F854BC20459B8B007A794A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		F0F854BE2045AE23007A794A /* ProtoQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtoQuizViewController.swift; sourceTree = "<group>"; };
 		F0F854C02045B3A8007A794A /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		F0F854C22045B3B9007A794A /* SubTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopic.swift; sourceTree = "<group>"; };
 		F0F854C42045B3C7007A794A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -93,6 +93,8 @@
 		F0F854CA2046C483007A794A /* slightRoundedButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = slightRoundedButtons.swift; sourceTree = "<group>"; };
 		F0F854CC2046C71D007A794A /* slightRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = slightRoundedView.swift; sourceTree = "<group>"; };
 		F0F854CE2046DB1A007A794A /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		F0F854D020470640007A794A /* InputAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAnswerViewController.swift; sourceTree = "<group>"; };
+		F0F854D420470811007A794A /* MultipleChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleChoiceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,13 +212,14 @@
 		F00EBE13203C1FA200125618 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F0F854D420470811007A794A /* MultipleChoiceViewController.swift */,
 				F00EBDE2203C1F1600125618 /* AppDelegate.swift */,
 				F00EBE19203C46BE00125618 /* InitialViewController.swift */,
 				F00EBE1B203C4B2700125618 /* MenuViewController.swift */,
 				F00EBE1D203C4B3B00125618 /* LoginViewController.swift */,
 				F00EBE1F203C4B4E00125618 /* RegisterViewController.swift */,
 				F00EBE21203C4E5A00125618 /* HomeViewController.swift */,
-				F0F854BE2045AE23007A794A /* ProtoQuizViewController.swift */,
+				F0F854D020470640007A794A /* InputAnswerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				F00EBE1E203C4B3B00125618 /* LoginViewController.swift in Sources */,
 				F0F854CF2046DB1A007A794A /* UILabel+Extensions.swift in Sources */,
 				F0F854BD20459B8B007A794A /* DataService.swift in Sources */,
+				F0F854D120470640007A794A /* InputAnswerViewController.swift in Sources */,
 				F00EBE27203C7CBB00125618 /* RoundedButton.swift in Sources */,
 				F0F854C52045B3C7007A794A /* Question.swift in Sources */,
 				F00EBDE3203C1F1600125618 /* AppDelegate.swift in Sources */,
@@ -386,10 +390,10 @@
 				F0F854C12045B3A8007A794A /* Topic.swift in Sources */,
 				F00EBE22203C4E5A00125618 /* HomeViewController.swift in Sources */,
 				F00EBE1C203C4B2700125618 /* MenuViewController.swift in Sources */,
+				F0F854D520470811007A794A /* MultipleChoiceViewController.swift in Sources */,
 				F0F854CD2046C71D007A794A /* slightRoundedView.swift in Sources */,
 				F00EBE18203C235700125618 /* AuthorisationService.swift in Sources */,
 				F00EBE16203C215000125618 /* Constants.swift in Sources */,
-				F0F854BF2045AE23007A794A /* ProtoQuizViewController.swift in Sources */,
 				F0F854BB20459931007A794A /* Topics.swift in Sources */,
 				F00EBE25203C792600125618 /* View+Extension.swift in Sources */,
 				F0F854C72045B3D1007A794A /* Answer.swift in Sources */,

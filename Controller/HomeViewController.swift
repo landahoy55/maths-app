@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let protoQuizViewController = segue.destination as? ProtoQuizViewController {
+        if let protoQuizViewController = segue.destination as? MultipleChoiceViewController {
             protoQuizViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[1]
         }
     }

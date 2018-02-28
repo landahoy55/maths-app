@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProtoQuizViewController: UIViewController {
+class MultipleChoiceViewController: UIViewController {
     
     //injected on load
     var subTopic: SubTopic?
