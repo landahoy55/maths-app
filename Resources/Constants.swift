@@ -22,6 +22,7 @@ let POST_REGISTER = "\(BASE_API_URL)/account/register"
 let POST_LOGIN = "\(BASE_API_URL)/account/login"
 let GET_USER_DETAILS = "\(BASE_API_URL)/account/me"
 let POST_LOGOUT = "\(BASE_API_URL)/account/logout"
+let GET_TOPICS = "\(BASE_API_URL)/topic"
 
 //User Defaults Set Up
 
