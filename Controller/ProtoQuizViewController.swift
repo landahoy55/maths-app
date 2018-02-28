@@ -53,12 +53,20 @@ class ProtoQuizViewController: UIViewController {
     }
 
     func loadQuestion() {
-        currentQuestion = subTopic?.questions[questionIndex]
-        setQuestionLayout()
+        //remove this.
+//        if questionIndex <= 6 {
+//            currentQuestion = subTopic?.questions[questionIndex]
+//            setQuestionLayout()
+//        } else {
+//            dismiss(animated: true, completion: nil)
+//        }
+        
+        questionIndex < (subTopic?.questions.count)! ? setQuestionLayout() : close()
     }
     
     //including buttons
     func setQuestionLayout() {
+        currentQuestion = subTopic?.questions[questionIndex]
         questionLabel.text = currentQuestion.question
         for (index, button) in buttons.enumerated() {
             print(button.tag)
@@ -67,11 +75,26 @@ class ProtoQuizViewController: UIViewController {
         }
     }
     
-    @IBAction func closeBtn(_ sender: UIButton) {
+    func close(){
         dismiss(animated: true, completion: nil)
     }
     
-    func answerPressed(_ sender: UIButton) {
+    @IBAction func answerPressed(_ sender: UIButton) {
+        
+        //check to see if correct answer pressed
+        if sender.titleLabel?.text
+            
+            == currentQuestion.correctAnswer {
+            print("correct answer pressed")
+            questionIndex += 1
+            print(questionIndex)
+            
+            //show next question
+            loadQuestion()
+            
+        } else {
+            print("Not correct answer pressed")
+        }
         
     }
     
