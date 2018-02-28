@@ -182,11 +182,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aA8-bS-KQ3">
-                                <rect key="frame" x="15" y="64" width="345" height="714"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="aA8-bS-KQ3">
+                                <rect key="frame" x="15" y="64" width="345" height="694"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="2hO-TY-VVt">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="387"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="391"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dmj-vk-bIU">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="61"/>
@@ -230,10 +230,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5o-8N-LWB" customClass="slightRoundedView" customModule="maths_app" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="75" width="345" height="312"/>
+                                                <rect key="frame" x="0.0" y="75" width="345" height="316"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psm-EV-D2Q">
-                                                        <rect key="frame" x="30" y="15" width="285" height="282"/>
+                                                        <rect key="frame" x="30" y="15" width="285" height="286"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -253,16 +253,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XEq-ln-BqS">
-                                        <rect key="frame" x="0.0" y="397" width="345" height="317"/>
+                                        <rect key="frame" x="0.0" y="397" width="345" height="297"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0FO-iJ-PWT">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="153.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="143.66666666666666"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ecz-6C-K3L">
-                                                        <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="153.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="143.66666666666666"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-ss-pdO" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
-                                                                <rect key="frame" x="5" y="5" width="157.66666666666666" height="143.66666666666666"/>
+                                                                <rect key="frame" x="5" y="5" width="157.66666666666666" height="133.66666666666666"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <state key="normal" title="Button">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -280,10 +280,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xma-UQ-sw9">
-                                                        <rect key="frame" x="177.66666666666663" y="0.0" width="167.33333333333337" height="153.66666666666666"/>
+                                                        <rect key="frame" x="177.66666666666663" y="0.0" width="167.33333333333337" height="143.66666666666666"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsF-xz-4B1" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
-                                                                <rect key="frame" x="5" y="5" width="157.33333333333334" height="143.66666666666666"/>
+                                                                <rect key="frame" x="5" y="5" width="157.33333333333334" height="133.66666666666666"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <state key="normal" title="Button">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -303,13 +303,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="abk-y9-fJC">
-                                                <rect key="frame" x="0.0" y="163.66666666666663" width="345" height="153.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="153.66666666666663" width="345" height="143.33333333333337"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sq-uP-WzP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="153.33333333333334"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="143.33333333333334"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqj-zC-NBL" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
-                                                                <rect key="frame" x="5" y="5" width="157.66666666666666" height="143.33333333333334"/>
+                                                                <rect key="frame" x="5" y="5" width="157.66666666666666" height="133.33333333333334"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <state key="normal" title="Button">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -327,10 +327,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0my-0e-iqX">
-                                                        <rect key="frame" x="177.66666666666663" y="0.0" width="167.33333333333337" height="153.33333333333334"/>
+                                                        <rect key="frame" x="177.66666666666663" y="0.0" width="167.33333333333337" height="143.33333333333334"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I8-8x-shg" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
-                                                                <rect key="frame" x="5" y="5" width="157.33333333333334" height="143.33333333333334"/>
+                                                                <rect key="frame" x="5" y="5" width="157.33333333333334" height="133.33333333333334"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                 <state key="normal" title="Button">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -361,7 +361,7 @@
                         <constraints>
                             <constraint firstItem="cdZ-Fc-bna" firstAttribute="trailing" secondItem="aA8-bS-KQ3" secondAttribute="trailing" constant="15" id="1q0-uX-gXF"/>
                             <constraint firstItem="aA8-bS-KQ3" firstAttribute="leading" secondItem="cdZ-Fc-bna" secondAttribute="leading" constant="15" id="THU-v3-uyE"/>
-                            <constraint firstItem="aA8-bS-KQ3" firstAttribute="bottom" secondItem="cdZ-Fc-bna" secondAttribute="bottom" id="cUw-PC-bjb"/>
+                            <constraint firstItem="aA8-bS-KQ3" firstAttribute="bottom" secondItem="cdZ-Fc-bna" secondAttribute="bottom" constant="-20" id="cUw-PC-bjb"/>
                             <constraint firstItem="aA8-bS-KQ3" firstAttribute="top" secondItem="cdZ-Fc-bna" secondAttribute="top" constant="20" id="hhW-MA-4vO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cdZ-Fc-bna"/>
