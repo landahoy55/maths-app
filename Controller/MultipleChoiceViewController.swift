@@ -41,8 +41,8 @@ class MultipleChoiceViewController: UIViewController {
         buttons.append(answerButton2)
         buttons.append(answerButton3)
         
-        //Move in a bit.
-        loadQuestion()
+        
+        loadQuestions()
         
         //set background
         view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
@@ -50,15 +50,17 @@ class MultipleChoiceViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
         startTimer()
         
-//        if let subT = subTopic {
-//            print(subT.questions[0].question)
-//        }
+        //debugging code - remove
+        if let subT = subTopic {
+            print(subT.questions[0].question)
+        }
     }
 
-    func loadQuestion() {
+    func loadQuestions() {
         // Falling through...
         //        if questionIndex <= 6 {
         //            currentQuestion = subTopic?.questions[questionIndex]
@@ -89,6 +91,7 @@ class MultipleChoiceViewController: UIViewController {
         
         scoreLabel.text = String(questionIndex)
         
+        //Is this the most appropriate place
         if questionIndex >= 3 {
             countdownLabel.blink()
         }
@@ -150,7 +153,7 @@ class MultipleChoiceViewController: UIViewController {
             
             questionIndex += 1
             //show next question
-            loadQuestion()
+            loadQuestions()
             
             
         } else {

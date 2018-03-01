@@ -146,7 +146,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekz-35-G3a">
-                                <rect key="frame" x="109" y="589" width="154" height="30"/>
+                                <rect key="frame" x="110" y="495" width="154" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="GET TOPICS"/>
                                 <connections>
@@ -154,12 +154,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wE-wg-5V9">
-                                <rect key="frame" x="127" y="537" width="120" height="30"/>
+                                <rect key="frame" x="113" y="542" width="148" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go to Quiz"/>
+                                <state key="normal" title="Go to Multiple Choice"/>
                                 <connections>
-                                    <action selector="quizBtn:" destination="FjF-v6-nwn" eventType="touchUpInside" id="kp9-0r-DuH"/>
-                                    <segue destination="Dct-zh-ZHF" kind="presentation" id="rhV-yN-l9e"/>
+                                    <segue destination="Dct-zh-ZHF" kind="presentation" identifier="multipleChoiceSegue" id="rhV-yN-l9e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTE-ae-M9z">
+                                <rect key="frame" x="150" y="587" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go to input"/>
+                                <connections>
+                                    <segue destination="ujz-ic-5s9" kind="presentation" identifier="inputSegue" id="GYo-IQ-DQR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -430,7 +437,6 @@
                                                                 </constraints>
                                                             </progressView>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="RMQ-AH-NN2" firstAttribute="centerX" secondItem="WTE-1g-48w" secondAttribute="centerX" id="0U0-PQ-YuJ"/>
                                                             <constraint firstAttribute="trailing" secondItem="CP1-my-RFh" secondAttribute="trailing" id="2f2-ye-x1c"/>
@@ -447,7 +453,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BBx-zQ-hLw">
                                                 <rect key="frame" x="0.0" y="90" width="345" height="247"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZ8-L9-gIA">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZ8-L9-gIA" customClass="slightRoundedView" customModule="maths_app" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="184"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rl9-f2-8we">
@@ -470,12 +476,12 @@
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Am9-nd-ZiU">
                                                                 <rect key="frame" x="5" y="5" width="335" height="48"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="Am9-nd-ZiU" firstAttribute="top" secondItem="UfR-HQ-eOe" secondAttribute="top" constant="5" id="8S3-ID-CzY"/>
                                                             <constraint firstItem="Am9-nd-ZiU" firstAttribute="leading" secondItem="UfR-HQ-eOe" secondAttribute="leading" constant="5" id="UnR-p8-onx"/>
@@ -504,15 +510,17 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blM-HW-Wl1">
                                                         <rect key="frame" x="0.0" y="0.0" width="112.33333333333333" height="83"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXs-la-4yx">
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXs-la-4yx" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="102.33333333333333" height="73"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                 <state key="normal" title="1">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="buttonTapped:" destination="ujz-ic-5s9" eventType="touchUpInside" id="Lk6-GZ-9iR"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="UXs-la-4yx" firstAttribute="top" secondItem="blM-HW-Wl1" secondAttribute="top" constant="5" id="G1h-5J-2WE"/>
                                                             <constraint firstAttribute="bottom" secondItem="UXs-la-4yx" secondAttribute="bottom" constant="5" id="Ne4-fn-COt"/>
@@ -523,15 +531,17 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfr-ho-69e">
                                                         <rect key="frame" x="116.33333333333334" y="0.0" width="112.33333333333334" height="83"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0s-QC-kX2">
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0s-QC-kX2" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="102.33333333333333" height="73"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                 <state key="normal" title="2">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="buttonTapped:" destination="ujz-ic-5s9" eventType="touchUpInside" id="e4Y-wG-nJ4"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="g0s-QC-kX2" secondAttribute="bottom" constant="5" id="JLO-0O-3Og"/>
                                                             <constraint firstItem="g0s-QC-kX2" firstAttribute="top" secondItem="gfr-ho-69e" secondAttribute="top" constant="5" id="tg8-2u-S2N"/>
@@ -542,15 +552,17 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajk-Eo-MhR">
                                                         <rect key="frame" x="232.66666666666666" y="0.0" width="112.33333333333334" height="83"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFX-es-c9R">
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFX-es-c9R" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="102.33333333333333" height="73"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                 <state key="normal" title="3">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="buttonTapped:" destination="ujz-ic-5s9" eventType="touchUpInside" id="2uN-89-gjk"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="VFX-es-c9R" secondAttribute="bottom" constant="5" id="1ft-rc-8kU"/>
                                                             <constraint firstItem="VFX-es-c9R" firstAttribute="leading" secondItem="ajk-Eo-MhR" secondAttribute="leading" constant="5" id="HxJ-2C-0tb"/>
@@ -566,15 +578,17 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="So5-7x-Faf">
                                                         <rect key="frame" x="0.0" y="0.0" width="112.33333333333333" height="83"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vo-3f-3Xn">
+                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vo-3f-3Xn" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="102.33333333333333" height="73"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                 <state key="normal" title="4">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="buttonTapped:" destination="ujz-ic-5s9" eventType="touchUpInside" id="Z5G-7B-9MC"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="5vo-3f-3Xn" secondAttribute="trailing" constant="5" id="SUc-6f-nFe"/>
                                                             <constraint firstAttribute="bottom" secondItem="5vo-3f-3Xn" secondAttribute="bottom" constant="5" id="XFC-QI-iRX"/>
@@ -585,15 +599,17 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Qf-NL-3BS">
                                                         <rect key="frame" x="116.33333333333334" y="0.0" width="112.33333333333334" height="83"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-3n-bRs">
+                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-3n-bRs" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="102.33333333333333" height="73"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                 <state key="normal" title="5">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="buttonTapped:" destination="ujz-ic-5s9" eventType="touchUpInside" id="Ti6-0X-nEe"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="5gs-3n-bRs" firstAttribute="leading" secondItem="8Qf-NL-3BS" secondAttribute="leading" constant="5" id="CBZ-hI-b58"/>
                                                             <constraint firstAttribute="trailing" secondItem="5gs-3n-bRs" secondAttribute="trailing" constant="5" id="iCN-dC-Mpc"/>
@@ -604,15 +620,17 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTk-Du-aGK">
                                                         <rect key="frame" x="232.66666666666666" y="0.0" width="112.33333333333334" height="83"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xA-Gs-v6f">
+                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xA-Gs-v6f" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="102.33333333333333" height="73"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                 <state key="normal" title="6">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="buttonTapped:" destination="ujz-ic-5s9" eventType="touchUpInside" id="dG7-hT-2YM"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="6xA-Gs-v6f" secondAttribute="bottom" constant="5" id="0Dk-Qg-kcL"/>
                                                             <constraint firstItem="6xA-Gs-v6f" firstAttribute="leading" secondItem="YTk-Du-aGK" secondAttribute="leading" constant="5" id="X3i-bp-gTi"/>
@@ -628,15 +646,17 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zb-bx-xeJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="112.33333333333333" height="83"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cG0-Kf-ICX">
+                                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cG0-Kf-ICX" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="102.33333333333333" height="73"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                 <state key="normal" title="7">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="buttonTapped:" destination="ujz-ic-5s9" eventType="touchUpInside" id="MSh-Nf-Qe5"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="cG0-Kf-ICX" firstAttribute="top" secondItem="8zb-bx-xeJ" secondAttribute="top" constant="5" id="43n-KM-jeh"/>
                                                             <constraint firstAttribute="trailing" secondItem="cG0-Kf-ICX" secondAttribute="trailing" constant="5" id="Kn4-lc-kNn"/>
@@ -647,15 +667,17 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sC6-Hb-KtD">
                                                         <rect key="frame" x="116.33333333333334" y="0.0" width="112.33333333333334" height="83"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baK-Lu-Lsn">
+                                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baK-Lu-Lsn" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="102.33333333333333" height="73"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                 <state key="normal" title="8">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="buttonTapped:" destination="ujz-ic-5s9" eventType="touchUpInside" id="SuH-e3-g3e"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="baK-Lu-Lsn" secondAttribute="trailing" constant="5" id="YS0-I2-pfn"/>
                                                             <constraint firstItem="baK-Lu-Lsn" firstAttribute="leading" secondItem="sC6-Hb-KtD" secondAttribute="leading" constant="5" id="aRf-rU-0Fc"/>
@@ -666,15 +688,17 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8A-kR-S59">
                                                         <rect key="frame" x="232.66666666666666" y="0.0" width="112.33333333333334" height="83"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiH-R5-rVF">
+                                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiH-R5-rVF" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="102.33333333333333" height="73"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                 <state key="normal" title="9">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="buttonTapped:" destination="ujz-ic-5s9" eventType="touchUpInside" id="taY-55-ACE"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="WiH-R5-rVF" secondAttribute="trailing" constant="5" id="5dW-KY-2ic"/>
                                                             <constraint firstItem="WiH-R5-rVF" firstAttribute="leading" secondItem="m8A-kR-S59" secondAttribute="leading" constant="5" id="7Qg-ss-kcN"/>
@@ -690,14 +714,19 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80u-8I-0tg">
                                                         <rect key="frame" x="0.0" y="0.0" width="112.33333333333333" height="83"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKr-Qy-pXQ">
+                                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKr-Qy-pXQ">
                                                                 <rect key="frame" x="5" y="5" width="102.33333333333333" height="73"/>
-                                                                <state key="normal" title="Confirm">
+                                                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                                <inset key="contentEdgeInsets" minX="45" minY="30" maxX="45" maxY="30"/>
+                                                                <state key="normal" title="Confirm" image="confirm">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="confirmButtonTapped:" destination="ujz-ic-5s9" eventType="touchUpInside" id="WsI-mS-4DF"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="YKr-Qy-pXQ" firstAttribute="leading" secondItem="80u-8I-0tg" secondAttribute="leading" constant="5" id="8aX-Jf-uMa"/>
                                                             <constraint firstItem="YKr-Qy-pXQ" firstAttribute="top" secondItem="80u-8I-0tg" secondAttribute="top" constant="5" id="UJY-Aw-fvw"/>
@@ -708,15 +737,17 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7I-Tp-23d">
                                                         <rect key="frame" x="116.33333333333334" y="0.0" width="112.33333333333334" height="83"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5f-8s-V05">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5f-8s-V05" customClass="slightRoundedButtons" customModule="maths_app" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="102.33333333333333" height="73"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                 <state key="normal" title="0">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="buttonTapped:" destination="ujz-ic-5s9" eventType="touchUpInside" id="sQs-ff-YLI"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="C5f-8s-V05" firstAttribute="top" secondItem="F7I-Tp-23d" secondAttribute="top" constant="5" id="J2q-H8-odk"/>
                                                             <constraint firstAttribute="bottom" secondItem="C5f-8s-V05" secondAttribute="bottom" constant="5" id="Jy3-uh-p0e"/>
@@ -727,14 +758,18 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjr-hA-RDt">
                                                         <rect key="frame" x="232.66666666666666" y="0.0" width="112.33333333333334" height="83"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ap6-Xj-9b1">
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ap6-Xj-9b1">
                                                                 <rect key="frame" x="5" y="5" width="102.33333333333333" height="73"/>
-                                                                <state key="normal" title="Clear">
+                                                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <inset key="contentEdgeInsets" minX="45" minY="30" maxX="45" maxY="30"/>
+                                                                <state key="normal" title="Clear" image="cancel">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="clearButtonTapped:" destination="ujz-ic-5s9" eventType="touchUpInside" id="1cR-7D-FjQ"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="Ap6-Xj-9b1" firstAttribute="top" secondItem="pjr-hA-RDt" secondAttribute="top" constant="5" id="Ffd-gG-8WC"/>
                                                             <constraint firstAttribute="bottom" secondItem="Ap6-Xj-9b1" secondAttribute="bottom" constant="5" id="Law-mR-9nF"/>
@@ -769,10 +804,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zc1-SE-LYR"/>
                     </view>
+                    <connections>
+                        <outlet property="answerLabel" destination="Am9-nd-ZiU" id="sH8-PF-CoL"/>
+                        <outlet property="countdownLabel" destination="lQc-XA-byz" id="mwN-6r-Tlr"/>
+                        <outlet property="questionLabel" destination="rl9-f2-8we" id="AtA-mn-slY"/>
+                        <outlet property="scoreLabel" destination="CP1-my-RFh" id="kJ9-Rz-ru1"/>
+                        <outlet property="timerProgressView" destination="RMQ-AH-NN2" id="vqN-Za-Q2r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ees-YG-htY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3660" y="-696.05911330049264"/>
+            <point key="canvasLocation" x="2503" y="-1567"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="zyJ-2O-VI2">
@@ -1091,6 +1133,10 @@
             <point key="canvasLocation" x="1432.8" y="805.41871921182269"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cancel" width="64" height="64"/>
+        <image name="confirm" width="193" height="153"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1UK-v8-aBZ"/>
     </inferredMetricsTieBreakers>

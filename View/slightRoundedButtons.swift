@@ -12,7 +12,7 @@ class slightRoundedButtons: UIButton {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        layer.cornerRadius = 5.0
+        layer.cornerRadius = 10
         layer.masksToBounds = true
         layer.borderWidth = 2.0
       

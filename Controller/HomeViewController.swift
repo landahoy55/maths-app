@@ -30,8 +30,27 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let protoQuizViewController = segue.destination as? MultipleChoiceViewController {
-            protoQuizViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[1]
+        
+        
+        //identifier added to storyboard segue
+        if let identifier = segue.identifier {
+            switch identifier {
+            
+            case "inputSegue":
+              
+                let inputQuizViewController = segue.destination as! InputAnswerViewController
+                    inputQuizViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[0]
+                
+                
+            case "multipleChoiceSegue":
+                
+                //is it safer to unwrap these?
+                let multiChoiceViewController = segue.destination as! MultipleChoiceViewController
+                multiChoiceViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[1]
+                
+            default:
+                return
+            }
         }
     }
     
@@ -46,14 +65,12 @@ class HomeViewController: UIViewController {
         topicsLoaded()
     }
     
-    @IBAction func quizBtn(_ sender: UIButton) {
-        
-    }
+
 }
 
 extension HomeViewController: DataServiceDelegate {
     func topicsLoaded() {
         print("********* Clicked")
-        print(DataService.instance.downloadedTopics[0].subTopics[1])
+        print(DataService.instance.downloadedTopics[0])
     }
 }
