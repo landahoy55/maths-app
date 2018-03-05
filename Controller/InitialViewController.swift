@@ -14,6 +14,7 @@ class InitialViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        DataService.instance.getAllTopics()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -22,7 +23,10 @@ class InitialViewController: UIViewController {
         //TODO: If not perform segue to menu
         
         if AuthorisationService.instance.isAuthenticated == true {
+            
+            
             performSegue(withIdentifier: "toHomeWithAuthVC", sender: nil)
+            
         } else {
             performSegue(withIdentifier: "toMenuVC", sender: nil)
         }

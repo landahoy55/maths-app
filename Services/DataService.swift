@@ -44,9 +44,8 @@ class DataService {
                 
                 do {
                     let topics = try JSONDecoder().decode([Topic].self, from: data)
-//                    print(topics[0].subTopics[1])
                     self.downloadedTopics = topics
-//                    self.delegate?.topicsLoaded()
+                    self.delegate?.topicsLoaded()
                 } catch let jsonErr {
                     print("Error serialzing json", jsonErr)
                 }

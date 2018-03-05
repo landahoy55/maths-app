@@ -27,6 +27,11 @@ class slightRoundedButtons: UIButton {
         //gradient
         // self.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
     }
-    
+}
 
+class pinkSlightRoundButton: slightRoundedButtons {
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        layer.backgroundColor = UIColor.blue.cgColor
+    }
 }

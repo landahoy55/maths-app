@@ -19,6 +19,7 @@ class InputAnswerViewController: UIViewController {
     var score = 0 // currently using index
     var isHalfTime = false
     var inputAnswer = ""
+    var isFirstTime = true
     
     
     //outlets - timer
@@ -33,18 +34,22 @@ class InputAnswerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        //view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         
         answerLabel.text = "0"
+        
         loadQuestions()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print("***** view did appear")
         startTimer()
-        
-        if let subT = subTopic {
-            print(subT)
-        }
+
+        answerLabel.startBlinkTwoSeconds()
+  
+//        if let subT = subTopic {
+//            print(subT)
+//        }
     }
 
     func loadQuestions() {
@@ -107,7 +112,7 @@ class InputAnswerViewController: UIViewController {
     }
     
     func close() {
-        //dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
         timer.invalidate()
     }
     
@@ -119,6 +124,9 @@ class InputAnswerViewController: UIViewController {
    
     //add number buttons to answer - all buttons connected
     @IBAction func buttonTapped(_ sender: UIButton) {
+        
+       
+        answerLabel.nukeAllAnimations()
         
         //removes leading 0
         if answerLabel.text == "0" {
@@ -137,7 +145,7 @@ class InputAnswerViewController: UIViewController {
     
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
-    
+        
         //if correct move to next question and clear inputAnswer
         if inputAnswer == currentQuestion.correctAnswer {
             print("confirm")

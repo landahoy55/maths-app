@@ -52,7 +52,9 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         //Move forward if authenticated
             //print(AuthorisationService.instance.isAuthenticated!)
         if AuthorisationService.instance.isAuthenticated == true {
+            DataService.instance.getAllTopics()
             performSegue(withIdentifier: "toHomeVC", sender: nil)
+            
         }
     }
 
