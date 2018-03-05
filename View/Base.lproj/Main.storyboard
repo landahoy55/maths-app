@@ -288,11 +288,13 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="o0S-h4-Wln" id="FTA-XI-3hV"/>
+                        <segue destination="Dct-zh-ZHF" kind="presentation" identifier="multipleChoiceSegue" id="zZo-R5-HXw"/>
+                        <segue destination="ujz-ic-5s9" kind="presentation" identifier="inputSegue" id="LVv-79-uj8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTn-jN-lt3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5125.6000000000004" y="-661.33004926108379"/>
+            <point key="canvasLocation" x="4474" y="-1543"/>
         </scene>
         <!--Multiple Choice View Controller-->
         <scene sceneID="i5F-OH-M5x">
@@ -503,7 +505,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irQ-RU-Ama" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4551" y="-1667"/>
+            <point key="canvasLocation" x="5735" y="-696"/>
         </scene>
         <!--Input Answer View Controller-->
         <scene sceneID="RMF-8e-mdD">
@@ -932,7 +934,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ees-YG-htY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5532" y="-1471"/>
+            <point key="canvasLocation" x="6158" y="-1569"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="zyJ-2O-VI2">
@@ -1289,5 +1291,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="w9d-rn-X4Z"/>
+        <segue reference="LVv-79-uj8"/>
+        <segue reference="zZo-R5-HXw"/>
     </inferredMetricsTieBreakers>
 </document>

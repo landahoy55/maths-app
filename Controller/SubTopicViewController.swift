@@ -14,11 +14,29 @@ class SubTopicViewController: UIViewController {
     var subTopics: [SubTopic]?
     @IBOutlet weak var tableView: UITableView!
     
+    var subTopicToPass: SubTopic!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Go to quizzes
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "inputSegue":
+                return
+            case "multipleChoiceSegue":
+                let multipleChoiceViewController = segue.destination as! MultipleChoiceViewController
+                multipleChoiceViewController.subTopic = subTopicToPass
+            
+            default:
+                return
+            }
+        }
     }
     
 }
@@ -40,6 +58,13 @@ extension SubTopicViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
         
+    }
+    
+    //passing quiz on to view controller - only multiple choice at this point.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("*** CELL SELECTED \(indexPath.row)")
+        subTopicToPass = subTopics![indexPath.row]
+        performSegue(withIdentifier: "multipleChoiceSegue", sender: self)
     }
     
 }
