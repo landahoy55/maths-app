@@ -17,6 +17,9 @@ class menuCellCollectionViewCell: UICollectionViewCell {
         super.draw(rect)
         layer.cornerRadius = 14.0
         layer.masksToBounds = true
+        
+        self.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        
     }
     
 }

@@ -25,17 +25,21 @@ class HomeViewController: UIViewController {
         nameLbl.text = UserDefaults.standard.string(forKey: DEFAULTS_EMAIL)
         
         //set gradient
-        view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        //view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         
         //collectionview delegate conformance
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        //Conform
+        //Conform to data service to trigger reload
         dataService.delegate = self
+        
+        //download topics
         DataService.instance.getAllTopics()
         
-        
+        //set style of nav bar
+        navigationController?.navigationBar.prefersLargeTitles = true
+        //navigationController?.navigationBar.backgroundColor = .purple
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,7 +60,12 @@ class HomeViewController: UIViewController {
                 //is it safer to unwrap these?
                 let multiChoiceViewController = segue.destination as! MultipleChoiceViewController
                 multiChoiceViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[1]
-                
+            
+            
+            case "subTopicMenuSegue":
+                let subTopicViewController = segue.destination as! SubTopicViewController
+                subTopicViewController.subTopics = subTopics
+            
             default:
                 return
             }
@@ -115,7 +124,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("CELL TAPPED\(indexPath.row)")
-        //perform a segue
+        performSegue(withIdentifier: "subTopicMenuSegue", sender: self)
     }
     
 }
