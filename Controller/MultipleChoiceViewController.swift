@@ -32,6 +32,11 @@ class MultipleChoiceViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var countdownLabel: UILabel!
     
+    
+    //MARK: - RESULTS POPUP
+    @IBOutlet var resultsPopup: UIView!
+    @IBOutlet weak var popupScoreLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,7 +50,7 @@ class MultipleChoiceViewController: UIViewController {
         loadQuestions()
         
         //set background
-        view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        //view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         
     }
     
@@ -86,7 +91,10 @@ class MultipleChoiceViewController: UIViewController {
             print(button.tag)
             print(currentQuestion.answers[index].answer)
             button.setTitle(currentQuestion.answers[index].answer, for: .normal)
-            button.backgroundColor = UIColor.clear
+            //button.backgroundColor = UIColor.clear
+            button.titleLabel?.minimumScaleFactor = 0.5
+            button.titleLabel?.numberOfLines = 0
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
         }
         
         scoreLabel.text = String(questionIndex)
@@ -130,9 +138,21 @@ class MultipleChoiceViewController: UIViewController {
         }
     }
     
+    //refactor to show popup
     func close() {
+        
+        for button in buttons {
+            button.isEnabled = false
+        }
+        
+        //adding popup subview
+        resultsPopup.center = view.center
+        view.addSubview(resultsPopup)
+        popupScoreLabel.text = String(questionIndex)
+        
         timer.invalidate() //timer was running between screens
-        dismiss(animated: true, completion: nil)
+        
+        //dismiss(animated: true, completion: nil)
     }
     
     @IBAction func answerPressed(_ sender: UIButton) {
@@ -142,14 +162,6 @@ class MultipleChoiceViewController: UIViewController {
             
             sender.pulsate()
             print("correct answer pressed")
-            
-//            UIView.animate(withDuration: 2, animations: {
-//                self.questionLabel.textColor = UIColor.green
-//            }, completion: { (_) in
-//                self.questionIndex += 1
-//                //show next question
-//                self.loadQuestion()
-//            })
             
             questionIndex += 1
             //show next question
@@ -161,5 +173,10 @@ class MultipleChoiceViewController: UIViewController {
             print("Oops - Incorrect answer pressed")
         }
     }
+    
+    @IBAction func popupClose(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
 }

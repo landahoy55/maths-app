@@ -29,6 +29,7 @@ let GET_TOPICS = "\(BASE_API_URL)/topic"
 //Bools
 let DEFAULTS_REGISTERED = "isRegistered"
 let DEFAULTS_AUTHENTICATED = "isAuthenticated"
+let HELP_PROMPT = "isHelpRequired"
 
 //Auth Email and Token - should this be in Keychain?
 let DEFAULTS_EMAIL = "email"

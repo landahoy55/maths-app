@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     
     var dataService = DataService.instance
     var subTopics = [SubTopic]()
+    var topics = [Topic]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,13 +84,21 @@ class HomeViewController: UIViewController {
         topicsLoaded()
     }
     
+    //Now using a button on screen - remove
+    @IBAction func helpButton(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let helpPopUp = sb.instantiateViewController(withIdentifier: "Help")
+        present(helpPopUp, animated: true, completion: nil)
+    }
+    
 
 }
 
 //data service delegate
 extension HomeViewController: DataServiceDelegate {
     func topicsLoaded() {
-        subTopics = dataService.downloadedTopics[0].subTopics
+        //subTopics = dataService.downloadedTopics[0].subTopics
+        topics = dataService.downloadedTopics
         //back on main thread
         OperationQueue.main.addOperation {
             self.collectionView.reloadData()
@@ -108,22 +117,22 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     //TODO: Replace with topics
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        print("TOPICS******** \(subTopics)")
-        return subTopics.count
+        return topics.count
     }
     
     //Configure cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "menuCell", for: indexPath) as! menuCellCollectionViewCell
         
-        cell.titleLabel.text = subTopics[indexPath.row].title
-        cell.descriptionLabel.text = subTopics[indexPath.row].description
+        cell.titleLabel.text = topics[indexPath.row].title
+        cell.descriptionLabel.text = topics[indexPath.row].description
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("CELL TAPPED\(indexPath.row)")
+        subTopics = topics[indexPath.row].subTopics
         performSegue(withIdentifier: "subTopicMenuSegue", sender: self)
     }
     

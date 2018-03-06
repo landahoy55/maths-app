@@ -12,13 +12,18 @@ class SubTopicViewController: UIViewController {
 
     //inject
     var subTopics: [SubTopic]?
-    @IBOutlet weak var tableView: UITableView!
     
     var subTopicToPass: SubTopic!
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        titleLabel.text = "Test Topic"
+        
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -27,6 +32,9 @@ class SubTopicViewController: UIViewController {
         //Go to quizzes
         if let identifier = segue.identifier {
             switch identifier {
+            case "helpSegue":
+                let helpPromptViewController = segue.destination as! HelpPromptViewController
+                helpPromptViewController.topic = subTopicToPass
             case "inputSegue":
                 return
             case "multipleChoiceSegue":
@@ -38,6 +46,14 @@ class SubTopicViewController: UIViewController {
             }
         }
     }
+}
+
+extension SubTopicViewController: SubTopicCellDelegate {
+    func didTapHelpIcon(subTopic: SubTopic) {
+        subTopicToPass = subTopic
+        performSegue(withIdentifier: "helpSegue", sender: self)
+    }
+    
     
 }
 
@@ -54,17 +70,22 @@ extension SubTopicViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubTopicCell") as! SubTopicCell
-        cell.topicTitleLabel.text = subTopics![indexPath.row].title
+        cell.selectionStyle = .none
+        //cell config carried out in set up
+        cell.setSubTopics(subTopic: subTopics![indexPath.row])
+        //custom delegate
+        cell.delegate = self
         
         return cell
         
     }
     
-    //passing quiz on to view controller - only multiple choice at this point.
+    //passing quiz on to view controller - only multiple choice at this point
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("*** CELL SELECTED \(indexPath.row)")
+        
         subTopicToPass = subTopics![indexPath.row]
         performSegue(withIdentifier: "multipleChoiceSegue", sender: self)
+     
     }
     
 }

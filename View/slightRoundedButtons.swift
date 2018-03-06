@@ -29,9 +29,4 @@ class slightRoundedButtons: UIButton {
     }
 }
 
-class pinkSlightRoundButton: slightRoundedButtons {
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        layer.backgroundColor = UIColor.blue.cgColor
-    }
-}
+
