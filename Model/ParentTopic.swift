@@ -1,16 +1,15 @@
 //
-//  Topic.swift
+//  parentTopic.swift
 //  maths-app
 //
-//  Created by P Malone on 27/02/2018.
+//  Created by P Malone on 07/03/2018.
 //  Copyright © 2018 landahoy55. All rights reserved.
 //
 
 import Foundation
-//Decode
-struct Topic: Codable {
+//decod
+struct ParentTopic: Codable {
+    let _id: String
     let title: String
     let description: String
-    let subTopics: [SubTopic]
-    let _id: String
 }

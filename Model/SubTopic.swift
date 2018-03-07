@@ -7,11 +7,12 @@
 //
 
 import Foundation
-
-struct SubTopic: Decodable {
+//decode
+struct SubTopic: Codable {
     let title: String
     let description: String
     let stage: Int
     let questions: [Question]
+    let parentTopic: ParentTopic
     let _id: String
 }

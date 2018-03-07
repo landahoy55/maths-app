@@ -24,6 +24,12 @@ let GET_USER_DETAILS = "\(BASE_API_URL)/account/me"
 let POST_LOGOUT = "\(BASE_API_URL)/account/logout"
 let GET_TOPICS = "\(BASE_API_URL)/topic"
 
+let GET_SUBTOPIC_RESULT = "\(BASE_API_URL)/subtopicresult/getandpopulatebyid/" //trailing slash as id is added to call
+let POST_SUBTOPIC_RESULT = "\(BASE_API_URL)/subtopicresult/postresult"
+
+let GET_TOPIC_RESULT = "\(BASE_API_URL)/topicresult/getandpopulatebyid/"
+let POST_TOPIC_RESULT = "\(BASE_API_URL)/topicresult/postresult"
+
 //User Defaults Set Up
 
 //Bools
@@ -34,6 +40,7 @@ let HELP_PROMPT = "isHelpRequired"
 //Auth Email and Token - should this be in Keychain?
 let DEFAULTS_EMAIL = "email"
 let DEFAULTS_TOKEN = "authToken"
+let DEFAULTS_USERID = "userID"
 
 //colours
 let primaryColor = UIColor(red: 210/255, green: 109/255, blue: 180/255, alpha: 1)

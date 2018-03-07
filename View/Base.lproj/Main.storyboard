@@ -593,7 +593,7 @@
                     <viewLayoutGuide key="safeArea" id="S0m-fL-Spr"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="6041" y="289"/>
+            <point key="canvasLocation" x="6040.8000000000002" y="288.30584707646182"/>
         </scene>
         <!--Help Prompt View Controller-->
         <scene sceneID="ycR-uo-DyX">

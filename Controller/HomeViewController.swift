@@ -35,8 +35,9 @@ class HomeViewController: UIViewController {
         //Conform to data service to trigger reload
         dataService.delegate = self
         
-        //download topics
-        DataService.instance.getAllTopics()
+        //download topics and get user information
+        dataService.getAllTopics()
+        dataService.getUserInformation()
         
         //set style of nav bar
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -58,6 +59,24 @@ class HomeViewController: UIViewController {
                 
             case "multipleChoiceSegue":
                 
+//                let subtopicresults = SubtopicResult(achieved: "true", score: "5", subtopic: "5a954a498956bf2b2d1a5ef0", id: "5a8c2933e9d05f0014df2b44")
+//                dataService.postNewSubtopicResult(subtopicresults, completion: { (success) in
+//                    print(success)
+//                })
+//
+//                 let topicResult = TopicResult(achieved: "true", topic: "5a954a498956bf2b2d1a5ef0", id: "5a8c2933e9d05f0014df2b44", subTopicResults: ["5a8c2933e9d05f0014df2b44"])
+//                  dataService.postNewTopicResult(topicResult, completion: { (success) in
+//                     print(success)
+//                   })
+                
+//                dataService.getSubTopicResults("5a8c2933e9d05f0014df2b44", completion: { (success) in
+//                    print(success)
+//                })
+                
+                dataService.getTopicResult("5a8c2933e9d05f0014df2b44", completion: { (success) in
+                    print(success)
+                })
+        
                 //is it safer to unwrap these?
                 let multiChoiceViewController = segue.destination as! MultipleChoiceViewController
                 multiChoiceViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[1]
@@ -96,6 +115,7 @@ class HomeViewController: UIViewController {
 
 //data service delegate
 extension HomeViewController: DataServiceDelegate {
+    
     func topicsLoaded() {
         //subTopics = dataService.downloadedTopics[0].subTopics
         topics = dataService.downloadedTopics

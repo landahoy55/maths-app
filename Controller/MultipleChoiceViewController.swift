@@ -145,6 +145,9 @@ class MultipleChoiceViewController: UIViewController {
             button.isEnabled = false
         }
         
+        //update score label
+        scoreLabel.text = String(questionIndex)
+        
         //adding popup subview
         resultsPopup.center = view.center
         view.addSubview(resultsPopup)

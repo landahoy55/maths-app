@@ -7,8 +7,8 @@
 //
 
 import Foundation
-
-struct Question: Decodable {
+//decode
+struct Question: Codable {
     let question: String
     let correctAnswer: String
     let _id: String
