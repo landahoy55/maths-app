@@ -37,7 +37,17 @@ class HomeViewController: UIViewController {
         
         //download topics and get user information
         dataService.getAllTopics()
-        dataService.getUserInformation()
+        
+        dataService.getUserInformation { (success) in
+            if (success) {
+                
+                guard let id = UserDefaults.standard.string(forKey: DEFAULTS_USERID) else { return }
+                
+                self.dataService.getSubTopicResults(id, completion: { (success) in })
+                self.dataService.getTopicResult(id, completion: { (success) in })
+                
+            }
+        }
         
         //set style of nav bar
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -59,24 +69,6 @@ class HomeViewController: UIViewController {
                 
             case "multipleChoiceSegue":
                 
-//                let subtopicresults = SubtopicResult(achieved: "true", score: "5", subtopic: "5a954a498956bf2b2d1a5ef0", id: "5a8c2933e9d05f0014df2b44")
-//                dataService.postNewSubtopicResult(subtopicresults, completion: { (success) in
-//                    print(success)
-//                })
-//
-//                 let topicResult = TopicResult(achieved: "true", topic: "5a954a498956bf2b2d1a5ef0", id: "5a8c2933e9d05f0014df2b44", subTopicResults: ["5a8c2933e9d05f0014df2b44"])
-//                  dataService.postNewTopicResult(topicResult, completion: { (success) in
-//                     print(success)
-//                   })
-                
-//                dataService.getSubTopicResults("5a8c2933e9d05f0014df2b44", completion: { (success) in
-//                    print(success)
-//                })
-                
-//                dataService.getTopicResult("5a8c2933e9d05f0014df2b44", completion: { (success) in
-//                    print(success)
-//                })
-        
                 //is it safer to unwrap these?
                 let multiChoiceViewController = segue.destination as! MultipleChoiceViewController
                 multiChoiceViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[1]
@@ -85,6 +77,9 @@ class HomeViewController: UIViewController {
             case "subTopicMenuSegue":
                 let subTopicViewController = segue.destination as! SubTopicViewController
                 subTopicViewController.subTopics = subTopics
+                subTopicViewController.subTopicResults = dataService.downloadedSubTopicResults
+                
+                //pass correct results if any.
             
             default:
                 return

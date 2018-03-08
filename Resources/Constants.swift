@@ -26,10 +26,11 @@ let GET_TOPICS = "\(BASE_API_URL)/topic"
 
 let GET_SUBTOPIC_RESULT = "\(BASE_API_URL)/subtopicresult/getandpopulatebyid/" //trailing slash as id is added to call
 let POST_SUBTOPIC_RESULT = "\(BASE_API_URL)/subtopicresult/postresult"
+let PUT_SUBTOPIC_RESULT = "\(BASE_API_URL)/subtopicresult/postresult/"
 
 let GET_TOPIC_RESULT = "\(BASE_API_URL)/topicresult/getandpopulatebyid/"
 let POST_TOPIC_RESULT = "\(BASE_API_URL)/topicresult/postresult"
-
+let PUT_TOPIC_RESULT = "\(BASE_API_URL)/topicresult/postresult/"
 //User Defaults Set Up
 
 //Bools

@@ -10,10 +10,12 @@ import UIKit
 
 class SubTopicViewController: UIViewController {
 
-    //inject
+    //injections
     var subTopics: [SubTopic]?
+    var subTopicResults: [RetreivedSubtopicResult]?
     
     var subTopicToPass: SubTopic!
+    var resultToPass: RetreivedSubtopicResult?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -22,13 +24,20 @@ class SubTopicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleLabel.text = "Test Topic"
+        guard let subT = subTopics else { return }
+        titleLabel.text = subT[0].parentTopic.title
+        
+        print("********* SUB TOPIC RESULTS **********")
+        print(subTopicResults!)
         
         tableView.dataSource = self
         tableView.delegate = self
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        
+        
         //Go to quizzes
         if let identifier = segue.identifier {
             switch identifier {
@@ -38,7 +47,9 @@ class SubTopicViewController: UIViewController {
             case "inputSegue":
                 return
             case "multipleChoiceSegue":
+                
                 let multipleChoiceViewController = segue.destination as! MultipleChoiceViewController
+                multipleChoiceViewController.subResult = resultToPass
                 multipleChoiceViewController.subTopic = subTopicToPass
             
             default:
@@ -46,6 +57,22 @@ class SubTopicViewController: UIViewController {
             }
         }
     }
+
+
+    //If a result already exists for a level to be played it will show result.
+    func subtopicResult(results: [RetreivedSubtopicResult], subTopicID: String) -> RetreivedSubtopicResult? {
+        
+        for result in results {
+            if result.subtopic._id == subTopicID {
+                return result
+            }
+        }
+        
+        return nil
+    }
+    
+
+
 }
 
 extension SubTopicViewController: SubTopicCellDelegate {
@@ -84,6 +111,11 @@ extension SubTopicViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         subTopicToPass = subTopics![indexPath.row]
+        //call func here.
+        if let subResults = subTopicResults {
+            resultToPass = subtopicResult(results: subResults, subTopicID: subTopicToPass._id)
+        }
+        
         performSegue(withIdentifier: "multipleChoiceSegue", sender: self)
      
     }

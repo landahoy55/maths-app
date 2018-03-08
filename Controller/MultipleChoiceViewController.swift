@@ -12,6 +12,8 @@ class MultipleChoiceViewController: UIViewController {
     
     //injected on load
     var subTopic: SubTopic?
+    var subResult: RetreivedSubtopicResult?
+    
     //count
     var questionIndex = 0
     //current question - optional to start with.
@@ -157,11 +159,20 @@ class MultipleChoiceViewController: UIViewController {
         
         timer.invalidate() //timer was running between screens
         
-        print("**** Close button pressed")
+      
+       recordSubTopicResult()
+
+        //Create topic result - is this where it should be? Func in the dataservice to take care of this?
+        //Post topic result
         
+    }
+    
+    //Create or update subtopic result
+    
+    func recordSubTopicResult() {
         
-        //create subtopic result
         guard let sub = subTopic?._id else { return }
+        guard let topicId = subTopic?.parentTopic._id else { return }
         guard let id = UserDefaults.standard.string(forKey: DEFAULTS_USERID) else { return }
         
         let score = String(questionIndex)
@@ -173,26 +184,107 @@ class MultipleChoiceViewController: UIViewController {
             subAchieved = "false"
         }
         
-        let subtopicResult = SubtopicResult(achieved: subAchieved, score: score, subtopic: sub, id: id)
-        
-        //Post subtopic result
-        print(subtopicResult)
-        dataService.postNewSubtopicResult(subtopicResult) { (success) in
-            if (success) {
-                print("Posted result")
-            } else {
-                print("Error")
+        //create subtopic result || updated.
+        // if result exists...
+        if let subTopicResult = subResult {
+            
+            //put new result
+            let result = SubtopicResult(achieved: subAchieved, score: score, subtopic: sub, id: id)
+            
+            dataService.updateSubTopicResult(newResult: result, idToUpdate: subTopicResult._id, completion: { (success) in
+                if (success) {
+                    print("Updated sub result")
+                    
+                    self.recordTopicResult(subTopicResult: subTopicResult._id, topicID: topicId, userID: id)
+                } else {
+                    print("Error")
+                }
+            })
+            
+        } else {
+            //post a new one
+            let subtopicResult = SubtopicResult(achieved: subAchieved, score: score, subtopic: sub, id: id)
+            //Post subtopic result
+            print(subtopicResult)
+            dataService.postNewSubtopicResult(subtopicResult) { (success) in
+                if (success) {
+                    print("Posted new sub result")
+                    if let recentResult = self.dataService.recentSubTopicResult {
+                        self.recordTopicResult(subTopicResult: recentResult, topicID: topicId, userID: id)
+                    }
+                } else {
+                    print("Error")
+                }
             }
         }
+    }
+    
+    //create or update topic result
+    func recordTopicResult(subTopicResult: String, topicID: String, userID: String) {
+
+        //create topic result
         
-        guard let topic = subTopic?.parentTopic._id else { return }
-        
-        //Create topic result - is this where it should be? Func in the dataservice to take care of this?
-        //Post topic result
-        
-        
-        
-        //dismiss(animated: true, completion: nil)
+        //get topic results
+        guard let id = UserDefaults.standard.string(forKey: DEFAULTS_USERID) else { return }
+        dataService.getTopicResult(id) { (success) in
+            
+            if (success) {
+                
+                let topicResults = self.dataService.downloadedTopicResults
+                
+                if let result = topicResults.first(where: {$0.topic._id == self.subTopic?.parentTopic._id}) {
+                    print("******* FOUND A TOPIC RESULT ********")
+                    
+                    //UPDATE topic result - need subtopic result!
+                        //append result - if array count is five then adjust achieved.
+                    
+                    let topic = result.topic._id
+                    var subTopicResultsArray = [String]()
+                    
+                    //existing results - could check to see if achieved here?
+                    for subs in result.subTopicResults {
+                        subTopicResultsArray.append(subs._id)
+                    }
+                    
+                    subTopicResultsArray.append(subTopicResult)
+                    
+                    //check for duplicates and remove
+                    let deDuplicatedSubTopicResultsArray = Array(Set(subTopicResultsArray))
+                    
+                    let achieved: String
+                    
+                    // check to see if all results are in.
+                    if deDuplicatedSubTopicResultsArray.count == 5 {
+                        achieved = "true"
+                    } else {
+                        achieved = "false"
+                    }
+                    
+                    let topicResult = TopicResult(achieved: achieved, topic: topic, id: id, subTopicResults: deDuplicatedSubTopicResultsArray)
+                   
+                    //TODO: put network request
+                    let currentId = result._id
+                    self.dataService.updateTopicResult(newResult: topicResult, idToUpdate: currentId, completion: { (success) in
+                        if success {
+                            print("Updated topic!!")
+                        }
+                    })
+                    
+                } else {
+                    print("******* FOUND NO TOPIC RESULT ********")
+                    
+                    //CREATE topic result - set to false as not all five achieved.
+                 
+                    let topicResult = TopicResult(achieved: "false", topic: topicID, id: userID, subTopicResults: [subTopicResult])
+                        //post
+                    self.dataService.postNewTopicResult(topicResult, completion: { (success) in
+                        if success {
+                            print("TOPIC saved?")
+                        }
+                    })
+                }
+            }
+        }
     }
     
     @IBAction func answerPressed(_ sender: UIButton) {

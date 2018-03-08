@@ -20,10 +20,11 @@ class DataService {
     static let instance = DataService()
     
     weak var delegate: DataServiceDelegate?
+    
     var downloadedTopics = [Topic]()
-    
-    
-    
+    var downloadedSubTopicResults = [RetreivedSubtopicResult]()
+    var downloadedTopicResults = [RetreivedTopicResult]()
+    var recentSubTopicResult: String?
     
     func getAllTopics() {
         
@@ -69,7 +70,7 @@ class DataService {
     //Get user information - Document ID for user and save to user defaults
     //URL is: GET_USER_DETAILS
     
-    func getUserInformation() {
+    func getUserInformation(completion: @escaping callback) {
 
         // if let key = UserDefaults.standard.object(forKey: DEFAULTS_TOKEN) {
         //      print(key)
@@ -101,16 +102,19 @@ class DataService {
                     print(user)
                     // set in userdefaults
                     UserDefaults.standard.set(user.id, forKey:DEFAULTS_USERID )
+                    completion(true)
                     
                     //call delegate method
                     //self.delegate?.userLoaded()
                     
                 } catch let jsonErr {
                     print("Error serialzing json", jsonErr)
+                    completion(false)
                 }
                 
             } else {
                 print("task failed: \(String(describing: err?.localizedDescription))")
+                completion(false)
             
             }
         }
@@ -154,6 +158,7 @@ class DataService {
                     print(result)
                     
                     //TODO:WORK WITH RESULT
+                    self.downloadedSubTopicResults = result
                     
                     //call delegate method
                     //self.delegate?.userLoaded()
@@ -229,7 +234,23 @@ class DataService {
                         completion(false)
                     } else {
                         //can reload from here by call get and delegate.
-                        completion(true)
+                        print("***** THIS IS THE RESPONSE ******")
+                        
+                        guard let data = data else { return completion(false) }
+                        
+                        do {
+                           let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? Dictionary<String, AnyObject>
+                            
+                            if let result = result?["_id"] as? String {
+                                print(result)
+                                self.recentSubTopicResult = result
+                                completion(true)
+                            }
+                           
+                        } catch let err {
+                            print("Error serialising JSON", err)
+                            completion(false)
+                        }
                     }
                 } else {
                     print("URL SESSION TASK FAILED: \(String(describing: err?.localizedDescription))")
@@ -248,7 +269,69 @@ class DataService {
     }
     
     //Update subtopic results - may need completion handler.
-    
+    func updateSubTopicResult(newResult: SubtopicResult, idToUpdate: String, completion: @escaping callback) {
+        
+        //Prepare JSON
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        
+        do {
+            
+            let data = try encoder.encode(newResult)
+            print(String(data: data, encoding: .utf8)!)
+            
+            let sessionConfig = URLSessionConfiguration.default
+            let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+            
+            guard let URL = URL(string: "\(PUT_SUBTOPIC_RESULT)\(idToUpdate)") else { return }
+            print(URL)
+            
+            var request = URLRequest(url: URL)
+            request.httpMethod = "PUT"
+            
+            //create task
+            //get token
+            let token = UserDefaults.standard.object(forKey: DEFAULTS_TOKEN) as! String
+            
+            //set headers
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            //set body
+            request.httpBody = data
+            
+            let task = session.dataTask(with: request, completionHandler: { (data, response, err) in
+                if (err == nil) {
+                    //success
+                    //check for status 200 - it not auth was not successful
+                    //if it is - then good.
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    print("POST Succeeded. HTTP \(statusCode)")
+                    
+                    if statusCode != 200 {
+                        print("NOT 200")
+                        completion(false)
+                    } else {
+                        //can reload from here by call get and delegate.
+                        completion(true)
+                    }
+                } else {
+                    print("URL SESSION TASK FAILED: \(String(describing: err?.localizedDescription))")
+                    completion(false)
+                }
+            })
+            
+            task.resume()
+            session.finishTasksAndInvalidate()
+            
+            
+            
+        } catch let jsonErr {
+            print("Error serialzing json", jsonErr)
+            completion(false)
+        }
+        
+    }
     
     
     
@@ -259,8 +342,6 @@ class DataService {
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
         
         guard let URL = URL(string: "\(GET_TOPIC_RESULT)\(user)") else { return }
-        
-        print(URL)
         
         var request = URLRequest(url: URL)
         request.httpMethod = "GET"
@@ -284,17 +365,20 @@ class DataService {
                     print(result)
                     
                     //TODO:WORK WITH RESULT
+                    self.downloadedTopicResults = result
+                    completion(true)
                     
                     //call delegate method
                     //self.delegate?.userLoaded()
                     
                 } catch let jsonErr {
                     print("Error serialzing json", jsonErr)
+                    completion(false)
                 }
                 
             } else {
                 print("task failed: \(String(describing: err?.localizedDescription))")
-                
+                completion(false)
             }
         }
         
@@ -369,5 +453,70 @@ class DataService {
         }
         
     }
-    //Update topic results
+    
+    
+    //Update topic results - overriding array, not pushing
+    func updateTopicResult(newResult: TopicResult, idToUpdate: String, completion: @escaping callback) {
+        
+        //Prepare JSON
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        
+        do {
+            
+            let data = try encoder.encode(newResult)
+            print(String(data: data, encoding: .utf8)!)
+            
+            let sessionConfig = URLSessionConfiguration.default
+            let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+            
+            guard let URL = URL(string: "\(PUT_TOPIC_RESULT)\(idToUpdate)") else { return }
+            print(URL)
+            
+            var request = URLRequest(url: URL)
+            request.httpMethod = "PUT"
+            
+            //create task
+            //get token
+            let token = UserDefaults.standard.object(forKey: DEFAULTS_TOKEN) as! String
+            
+            //set headers
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            //set body
+            request.httpBody = data
+            
+            let task = session.dataTask(with: request, completionHandler: { (data, response, err) in
+                if (err == nil) {
+                    //success
+                    //check for status 200 - it not auth was not successful
+                    //if it is - then good.
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    print("POST Succeeded. HTTP \(statusCode)")
+                    
+                    if statusCode != 200 {
+                        print("NOT 200")
+                        completion(false)
+                    } else {
+                        //can reload from here by call get and delegate.
+                        completion(true)
+                    }
+                } else {
+                    print("URL SESSION TASK FAILED: \(String(describing: err?.localizedDescription))")
+                    completion(false)
+                }
+            })
+            
+            task.resume()
+            session.finishTasksAndInvalidate()
+            
+            
+            
+        } catch let jsonErr {
+            print("Error serialzing json", jsonErr)
+            completion(false)
+        }
+        
+    }
 }
