@@ -21,6 +21,8 @@ class MultipleChoiceViewController: UIViewController {
     var score = 0 //CURRENTLY USING QUESITON INDEX... WHAT ABOUT INCORRECT
     var isHalfTime = false
     
+    var dataService = DataService.instance
+    
     //Outlets
     @IBOutlet weak var questionLabel: UILabel!
     var buttons = [UIButton]() //add buttons?
@@ -154,6 +156,41 @@ class MultipleChoiceViewController: UIViewController {
         popupScoreLabel.text = String(questionIndex)
         
         timer.invalidate() //timer was running between screens
+        
+        print("**** Close button pressed")
+        
+        
+        //create subtopic result
+        guard let sub = subTopic?._id else { return }
+        guard let id = UserDefaults.standard.string(forKey: DEFAULTS_USERID) else { return }
+        
+        let score = String(questionIndex)
+        let subAchieved: String
+        
+        if score == "5" {
+            subAchieved = "true"
+        } else {
+            subAchieved = "false"
+        }
+        
+        let subtopicResult = SubtopicResult(achieved: subAchieved, score: score, subtopic: sub, id: id)
+        
+        //Post subtopic result
+        print(subtopicResult)
+        dataService.postNewSubtopicResult(subtopicResult) { (success) in
+            if (success) {
+                print("Posted result")
+            } else {
+                print("Error")
+            }
+        }
+        
+        guard let topic = subTopic?.parentTopic._id else { return }
+        
+        //Create topic result - is this where it should be? Func in the dataservice to take care of this?
+        //Post topic result
+        
+        
         
         //dismiss(animated: true, completion: nil)
     }

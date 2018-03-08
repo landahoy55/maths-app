@@ -73,9 +73,9 @@ class HomeViewController: UIViewController {
 //                    print(success)
 //                })
                 
-                dataService.getTopicResult("5a8c2933e9d05f0014df2b44", completion: { (success) in
-                    print(success)
-                })
+//                dataService.getTopicResult("5a8c2933e9d05f0014df2b44", completion: { (success) in
+//                    print(success)
+//                })
         
                 //is it safer to unwrap these?
                 let multiChoiceViewController = segue.destination as! MultipleChoiceViewController
