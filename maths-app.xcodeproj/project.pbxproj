@@ -30,7 +30,7 @@
 		F00EBE36203D9BD000125618 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE15203C215000125618 /* Constants.swift */; };
 		F00EBE37203D9BD000125618 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE15203C215000125618 /* Constants.swift */; };
 		F07AFCED2048436000F37658 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */; };
-		F07AFCEF204D5ADE00F37658 /* menuCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEE204D5ADE00F37658 /* menuCellCollectionViewCell.swift */; };
+		F07AFCEF204D5ADE00F37658 /* menuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */; };
 		F07AFCF1204D7D5C00F37658 /* SubTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */; };
 		F07AFCF3204D81F600F37658 /* SubTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCF2204D81F500F37658 /* SubTopicCell.swift */; };
 		F07AFCF5204D9A3F00F37658 /* HelpPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCF4204D9A3F00F37658 /* HelpPromptViewController.swift */; };
@@ -41,6 +41,7 @@
 		F0934EF120503CD1007A4295 /* RetreivedSubtopicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0934EF020503CD1007A4295 /* RetreivedSubtopicResult.swift */; };
 		F0934EF32050446E007A4295 /* RetreivedTopicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0934EF22050446E007A4295 /* RetreivedTopicResult.swift */; };
 		F0934EF520504AE7007A4295 /* RetreivedTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0934EF420504AE7007A4295 /* RetreivedTopic.swift */; };
+		F0BF7F362052CE93005D4A27 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BF7F352052CE93005D4A27 /* Account.swift */; };
 		F0F854BD20459B8B007A794A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854BC20459B8B007A794A /* DataService.swift */; };
 		F0F854C12045B3A8007A794A /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854C02045B3A8007A794A /* Topic.swift */; };
 		F0F854C32045B3B9007A794A /* SubTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854C22045B3B9007A794A /* SubTopic.swift */; };
@@ -96,7 +97,7 @@
 		F00EBE2A203D7B2D00125618 /* onboarding.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = onboarding.xib; sourceTree = "<group>"; };
 		F00EBE32203D80A900125618 /* onboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingView.swift; sourceTree = "<group>"; };
 		F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
-		F07AFCEE204D5ADE00F37658 /* menuCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCollectionViewCell.swift; sourceTree = "<group>"; };
 		F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopicViewController.swift; sourceTree = "<group>"; };
 		F07AFCF2204D81F500F37658 /* SubTopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopicCell.swift; sourceTree = "<group>"; };
 		F07AFCF4204D9A3F00F37658 /* HelpPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPromptViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +108,7 @@
 		F0934EF020503CD1007A4295 /* RetreivedSubtopicResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetreivedSubtopicResult.swift; sourceTree = "<group>"; };
 		F0934EF22050446E007A4295 /* RetreivedTopicResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetreivedTopicResult.swift; sourceTree = "<group>"; };
 		F0934EF420504AE7007A4295 /* RetreivedTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetreivedTopic.swift; sourceTree = "<group>"; };
+		F0BF7F352052CE93005D4A27 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		F0F854BC20459B8B007A794A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		F0F854C02045B3A8007A794A /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		F0F854C22045B3B9007A794A /* SubTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopic.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				F0934EF020503CD1007A4295 /* RetreivedSubtopicResult.swift */,
 				F0934EF22050446E007A4295 /* RetreivedTopicResult.swift */,
 				F0934EF420504AE7007A4295 /* RetreivedTopic.swift */,
+				F0BF7F352052CE93005D4A27 /* Account.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,7 +236,7 @@
 				F00EBE2A203D7B2D00125618 /* onboarding.xib */,
 				F00EBE32203D80A900125618 /* onboardingView.swift */,
 				F0F854CC2046C71D007A794A /* slightRoundedView.swift */,
-				F07AFCEE204D5ADE00F37658 /* menuCellCollectionViewCell.swift */,
+				F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */,
 				F07AFCF2204D81F500F37658 /* SubTopicCell.swift */,
 			);
 			path = View;
@@ -415,7 +418,7 @@
 				F0934EE82050043D007A4295 /* ParentTopic.swift in Sources */,
 				F00EBE1E203C4B3B00125618 /* LoginViewController.swift in Sources */,
 				F0F854CF2046DB1A007A794A /* UIView+Extensions.swift in Sources */,
-				F07AFCEF204D5ADE00F37658 /* menuCellCollectionViewCell.swift in Sources */,
+				F07AFCEF204D5ADE00F37658 /* menuCollectionViewCell.swift in Sources */,
 				F0F854BD20459B8B007A794A /* DataService.swift in Sources */,
 				F0934EF520504AE7007A4295 /* RetreivedTopic.swift in Sources */,
 				F0F854D120470640007A794A /* InputAnswerViewController.swift in Sources */,
@@ -431,6 +434,7 @@
 				F0934EF32050446E007A4295 /* RetreivedTopicResult.swift in Sources */,
 				F0934EEF20502F44007A4295 /* TopicResult.swift in Sources */,
 				F00EBE1C203C4B2700125618 /* MenuViewController.swift in Sources */,
+				F0BF7F362052CE93005D4A27 /* Account.swift in Sources */,
 				F07AFCED2048436000F37658 /* UILabel+Extensions.swift in Sources */,
 				F0F854D520470811007A794A /* MultipleChoiceViewController.swift in Sources */,
 				F0F854CD2046C71D007A794A /* slightRoundedView.swift in Sources */,

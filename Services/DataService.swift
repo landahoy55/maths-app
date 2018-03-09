@@ -12,6 +12,7 @@ import Foundation
 //protocol to trigger update
 protocol DataServiceDelegate: class {
     func topicsLoaded()
+    func topicResultsLoaded()
 }
 
 //retreive data
@@ -25,6 +26,7 @@ class DataService {
     var downloadedSubTopicResults = [RetreivedSubtopicResult]()
     var downloadedTopicResults = [RetreivedTopicResult]()
     var recentSubTopicResult: String?
+    var accountDetails: Account?
     
     func getAllTopics() {
         
@@ -68,9 +70,9 @@ class DataService {
 
     
     //Get user information - Document ID for user and save to user defaults
-    //URL is: GET_USER_DETAILS
+    //URL is: GET_USER
     
-    func getUserInformation(completion: @escaping callback) {
+    func getUserId(completion: @escaping callback) {
 
         // if let key = UserDefaults.standard.object(forKey: DEFAULTS_TOKEN) {
         //      print(key)
@@ -82,7 +84,7 @@ class DataService {
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
-        guard let URL = URL(string: GET_USER_DETAILS) else { return }
+        guard let URL = URL(string: GET_USER) else { return }
         var request = URLRequest(url: URL)
         request.httpMethod = "GET"
 
@@ -119,6 +121,59 @@ class DataService {
             }
         }
 
+        task.resume()
+        session.finishTasksAndInvalidate()
+
+    }
+    
+    //get user account - ideally to show the name on screen.
+    func getUserAccount(userId: String, completion: @escaping callback){
+
+        
+        //create session
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        
+        //create URL
+        guard let URL = URL(string: "\(GET_USER_DETAILS)\(userId)") else { return }
+        var request = URLRequest(url: URL)
+        request.httpMethod = "GET"
+        
+        //get token - need to handle error here.
+        let token = UserDefaults.standard.object(forKey: DEFAULTS_TOKEN) as! String
+        
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let task = session.dataTask(with: request) { (data, response, err) in
+            
+            if (err == nil) {
+                
+                guard let data = data else { return }
+                do {
+                    
+                    let dataAsString = String(data: data, encoding: .utf8)
+                    print(dataAsString!)
+                    
+                    let account = try JSONDecoder().decode(Account.self, from: data)
+                    print("****** ACCOUNT", account)
+                    self.accountDetails = account
+                    completion(true)
+                    
+                    //call delegate method
+                    //self.delegate?.userLoaded()
+                    
+                } catch let jsonErr {
+                    print("Error serialzing json", jsonErr)
+                    completion(false)
+                }
+                
+            } else {
+                print("task failed: \(String(describing: err?.localizedDescription))")
+                completion(false)
+                
+            }
+        }
+        
         task.resume()
         session.finishTasksAndInvalidate()
 
@@ -236,17 +291,21 @@ class DataService {
                         //can reload from here by call get and delegate.
                         print("***** THIS IS THE RESPONSE ******")
                         
+                        // let dataAsString = String(data: data!, encoding: .utf8)
+                        // print(dataAsString!)
+                        
                         guard let data = data else { return completion(false) }
                         
                         do {
+                            
                            let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? Dictionary<String, AnyObject>
                             
-                            if let result = result?["_id"] as? String {
+                            if let result = result?["createdId"] as? String {
                                 print(result)
                                 self.recentSubTopicResult = result
-                                completion(true)
+                            print("****** SERIALIZED NEW RESULT *****")
                             }
-                           
+                           completion(true)
                         } catch let err {
                             print("Error serialising JSON", err)
                             completion(false)
@@ -366,6 +425,7 @@ class DataService {
                     
                     //TODO:WORK WITH RESULT
                     self.downloadedTopicResults = result
+                    self.delegate?.topicResultsLoaded()
                     completion(true)
                     
                     //call delegate method
@@ -390,6 +450,8 @@ class DataService {
     
     //Post topic results
     func postNewTopicResult(_ topicResult: TopicResult, completion: @escaping callback) {
+        
+        print("****** POST NEW TOPIC RESULT *********")
         
         //prepare JSON
         let encoder = JSONEncoder()
@@ -457,6 +519,8 @@ class DataService {
     
     //Update topic results - overriding array, not pushing
     func updateTopicResult(newResult: TopicResult, idToUpdate: String, completion: @escaping callback) {
+        
+        print("****** UPDATE TOPIC RESULT *********")
         
         //Prepare JSON
         let encoder = JSONEncoder()

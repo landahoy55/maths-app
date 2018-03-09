@@ -205,11 +205,14 @@ class MultipleChoiceViewController: UIViewController {
             //post a new one
             let subtopicResult = SubtopicResult(achieved: subAchieved, score: score, subtopic: sub, id: id)
             //Post subtopic result
+            print("**** ABOUT TO POST NEW SUB *****")
             print(subtopicResult)
             dataService.postNewSubtopicResult(subtopicResult) { (success) in
                 if (success) {
                     print("Posted new sub result")
+//                    print(self.dataService.recentSubTopicResult!)
                     if let recentResult = self.dataService.recentSubTopicResult {
+                        print("********* RECENT SUB - \(recentResult)")
                         self.recordTopicResult(subTopicResult: recentResult, topicID: topicId, userID: id)
                     }
                 } else {

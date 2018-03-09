@@ -20,7 +20,8 @@ let BASE_API_URL = "https://morning-journey-26383.herokuapp.com/v1"
 //Register URL
 let POST_REGISTER = "\(BASE_API_URL)/account/register"
 let POST_LOGIN = "\(BASE_API_URL)/account/login"
-let GET_USER_DETAILS = "\(BASE_API_URL)/account/me"
+let GET_USER = "\(BASE_API_URL)/account/me"
+let GET_USER_DETAILS = "\(BASE_API_URL)/account/details/"
 let POST_LOGOUT = "\(BASE_API_URL)/account/logout"
 let GET_TOPICS = "\(BASE_API_URL)/topic"
 

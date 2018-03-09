@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Potential to introduce images here?
 class HelpPromptViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -19,10 +20,6 @@ class HelpPromptViewController: UIViewController {
 
         titleLabel.text = topic.title
         descriptionLabel.text = topic.description
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
     }
     
     @IBAction func close(_ sender: UIButton) {

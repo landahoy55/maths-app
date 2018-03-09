@@ -20,9 +20,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         //Part of keyboard handling
-        //        self.nameText.delegate = self
-        //        self.passwordText.delegate = self
-        //        self.emailText.delegate = self
+        // self.nameText.delegate = self
+        // self.passwordText.delegate = self
+        // self.emailText.delegate = self
     
         //set gradient
         view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
@@ -36,7 +36,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        //Call register - then login login
+        //Call register method - then login user
         AuthorisationService.instance.registerUser(email: email, password: pass, name: name) { (success) in
                 //login
                 if success {

@@ -8,6 +8,8 @@
 
 import Foundation
 //decod
+
+//model to return a user ID
 struct User: Codable {
     let id: String
 }
