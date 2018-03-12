@@ -59,6 +59,16 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        print("*********** /nView did appear - Home screen")
+    //        collectionView.reloadData()
+    //    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("*********** /nView did appear - Home screen")
+        collectionView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         

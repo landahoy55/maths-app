@@ -32,6 +32,21 @@ class SubTopicViewController: UIViewController {
         tableView.delegate = self
     }
     
+    //    override func viewDidAppear(_ animated: Bool) {
+    //
+    //        print("**** View did appear \n Subtopic menu *********")
+    //        //refresh tableview following activity
+    //        subTopicResults = DataService.instance.downloadedSubTopicResults
+    //        tableView.reloadData()
+    //    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("**** View did appear \n Subtopic menu *********")
+        //refresh tableview following activity
+        subTopicResults = DataService.instance.downloadedSubTopicResults
+        tableView.reloadData()
+    }
+    
     //segue logic
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         

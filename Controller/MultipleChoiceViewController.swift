@@ -190,7 +190,7 @@ class MultipleChoiceViewController: UIViewController {
         
         //schedule with check for authorisation
         scheduleNotificaion()
-        
+
     }
     
     //Create or update subtopic result
@@ -246,6 +246,8 @@ class MultipleChoiceViewController: UIViewController {
                 }
             }
         }
+        
+        //redownload results
     }
     
     //create or update topic result
@@ -296,6 +298,13 @@ class MultipleChoiceViewController: UIViewController {
                     self.dataService.updateTopicResult(newResult: topicResult, idToUpdate: currentId, completion: { (success) in
                         if success {
                             print("Updated topic!!")
+                            //Redownload results
+                            self.dataService.getTopicResult(id) { (success) in
+                                if success {
+                                    print("************\n REDOWNLOADED RESUTLS \n************")
+                                    self.dataService.getSubTopicResults(id, completion: { (_) in })
+                                }
+                            }
                         }
                     })
                     
@@ -308,7 +317,14 @@ class MultipleChoiceViewController: UIViewController {
                         //post
                     self.dataService.postNewTopicResult(topicResult, completion: { (success) in
                         if success {
-                            print("TOPIC saved?")
+                            print("TOPIC saved")
+                            //redownload here
+                            self.dataService.getTopicResult(id) { (success) in
+                                if success {
+                                    print("************\n REDOWNLOADED RESUTLS \n************")
+                                    self.dataService.getSubTopicResults(id, completion: { (_) in })
+                                }
+                            }
                         }
                     })
                 }
