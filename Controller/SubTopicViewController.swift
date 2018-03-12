@@ -99,8 +99,21 @@ extension SubTopicViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubTopicCell") as! SubTopicCell
         cell.selectionStyle = .none
         
+        var score: Int?
+        
+        //find related result
+        //loop over results, unwrap first
+        //make this functional.
+        if let subTopicResults = subTopicResults {
+            for result in subTopicResults {
+                if result.subtopic._id == subTopics![indexPath.row]._id {
+                    score = result.score
+                }
+            }
+        }
+        
         //is there a way to avoid the force?
-        cell.setSubTopics(subTopic: subTopics![indexPath.row])
+        cell.setSubTopics(subTopic: subTopics![indexPath.row], score: score )
         //custom delegate
         cell.delegate = self
         

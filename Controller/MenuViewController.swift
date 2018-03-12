@@ -14,8 +14,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var onboardingPageControl: UIPageControl!
     
     //TODO: replace with view model or pList.
-    let onboardingScreen1 = ["title":"Practice Everyday Maths","tagLine":"Sign up to personalise your experience","image":"onboarding1"]
-    let onboardingScreen2 = ["title":"Try Daily Activities","tagLine":"New challenges released daily","image":"onboarding1"]
+    let onboardingScreen1 = ["title":"Practice Maths","tagLine":"Sign up to personalise your experience","image":"onboarding1"]
     let onboardingScreen3 = ["title":"Across Many Topics","tagLine":"Cover the major maths subjects","image":"onboarding1"]
     let onboardingScreen4 = ["title":"Sign Up Now","tagLine":"Keep track of your progress over time","image":"onboarding1"]
     
@@ -30,11 +29,9 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         
         //scroll views have visible size, and content size.
         onboardingScrollView.isPagingEnabled = true
-        onboardingScrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(onboardingArray.count), height: 250)
-        print(onboardingScrollView.contentSize)
+        onboardingScrollView.contentSize = CGSize(width: self.onboardingScrollView.frame.width * CGFloat(onboardingArray.count), height: self.onboardingScrollView.frame.height)
         onboardingScrollView.showsHorizontalScrollIndicator = false
         onboardingScrollView.showsVerticalScrollIndicator = false
-        print(onboardingScrollView.frame.width)
         
         loadOnboarding()
         
@@ -68,18 +65,22 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
                 onboardingView.tagLineLbl.text = screen["tagLine"]
                 
                 onboardingScrollView.addSubview(onboardingView)
-                onboardingView.frame.size.width = 250
-                print(onboardingView.frame.size.width)
-                onboardingView.frame.origin.x = CGFloat(index) * 250
+//                onboardingView.frame.size.width = 250
+                onboardingView.frame.size.width = self.onboardingScrollView.bounds.size.width
+                print("*******Frame width \(onboardingView.frame.size.width)")
+//                onboardingView.frame.origin.x = CGFloat(index) * 250
+                onboardingView.frame.origin.x = CGFloat(index) * self.onboardingScrollView.bounds.width
+                print("*******Origin x \(onboardingView.frame.origin.x)")
+                
             }
         }
     }
 }
 
-//scrollview delegate
+//scrollview delegate method
 extension MenuViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let page = onboardingScrollView.contentOffset.x / onboardingScrollView.frame.size.width
+        let page = scrollView.contentOffset.x / scrollView.frame.size.width
         onboardingPageControl.currentPage = Int(page)
     }
 }

@@ -29,28 +29,28 @@ class menuCollectionViewCell: UICollectionViewCell {
         
         switch numberAchieved {
         case 0:
-            display = "Try now!"
-            scoreLabel.textColor = .white
-            scoreLabel.blinking()
+            display = "0/5 complete 🙃"
+            //scoreLabel.textColor = .white
+            //scoreLabel.blinking()
         case 1:
-            display = "1 stage complete"
-            scoreLabel.textColor = .red
+            display = "1/5 complete 👎"
+            //scoreLabel.textColor = timerRed
         case 2:
-            display = "2 stages complete"
-            scoreLabel.textColor = .yellow
+            display = "2/5 complete 🤔"
+            //scoreLabel.textColor = timerOrange
         case 3:
-            display = "3 stages complete"
-            scoreLabel.textColor = .yellow
+            display = "3/5 complete ☺️"
+            //scoreLabel.textColor = timerOrange
         case 4:
-            display = "4 stages complete"
-            scoreLabel.textColor = .green
+            display = "4/5 complete 😘"
+            //scoreLabel.textColor = timerGreen
         case 5:
-            display = "Complete! Well done"
-            scoreLabel.textColor = .green
+            display = "5/5 complete 😍"
+            //scoreLabel.textColor = timerGreen
         default:
             display = "Try now!"
-            scoreLabel.textColor = .white
-            scoreLabel.blinking()
+            //scoreLabel.textColor = .white
+            //scoreLabel.blinking()
         }
         
         self.scoreLabel.text = display

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MultipleChoiceViewController: UIViewController {
     
@@ -143,6 +144,30 @@ class MultipleChoiceViewController: UIViewController {
     }
     
     //refactor to show popup
+    fileprivate func scheduleNotificaion() {
+        //check to see if permissions granted - 2 is granted
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("User settings notification ******* \(settings.authorizationStatus.rawValue)")
+            
+            //if authorised.
+            if settings.authorizationStatus.rawValue == 2 {
+                
+                //currently set to one minute after completing - for testing.
+                UNService.instance.timerRequest(with: 60)
+                
+                //if a request has been set remove and replace
+                //This might not be neccessary. Can only schedule one notification with id
+                UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { ( pending ) in
+                    for request in pending {
+                        print("Pending requests ******** \(request.identifier)")
+                    }
+                })
+                
+            }
+            
+        }
+    }
+    
     func close() {
         
         for button in buttons {
@@ -158,12 +183,13 @@ class MultipleChoiceViewController: UIViewController {
         popupScoreLabel.text = String(questionIndex)
         
         timer.invalidate() //timer was running between screens
-        
-      
-       recordSubTopicResult()
+        recordSubTopicResult()
 
-        //Create topic result - is this where it should be? Func in the dataservice to take care of this?
-        //Post topic result
+        //authorise notification
+        UNService.instance.authorise()
+        
+        //schedule with check for authorisation
+        scheduleNotificaion()
         
     }
     
