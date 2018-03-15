@@ -28,6 +28,49 @@ class DataService {
     var recentSubTopicResult: String?
     var accountDetails: Account?
     
+    //register device token
+    func registerDeviceToken(device token: String){
+        
+        let json = ["device":token]
+        
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        
+        guard let url = URL(string: POST_TOKEN) else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: json, options: [])
+            let task = session.dataTask(with: request, completionHandler: { (data, response, err) in
+                if (err == nil) {
+                    //success
+                    //cast to access statuscode
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    print("URL Session Task Succeeded: HTTP\(statusCode)")
+                    
+                    //check for statusCode - can this be altered? 409 is already registered - WILL TRIGGER LOGIN
+                    if statusCode != 200 && statusCode != 409 {
+                        return
+                    } else {
+                        //if status codes ok...
+                        return
+                    }
+                    //Failed
+                } else {
+                    print("URL Session Task Failed: \(String(describing: err?.localizedDescription))")
+                }
+            })
+            task.resume()
+            session.finishTasksAndInvalidate()
+        } catch let jsonErr {
+            print(jsonErr)
+        }
+        
+    }
+    
     func getAllTopics() {
         
         //create session

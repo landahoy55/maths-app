@@ -64,7 +64,6 @@ class AuthorisationService {
         //set up user
         //set up url session
         //process request
-    
     func registerUser(email username: String, password: String, name: String, completion: @escaping callback) {
         
         //json response - should this be a model? Refactor?

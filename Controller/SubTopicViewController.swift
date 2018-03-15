@@ -10,6 +10,7 @@ import UIKit
 
 class SubTopicViewController: UIViewController {
 
+    
     //injections
     var subTopics: [SubTopic]?
     var subTopicResults: [RetreivedSubtopicResult]? //result not updating on this screen. Can a delegate method after update help?
@@ -19,14 +20,18 @@ class SubTopicViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
-    
+    @IBOutlet weak var navbarTitle: UINavigationItem!
+    //@IBOutlet weak var testView: testAnimation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(navigationController?.title ?? "No navbar title")
+        print(tabBarController?.title ?? "No tabbar title")
 
         //Title - taken from first sub parent.
         guard let subT = subTopics else { return }
-        titleLabel.text = subT[0].parentTopic.title
+        titleLabel.text = subT[0].parentTopic.description
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -41,10 +46,17 @@ class SubTopicViewController: UIViewController {
     //    }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("**** View did appear \n Subtopic menu *********")
+        print("**** View will appear \n Subtopic menu *********")
         //refresh tableview following activity
+        guard let subT = subTopics else { return }
+        navbarTitle.title = subT[0].parentTopic.title
+        
         subTopicResults = DataService.instance.downloadedSubTopicResults
         tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //testView.animate()
     }
     
     //segue logic

@@ -9,7 +9,7 @@
 
 //User notification service - to add local notifications
 
-import Foundation
+import UIKit
 import UserNotifications
 
 class UNService: NSObject {
@@ -36,19 +36,24 @@ class UNService: NSObject {
                 print("User denied access")
                 return
             }
-        
-            //configure
-            self.configure()
             
+            //get back on main thread
+            DispatchQueue.main.async {
+                //configure
+                self.configure()
+            }
         }
-        
     }
     
     
     func configure() {
        
+        //conform to delegate
         userNotificationsCentre.delegate = self
         
+        //register for remote notifications
+        let app = UIApplication.shared //might need to case as delegate
+        app.registerForRemoteNotifications()
     }
     
     //create notification based on timer

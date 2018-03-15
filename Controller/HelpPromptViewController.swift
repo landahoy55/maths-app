@@ -11,6 +11,7 @@ import UIKit
 //Potential to introduce images here?
 class HelpPromptViewController: UIViewController {
 
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     var topic: SubTopic!
@@ -20,6 +21,7 @@ class HelpPromptViewController: UIViewController {
 
         titleLabel.text = topic.title
         descriptionLabel.text = topic.description
+        topView.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
     }
     
     @IBAction func close(_ sender: UIButton) {

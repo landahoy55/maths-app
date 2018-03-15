@@ -29,6 +29,8 @@
 		F00EBE35203D9BAD00125618 /* AuthorisationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE17203C235700125618 /* AuthorisationService.swift */; };
 		F00EBE36203D9BD000125618 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE15203C215000125618 /* Constants.swift */; };
 		F00EBE37203D9BD000125618 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE15203C215000125618 /* Constants.swift */; };
+		F037D17A205A9635004BE224 /* Emitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F037D179205A9635004BE224 /* Emitter.swift */; };
+		F037D17C205A9B46004BE224 /* ResultsPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F037D17B205A9B46004BE224 /* ResultsPopUpView.swift */; };
 		F07AFCED2048436000F37658 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */; };
 		F07AFCEF204D5ADE00F37658 /* menuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */; };
 		F07AFCF1204D7D5C00F37658 /* SubTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */; };
@@ -68,6 +70,12 @@
 		F0BF7F672052F98E005D4A27 /* ItunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BF7F4F2052F98E005D4A27 /* ItunesArtwork@2x.png */; };
 		F0BF7F692053FC07005D4A27 /* MidRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BF7F682053FC07005D4A27 /* MidRoundedButton.swift */; };
 		F0BF7FBF2056ADF2005D4A27 /* UNService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BF7FBE2056ADF2005D4A27 /* UNService.swift */; };
+		F0C871F6205969BF00B5AC34 /* DailyChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C871F5205969BF00B5AC34 /* DailyChallengeViewController.swift */; };
+		F0C872002059870400B5AC34 /* ChallengeGo.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C871FF2059870400B5AC34 /* ChallengeGo.xib */; };
+		F0C872022059873B00B5AC34 /* ChallengeGo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C872012059873B00B5AC34 /* ChallengeGo.swift */; };
+		F0C872042059880B00B5AC34 /* ChallengeNo.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C872032059880B00B5AC34 /* ChallengeNo.xib */; };
+		F0C872062059881900B5AC34 /* ChallengeNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C872052059881900B5AC34 /* ChallengeNo.swift */; };
+		F0C872082059E53F00B5AC34 /* testAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C872072059E53F00B5AC34 /* testAnimation.swift */; };
 		F0F854BD20459B8B007A794A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854BC20459B8B007A794A /* DataService.swift */; };
 		F0F854C12045B3A8007A794A /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854C02045B3A8007A794A /* Topic.swift */; };
 		F0F854C32045B3B9007A794A /* SubTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854C22045B3B9007A794A /* SubTopic.swift */; };
@@ -122,6 +130,8 @@
 		F00EBE28203C808B00125618 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		F00EBE2A203D7B2D00125618 /* onboarding.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = onboarding.xib; sourceTree = "<group>"; };
 		F00EBE32203D80A900125618 /* onboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingView.swift; sourceTree = "<group>"; };
+		F037D179205A9635004BE224 /* Emitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emitter.swift; sourceTree = "<group>"; };
+		F037D17B205A9B46004BE224 /* ResultsPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPopUpView.swift; sourceTree = "<group>"; };
 		F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCollectionViewCell.swift; sourceTree = "<group>"; };
 		F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopicViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +171,13 @@
 		F0BF7F4F2052F98E005D4A27 /* ItunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ItunesArtwork@2x.png"; sourceTree = "<group>"; };
 		F0BF7F682053FC07005D4A27 /* MidRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidRoundedButton.swift; sourceTree = "<group>"; };
 		F0BF7FBE2056ADF2005D4A27 /* UNService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNService.swift; sourceTree = "<group>"; };
+		F0BF7FC02056DACF005D4A27 /* Maths App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Maths App.entitlements"; sourceTree = "<group>"; };
+		F0C871F5205969BF00B5AC34 /* DailyChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChallengeViewController.swift; sourceTree = "<group>"; };
+		F0C871FF2059870400B5AC34 /* ChallengeGo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeGo.xib; sourceTree = "<group>"; };
+		F0C872012059873B00B5AC34 /* ChallengeGo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeGo.swift; sourceTree = "<group>"; };
+		F0C872032059880B00B5AC34 /* ChallengeNo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeNo.xib; sourceTree = "<group>"; };
+		F0C872052059881900B5AC34 /* ChallengeNo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeNo.swift; sourceTree = "<group>"; };
+		F0C872072059E53F00B5AC34 /* testAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testAnimation.swift; sourceTree = "<group>"; };
 		F0F854BC20459B8B007A794A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		F0F854C02045B3A8007A794A /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		F0F854C22045B3B9007A794A /* SubTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopic.swift; sourceTree = "<group>"; };
@@ -227,6 +244,7 @@
 		F00EBDE1203C1F1600125618 /* maths-app */ = {
 			isa = PBXGroup;
 			children = (
+				F0BF7FC02056DACF005D4A27 /* Maths App.entitlements */,
 			);
 			path = "maths-app";
 			sourceTree = "<group>";
@@ -282,6 +300,7 @@
 		F00EBE12203C1F8C00125618 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F037D179205A9635004BE224 /* Emitter.swift */,
 				F0F854CA2046C483007A794A /* slightRoundedButtons.swift */,
 				F00EBDEB203C1F1600125618 /* LaunchScreen.storyboard */,
 				F00EBDE6203C1F1600125618 /* Main.storyboard */,
@@ -292,6 +311,12 @@
 				F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */,
 				F07AFCF2204D81F500F37658 /* SubTopicCell.swift */,
 				F0BF7F682053FC07005D4A27 /* MidRoundedButton.swift */,
+				F0C871FF2059870400B5AC34 /* ChallengeGo.xib */,
+				F0C872012059873B00B5AC34 /* ChallengeGo.swift */,
+				F0C872032059880B00B5AC34 /* ChallengeNo.xib */,
+				F0C872052059881900B5AC34 /* ChallengeNo.swift */,
+				F0C872072059E53F00B5AC34 /* testAnimation.swift */,
+				F037D17B205A9B46004BE224 /* ResultsPopUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,6 +334,7 @@
 				F0F854D020470640007A794A /* InputAnswerViewController.swift */,
 				F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */,
 				F07AFCF4204D9A3F00F37658 /* HelpPromptViewController.swift */,
+				F0C871F5205969BF00B5AC34 /* DailyChallengeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -434,6 +460,14 @@
 					F00EBDDE203C1F1600125618 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					F00EBDF2203C1F1600125618 = {
 						CreatedOnToolsVersion = 9.2;
@@ -482,6 +516,7 @@
 				F0BF7F522052F98E005D4A27 /* Icon-App-20x20@2x.png in Resources */,
 				F00EBDED203C1F1600125618 /* LaunchScreen.storyboard in Resources */,
 				F0BF7F5F2052F98E005D4A27 /* Icon-App-72x72@1x.png in Resources */,
+				F0C872042059880B00B5AC34 /* ChallengeNo.xib in Resources */,
 				F0BF7F562052F98E005D4A27 /* Icon-App-29x29@3x.png in Resources */,
 				F0BF7F5E2052F98E005D4A27 /* Icon-App-60x60@3x.png in Resources */,
 				F0BF7F5B2052F98E005D4A27 /* Icon-App-57x57@2x.png in Resources */,
@@ -490,6 +525,7 @@
 				F0BF7F652052F98E005D4A27 /* Icon-Small-50x50@1x.png in Resources */,
 				F0BF7F602052F98E005D4A27 /* Icon-App-72x72@2x.png in Resources */,
 				F00EBE2B203D7B2D00125618 /* onboarding.xib in Resources */,
+				F0C872002059870400B5AC34 /* ChallengeGo.xib in Resources */,
 				F00EBDE8203C1F1600125618 /* Main.storyboard in Resources */,
 				F0BF7F672052F98E005D4A27 /* ItunesArtwork@2x.png in Resources */,
 				F0BF7F632052F98E005D4A27 /* Icon-App-76x76@3x.png in Resources */,
@@ -524,12 +560,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C871F6205969BF00B5AC34 /* DailyChallengeViewController.swift in Sources */,
 				F0F854CB2046C483007A794A /* slightRoundedButtons.swift in Sources */,
 				F0934EE82050043D007A4295 /* ParentTopic.swift in Sources */,
 				F00EBE1E203C4B3B00125618 /* LoginViewController.swift in Sources */,
+				F0C872062059881900B5AC34 /* ChallengeNo.swift in Sources */,
 				F0F854CF2046DB1A007A794A /* UIView+Extensions.swift in Sources */,
 				F07AFCEF204D5ADE00F37658 /* menuCollectionViewCell.swift in Sources */,
 				F0F854BD20459B8B007A794A /* DataService.swift in Sources */,
+				F037D17A205A9635004BE224 /* Emitter.swift in Sources */,
 				F0934EF520504AE7007A4295 /* RetreivedTopic.swift in Sources */,
 				F0F854D120470640007A794A /* InputAnswerViewController.swift in Sources */,
 				F00EBE27203C7CBB00125618 /* RoundedButton.swift in Sources */,
@@ -541,9 +580,11 @@
 				F00EBE20203C4B4E00125618 /* RegisterViewController.swift in Sources */,
 				F0F854C12045B3A8007A794A /* Topic.swift in Sources */,
 				F00EBE22203C4E5A00125618 /* HomeViewController.swift in Sources */,
+				F037D17C205A9B46004BE224 /* ResultsPopUpView.swift in Sources */,
 				F0934EF32050446E007A4295 /* RetreivedTopicResult.swift in Sources */,
 				F0934EEF20502F44007A4295 /* TopicResult.swift in Sources */,
 				F00EBE1C203C4B2700125618 /* MenuViewController.swift in Sources */,
+				F0C872022059873B00B5AC34 /* ChallengeGo.swift in Sources */,
 				F0BF7F362052CE93005D4A27 /* Account.swift in Sources */,
 				F07AFCED2048436000F37658 /* UILabel+Extensions.swift in Sources */,
 				F0F854D520470811007A794A /* MultipleChoiceViewController.swift in Sources */,
@@ -552,6 +593,7 @@
 				F00EBE18203C235700125618 /* AuthorisationService.swift in Sources */,
 				F00EBE16203C215000125618 /* Constants.swift in Sources */,
 				F07AFCF5204D9A3F00F37658 /* HelpPromptViewController.swift in Sources */,
+				F0C872082059E53F00B5AC34 /* testAnimation.swift in Sources */,
 				F07AFCF1204D7D5C00F37658 /* SubTopicViewController.swift in Sources */,
 				F0BF7F692053FC07005D4A27 /* MidRoundedButton.swift in Sources */,
 				F00EBE25203C792600125618 /* View+Extension.swift in Sources */,
@@ -730,6 +772,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "maths-app/Maths App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YRYEG2DL8;
 				INFOPLIST_FILE = Resources/Info.plist;
@@ -745,6 +788,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "maths-app/Maths App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YRYEG2DL8;
 				INFOPLIST_FILE = Resources/Info.plist;

@@ -10,7 +10,7 @@ import UIKit
 import UserNotifications
 
 class MultipleChoiceViewController: UIViewController {
-    
+        
     //injected on load
     var subTopic: SubTopic?
     var subResult: RetreivedSubtopicResult?
@@ -39,6 +39,7 @@ class MultipleChoiceViewController: UIViewController {
     
     
     //MARK: - RESULTS POPUP
+    
     @IBOutlet var resultsPopup: UIView!
     @IBOutlet weak var popupScoreLabel: UILabel!
     
@@ -176,11 +177,31 @@ class MultipleChoiceViewController: UIViewController {
         
         //update score label
         scoreLabel.text = String(questionIndex)
+  
+        //add emitter to view
+        if questionIndex == 5 {
+            let emitter = Emitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopup.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopup.frame.width, height: 1)
+            resultsPopup.layer.addSublayer(emitter)
+        }
         
         //adding popup subview
         resultsPopup.center = view.center
+        //transparent
+        resultsPopup.alpha = 0
+        //add to view
         view.addSubview(resultsPopup)
-        popupScoreLabel.text = String(questionIndex)
+        //animate opactiy back to 1
+        
+        UIView.animate(withDuration: 1, animations: {
+            self.resultsPopup.alpha = 1
+        }) { (success) in
+            //animate stars
+        }
+        
+        popupScoreLabel.text = "\(questionIndex)/5"
+        
         
         timer.invalidate() //timer was running between screens
         recordSubTopicResult()

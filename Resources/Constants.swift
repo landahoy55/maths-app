@@ -32,6 +32,9 @@ let PUT_SUBTOPIC_RESULT = "\(BASE_API_URL)/subtopicresult/postresult/"
 let GET_TOPIC_RESULT = "\(BASE_API_URL)/topicresult/getandpopulatebyid/"
 let POST_TOPIC_RESULT = "\(BASE_API_URL)/topicresult/postresult"
 let PUT_TOPIC_RESULT = "\(BASE_API_URL)/topicresult/postresult/"
+
+let POST_TOKEN = "\(BASE_API_URL)/apns/deviceids"
+
 //User Defaults Set Up
 
 //Bools
