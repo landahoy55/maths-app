@@ -21,7 +21,6 @@ class SubTopicCell: UITableViewCell {
     @IBOutlet weak var stageLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
-    
     var subT: SubTopic!
     var delegate: SubTopicCellDelegate?
     
