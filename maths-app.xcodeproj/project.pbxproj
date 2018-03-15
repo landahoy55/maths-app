@@ -31,6 +31,7 @@
 		F00EBE37203D9BD000125618 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00EBE15203C215000125618 /* Constants.swift */; };
 		F037D17A205A9635004BE224 /* Emitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F037D179205A9635004BE224 /* Emitter.swift */; };
 		F037D17C205A9B46004BE224 /* ResultsPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F037D17B205A9B46004BE224 /* ResultsPopUpView.swift */; };
+		F037D17E205AA8E4004BE224 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F037D17D205AA8E4004BE224 /* RoundButton.swift */; };
 		F07AFCED2048436000F37658 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */; };
 		F07AFCEF204D5ADE00F37658 /* menuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */; };
 		F07AFCF1204D7D5C00F37658 /* SubTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */; };
@@ -132,6 +133,7 @@
 		F00EBE32203D80A900125618 /* onboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingView.swift; sourceTree = "<group>"; };
 		F037D179205A9635004BE224 /* Emitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emitter.swift; sourceTree = "<group>"; };
 		F037D17B205A9B46004BE224 /* ResultsPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPopUpView.swift; sourceTree = "<group>"; };
+		F037D17D205AA8E4004BE224 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCollectionViewCell.swift; sourceTree = "<group>"; };
 		F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopicViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				F0C872052059881900B5AC34 /* ChallengeNo.swift */,
 				F0C872072059E53F00B5AC34 /* testAnimation.swift */,
 				F037D17B205A9B46004BE224 /* ResultsPopUpView.swift */,
+				F037D17D205AA8E4004BE224 /* RoundButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				F0F854CB2046C483007A794A /* slightRoundedButtons.swift in Sources */,
 				F0934EE82050043D007A4295 /* ParentTopic.swift in Sources */,
 				F00EBE1E203C4B3B00125618 /* LoginViewController.swift in Sources */,
+				F037D17E205AA8E4004BE224 /* RoundButton.swift in Sources */,
 				F0C872062059881900B5AC34 /* ChallengeNo.swift in Sources */,
 				F0F854CF2046DB1A007A794A /* UIView+Extensions.swift in Sources */,
 				F07AFCEF204D5ADE00F37658 /* menuCollectionViewCell.swift in Sources */,

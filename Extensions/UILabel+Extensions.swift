@@ -42,6 +42,12 @@ extension UILabel {
         self.layer.removeAllAnimations()
         alpha = 1
     }
+    
+    func fadeIn() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.alpha = 1
+        })
+    }
 
     func nukeAllAnimations() {
         

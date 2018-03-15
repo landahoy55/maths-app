@@ -39,9 +39,16 @@ class MultipleChoiceViewController: UIViewController {
     
     
     //MARK: - RESULTS POPUP
-    
+    var stars = [UILabel]()
     @IBOutlet var resultsPopup: UIView!
     @IBOutlet weak var popupScoreLabel: UILabel!
+    @IBOutlet weak var popupScoreTitle: UILabel!
+    @IBOutlet weak var star1: UILabel!
+    @IBOutlet weak var start2: UILabel!
+    @IBOutlet weak var star3: UILabel!
+    @IBOutlet weak var star4: UILabel!
+    @IBOutlet weak var star5: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +59,11 @@ class MultipleChoiceViewController: UIViewController {
         buttons.append(answerButton2)
         buttons.append(answerButton3)
         
+        stars.append(star1)
+        stars.append(start2)
+        stars.append(star3)
+        stars.append(star4)
+        stars.append(star5)
         
         loadQuestions()
         
@@ -91,6 +103,15 @@ class MultipleChoiceViewController: UIViewController {
     //including buttons
     func setQuestionLayout() {
         currentQuestion = subTopic?.questions[questionIndex]
+        
+        questionLabel.text = currentQuestion.question
+        
+        //animate in question
+        questionLabel.alpha = 0
+        UIView.animate(withDuration: 0.7) {
+            self.questionLabel.alpha = 1
+        }
+        
         questionLabel.text = currentQuestion.question
         
         for (index, button) in buttons.enumerated() {
@@ -179,11 +200,29 @@ class MultipleChoiceViewController: UIViewController {
         scoreLabel.text = String(questionIndex)
   
         //add emitter to view
-        if questionIndex == 5 {
+        if questionIndex >= 4 {
             let emitter = Emitter.createEmitter()
             emitter.emitterPosition = CGPoint(x: resultsPopup.frame.width / 2.0, y: 0)
             emitter.emitterSize = CGSize(width: resultsPopup.frame.width, height: 1)
             resultsPopup.layer.addSublayer(emitter)
+        }
+        
+        //set score label test
+        switch questionIndex {
+        case 0:
+            popupScoreTitle.text = "Oops"
+        case 1:
+            popupScoreTitle.text = "Keep trying"
+        case 2:
+            popupScoreTitle.text = "Go again!"
+        case 3:
+            popupScoreTitle.text = "Almost there"
+        case 4:
+            popupScoreTitle.text = "Great!"
+        case 5:
+            popupScoreTitle.text = "Awesome!!"
+        default:
+            popupScoreTitle.text = "Score"
         }
         
         //adding popup subview
@@ -194,10 +233,16 @@ class MultipleChoiceViewController: UIViewController {
         view.addSubview(resultsPopup)
         //animate opactiy back to 1
         
+        //fade in popup
+        //then fade in stars representing scores
         UIView.animate(withDuration: 1, animations: {
             self.resultsPopup.alpha = 1
         }) { (success) in
-            //animate stars
+            for (index, star) in self.stars.enumerated() {
+                if index <= self.questionIndex - 1 {
+                    star.fadeIn()
+                }
+            }
         }
         
         popupScoreLabel.text = "\(questionIndex)/5"
