@@ -10,30 +10,38 @@ import UIKit
 
 class DailyChallengeViewController: UIViewController {
     
+    var dataService = DataService.instance
+    var dailyChallenge: DailyChallenge?
     
     @IBOutlet var challengeNotAvailableView: UIView!
     @IBOutlet weak var viewToShow: UIView!
     @IBOutlet weak var playButton: RoundButton!
-    
     @IBOutlet weak var pulseView: UIView!
     
-    let isAvilable = true
-
+    var isAvailable = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        guard isAvilable else {
+        //check to see if a challenge is available
+        //pass to var
+        if (dataService.downloadedChallenge != nil) {
+            isAvailable = true
+            dailyChallenge = dataService.downloadedChallenge
+        }
+        
+        //show not available view if no challenge is present
+        if !isAvailable {
             challengeNotAvailableView.center = viewToShow.center
             viewToShow.addSubview(challengeNotAvailableView)
-            return
         }
         
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        //pulse play button
         animatePulseView()
     }
     
@@ -52,4 +60,9 @@ class DailyChallengeViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func playChallenge(_ sender: UIButton) {
+        print("Go time!")
+    }
+    
 }

@@ -33,6 +33,8 @@ let GET_TOPIC_RESULT = "\(BASE_API_URL)/topicresult/getandpopulatebyid/"
 let POST_TOPIC_RESULT = "\(BASE_API_URL)/topicresult/postresult"
 let PUT_TOPIC_RESULT = "\(BASE_API_URL)/topicresult/postresult/"
 
+let GET_DAILY_CHALLENGE = "\(BASE_API_URL)/dailychallenge/today/"
+
 let POST_TOKEN = "\(BASE_API_URL)/apns/deviceids"
 
 //User Defaults Set Up

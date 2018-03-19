@@ -25,8 +25,10 @@ class DataService {
     var downloadedTopics = [Topic]()
     var downloadedSubTopicResults = [RetreivedSubtopicResult]()
     var downloadedTopicResults = [RetreivedTopicResult]()
+    var downloadedChallenge: DailyChallenge?
     var recentSubTopicResult: String?
     var accountDetails: Account?
+    
     
     //register device token
     func registerDeviceToken(device token: String){
@@ -466,7 +468,6 @@ class DataService {
                     let result = try JSONDecoder().decode([RetreivedTopicResult].self, from: data)
                     print(result)
                     
-                    //TODO:WORK WITH RESULT
                     self.downloadedTopicResults = result
                     self.delegate?.topicResultsLoaded()
                     completion(true)
@@ -626,4 +627,54 @@ class DataService {
         }
         
     }
+    
+    
+    //Daily Challenge
+    //Get challenge
+    func getDailyChallenge(completion: @escaping callback) {
+        
+        //create date string
+        let date = Date() //now
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYYMMdd"
+        let dateAsString = dateFormatter.string(from: date)
+        
+        //create session
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+        
+        //URL
+        guard let URL = URL(string: "\(GET_DAILY_CHALLENGE)\(dateAsString)") else { return }
+        
+        //Request
+        var request = URLRequest(url: URL)
+        request.httpMethod = "GET"
+        
+        //task
+        let task = session.dataTask(with: request) { (data, response, err) in
+            
+            if (err == nil) {
+                
+                guard let data = data else { return }
+                
+                do {
+                    let result = try JSONDecoder().decode(DailyChallenge.self, from: data)
+                    print("*****DAILY CHALLENGE *****",result)
+                    self.downloadedChallenge = result
+                    completion(true)
+                } catch let jsonErr {
+                    print("Error serializing json", jsonErr)
+                    completion(false)
+                }
+             } else {
+                print("task failed: \(String(describing: err?.localizedDescription))")
+                    completion(false)
+                }
+        }
+        
+        //to end task
+        task.resume()
+        session.finishTasksAndInvalidate()
+    }
+    
 }

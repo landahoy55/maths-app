@@ -30,6 +30,7 @@ class SubTopicCell: UITableViewCell {
         topicTitleLabel.text = subTopic.title
         stageLabel.text = "Stage \(subTopic.stage)"
         if let score = score {
+            print("CELL SCORE ON CREATION....", score)
             scoreLabel.text = "\(score)/5"
         } else {
             scoreLabel.text = "0/0"

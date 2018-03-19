@@ -21,7 +21,14 @@ class SubTopicViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var navbarTitle: UINavigationItem!
-    //@IBOutlet weak var testView: testAnimation!
+
+    
+    //Animations
+    @IBOutlet weak var stageOneConstaint: NSLayoutConstraint!
+    @IBOutlet weak var stageTwoContraint: NSLayoutConstraint!
+    @IBOutlet weak var stageThreeConstraint: NSLayoutConstraint!
+    @IBOutlet weak var stageFourContraint: NSLayoutConstraint!
+    @IBOutlet weak var stageFiveConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +44,86 @@ class SubTopicViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.reloadData()
+        
+        print("View did appear")
+        
+        //constraint scores
+        //loop over results and create constaints.
+        var constraints = [Int]()
+        if let results = self.subTopicResults  {
+            for result in results {
+                let constraint = topAnchorContant(score: result.score)
+                constraints.append(constraint)
+            }
+        }
+        
+        
+        //animate one
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseOut, animations: {
+            
+            //animate autolayout
+            let constraintSize = constraints.count >= 0 ? CGFloat(constraints[0]) : CGFloat(40)
+            self.stageOneConstaint.constant = constraintSize
+            self.view.layoutIfNeeded()
+            print(self.stageOneConstaint.constant)
+        }, completion: { finished in
+    
+        })
+        
+        //animate two
+        UIView.animate(withDuration: 1, delay: 0.2, options: .curveEaseOut, animations: {
+            
+            //animate autolayout
+            let constraintSize = constraints.count >= 1 ? CGFloat(constraints[1]) : CGFloat(40)
+            self.stageTwoContraint.constant = constraintSize
+            self.view.layoutIfNeeded()
+            print(self.stageTwoContraint.constant)
+        }, completion: { finished in
+            
+        })
+        
+        
+        //animate three
+        UIView.animate(withDuration: 1, delay: 0.4, options: .curveEaseOut, animations: {
+            
+            //animate autolayout
+            let constraintSize = constraints.count >= 2 ? CGFloat(constraints[2]) : CGFloat(40)
+            self.stageThreeConstraint.constant = constraintSize
+            self.view.layoutIfNeeded()
+            print(self.stageThreeConstraint.constant)
+        }, completion: { finished in
+            
+        })
+        
+        //animate four
+        UIView.animate(withDuration: 1, delay: 0.6, options: .curveEaseOut, animations: {
+            
+            //animate autolayout
+            let constraintSize = constraints.count >= 3 ? CGFloat(constraints[3]) : CGFloat(40)
+            self.stageFourContraint.constant = constraintSize
+            self.view.layoutIfNeeded()
+            print(self.stageFourContraint.constant)
+        }, completion: { finished in
+            
+        })
+        
+        //animate five
+        UIView.animate(withDuration: 1, delay: 0.8, options: .curveEaseOut, animations: {
+            
+            //animate autolayout
+            let constraintSize = constraints.count >= 4 ? CGFloat(constraints[4]) : CGFloat(40)
+            self.stageFiveConstraint.constant = constraintSize
+            self.view.layoutIfNeeded()
+            print(self.stageFiveConstraint.constant)
+        }, completion: { finished in
+            
+        })
+    }
+    
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,9 +136,6 @@ class SubTopicViewController: UIViewController {
         tableView.reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        //testView.animate()
-    }
     
     //segue logic
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -84,6 +168,27 @@ class SubTopicViewController: UIViewController {
         }
     }
 
+    //calculate top anchor constant
+    func topAnchorContant(score: Int) ->  Int {
+        
+        switch score {
+        case 0:
+            return 40
+        case 1:
+            return 32
+        case 2:
+            return 24
+        case 3:
+            return 16
+        case 4:
+            return 8
+        case 5:
+            return 0
+        default:
+            return 40
+        }
+    }
+    
 
     //Find a result that matches the current topic - is this what is causing the delay?
     func subtopicResult(results: [RetreivedSubtopicResult], subTopicID: String) -> RetreivedSubtopicResult? {
@@ -134,9 +239,13 @@ extension SubTopicViewController: UITableViewDataSource, UITableViewDelegate {
             for result in subTopicResults {
                 if result.subtopic._id == subTopics![indexPath.row]._id {
                     score = result.score
+                    print("SUBTOPIC ID...", result.subtopic._id)
+                    print("SCORE IN LOOP...", score!)
                 }
             }
         }
+        
+        print("CELL SCORE AT CELL FOR ROW AT....", score!)
         
         //is there a way to avoid the force?
         cell.setSubTopics(subTopic: subTopics![indexPath.row], score: score )
