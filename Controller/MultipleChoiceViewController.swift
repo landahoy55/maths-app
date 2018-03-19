@@ -84,14 +84,6 @@ class MultipleChoiceViewController: UIViewController {
     }
 
     func loadQuestions() {
-        // Falling through...
-        //        if questionIndex <= 6 {
-        //            currentQuestion = subTopic?.questions[questionIndex]
-        //            setQuestionLayout()
-        //        } else {
-        //            dismiss(animated: true, completion: nil)
-        //        }
-        
         //unwrap optional, perform ternary operator
         //close when question index reaches count of questions.
         if let subT = subTopic {
@@ -165,7 +157,6 @@ class MultipleChoiceViewController: UIViewController {
         }
     }
     
-    //refactor to show popup
     fileprivate func scheduleNotificaion() {
         //check to see if permissions granted - 2 is granted
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
@@ -184,9 +175,7 @@ class MultipleChoiceViewController: UIViewController {
                         print("Pending requests ******** \(request.identifier)")
                     }
                 })
-                
             }
-            
         }
     }
     
@@ -312,8 +301,6 @@ class MultipleChoiceViewController: UIViewController {
                 }
             }
         }
-        
-        //redownload results
     }
     
     //create or update topic result

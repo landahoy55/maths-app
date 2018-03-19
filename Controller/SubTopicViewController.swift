@@ -68,6 +68,7 @@ class SubTopicViewController: UIViewController {
                 
                 let inputAnswerViewController = segue.destination as! InputAnswerViewController
                 inputAnswerViewController.subTopic = subTopicToPass
+                inputAnswerViewController.subResult = resultToPass
               
                 
             case "multipleChoiceSegue":
