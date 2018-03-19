@@ -15,4 +15,5 @@ struct SubTopic: Codable {
     let questions: [Question]
     let parentTopic: ParentTopic
     let _id: String
+    let quizType: String
 }

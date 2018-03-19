@@ -25,9 +25,6 @@ class SubTopicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(navigationController?.title ?? "No navbar title")
-        print(tabBarController?.title ?? "No tabbar title")
 
         //Title - taken from first sub parent.
         guard let subT = subTopics else { return }
@@ -35,15 +32,12 @@ class SubTopicViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        print("******* JUST ADDED TYPE ********",(subT[0].quizType))
+        
     }
     
-    //    override func viewDidAppear(_ animated: Bool) {
-    //
-    //        print("**** View did appear \n Subtopic menu *********")
-    //        //refresh tableview following activity
-    //        subTopicResults = DataService.instance.downloadedSubTopicResults
-    //        tableView.reloadData()
-    //    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         print("**** View will appear \n Subtopic menu *********")
@@ -62,6 +56,8 @@ class SubTopicViewController: UIViewController {
     //segue logic
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
+        //TODO: HANDLE ERROR/DEFAULT SEGUE
+        
         //Go to quizzes
         if let identifier = segue.identifier {
             switch identifier {
@@ -69,10 +65,12 @@ class SubTopicViewController: UIViewController {
                 let helpPromptViewController = segue.destination as! HelpPromptViewController
                 helpPromptViewController.topic = subTopicToPass
             case "inputSegue":
-                return
-            case "multipleChoiceSegue":
                 
-                print("************* prepare for segue")
+                let inputAnswerViewController = segue.destination as! InputAnswerViewController
+                inputAnswerViewController.subTopic = subTopicToPass
+              
+                
+            case "multipleChoiceSegue":
                 
                 let multipleChoiceViewController = segue.destination as! MultipleChoiceViewController
                 print("RESULT TO PASS ******** \(String(describing: resultToPass))")
@@ -163,10 +161,12 @@ extension SubTopicViewController: UITableViewDataSource, UITableViewDelegate {
         
         print("************* didSelectRow pre segue")
         
+        let segue = "\(subTopicToPass.quizType)Segue"
+        
         //Performing segue on main thread.
         //Was rendering UI on backgrond thread causing a delay.
         OperationQueue.main.addOperation {
-            self.performSegue(withIdentifier: "multipleChoiceSegue", sender: self)
+            self.performSegue(withIdentifier: segue, sender: self)
         }
     }
     
