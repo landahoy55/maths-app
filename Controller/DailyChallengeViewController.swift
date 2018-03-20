@@ -45,6 +45,21 @@ class DailyChallengeViewController: UIViewController {
         animatePulseView()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if let identifier = segue.identifier {
+            
+            switch identifier {
+                case "multipleChoiceSegue":
+                let multipleChoiceViewController = segue.destination as! MultipleChoiceViewController
+                multipleChoiceViewController.dailyChallenge = dailyChallenge
+                default: return
+            }
+            
+        }
+        
+    }
+    
     func animatePulseView(){
         
         pulseView.alpha = 0.6
@@ -62,7 +77,9 @@ class DailyChallengeViewController: UIViewController {
     }
     
     @IBAction func playChallenge(_ sender: UIButton) {
-        print("Go time!")
+
+        performSegue(withIdentifier: "multipleChoiceSegue", sender: self)
+
     }
     
 }

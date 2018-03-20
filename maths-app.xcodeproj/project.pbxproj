@@ -33,6 +33,7 @@
 		F037D17C205A9B46004BE224 /* ResultsPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F037D17B205A9B46004BE224 /* ResultsPopUpView.swift */; };
 		F037D17E205AA8E4004BE224 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F037D17D205AA8E4004BE224 /* RoundButton.swift */; };
 		F05C37682060046E004F39F7 /* DailyChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C37672060046E004F39F7 /* DailyChallenge.swift */; };
+		F05C698C20611A8D0057A6B0 /* VoiceInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C698B20611A8D0057A6B0 /* VoiceInputViewController.swift */; };
 		F07AFCED2048436000F37658 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */; };
 		F07AFCEF204D5ADE00F37658 /* menuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */; };
 		F07AFCF1204D7D5C00F37658 /* SubTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */; };
@@ -136,6 +137,7 @@
 		F037D17B205A9B46004BE224 /* ResultsPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPopUpView.swift; sourceTree = "<group>"; };
 		F037D17D205AA8E4004BE224 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		F05C37672060046E004F39F7 /* DailyChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChallenge.swift; sourceTree = "<group>"; };
+		F05C698B20611A8D0057A6B0 /* VoiceInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputViewController.swift; sourceTree = "<group>"; };
 		F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCollectionViewCell.swift; sourceTree = "<group>"; };
 		F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopicViewController.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */,
 				F07AFCF4204D9A3F00F37658 /* HelpPromptViewController.swift */,
 				F0C871F5205969BF00B5AC34 /* DailyChallengeViewController.swift */,
+				F05C698B20611A8D0057A6B0 /* VoiceInputViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				F07AFCF3204D81F600F37658 /* SubTopicCell.swift in Sources */,
 				F00EBE29203C808B00125618 /* UIButton+Extensions.swift in Sources */,
 				F00EBE33203D80A900125618 /* onboardingView.swift in Sources */,
+				F05C698C20611A8D0057A6B0 /* VoiceInputViewController.swift in Sources */,
 				F00EBE1A203C46BE00125618 /* InitialViewController.swift in Sources */,
 				F0F854C32045B3B9007A794A /* SubTopic.swift in Sources */,
 				F05C37682060046E004F39F7 /* DailyChallenge.swift in Sources */,

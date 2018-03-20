@@ -98,6 +98,9 @@ class HomeViewController: UIViewController {
                 
                 //pass correct results if any.
             
+            case "voiceSegue":
+                let voiceInputViewController = segue.destination as! VoiceInputViewController
+                
             default:
                 return
             }
@@ -150,7 +153,11 @@ class HomeViewController: UIViewController {
         present(helpPopUp, animated: true, completion: nil)
     }
     
-
+    @IBAction func voiceButton(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "voiceSegue", sender: self)
+    }
+    
 }
 
 //Custom dataservice delegate - utilse elsewhere to force UI refresh, or retreive data.

@@ -15,6 +15,10 @@ class MultipleChoiceViewController: UIViewController {
     var subTopic: SubTopic?
     var subResult: RetreivedSubtopicResult?
     
+    //daily challenge inject
+    var dailyChallenge: DailyChallenge?
+    
+    
     //count
     var questionIndex = 0
     //current question - optional to start with.
@@ -87,14 +91,28 @@ class MultipleChoiceViewController: UIViewController {
         //unwrap optional, perform ternary operator
         //close when question index reaches count of questions.
         if let subT = subTopic {
+            print("****** SUBTOPIC FOUND")
             questionIndex < subT.questions.count ? setQuestionLayout() : close()
+        }
+        
+        if let dailyChallenge = dailyChallenge {
+            print("****** DAILYCHALLENGE FOUND")
+            questionIndex < dailyChallenge.questions.count ? setQuestionLayout() : close()
         }
         
     }
     
     //including buttons
     func setQuestionLayout() {
-        currentQuestion = subTopic?.questions[questionIndex]
+        
+        if subTopic != nil {
+            currentQuestion = subTopic?.questions[questionIndex]
+
+        }
+        
+        if dailyChallenge != nil {
+            currentQuestion = dailyChallenge?.questions[questionIndex]
+        }
         
         questionLabel.text = currentQuestion.question
         
@@ -238,13 +256,21 @@ class MultipleChoiceViewController: UIViewController {
         
         
         timer.invalidate() //timer was running between screens
-        recordSubTopicResult()
-
-        //authorise notification
-        UNService.instance.authorise()
         
-        //schedule with check for authorisation
-        scheduleNotificaion()
+        
+        
+        //MARK: LOGGING RESULTS HERE
+        
+        if subTopic != nil {
+            recordSubTopicResult()
+            
+            //authorise notification
+            UNService.instance.authorise()
+            
+            //schedule with check for authorisation
+            scheduleNotificaion()
+        }
+        
 
     }
     
