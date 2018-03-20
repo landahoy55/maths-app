@@ -100,6 +100,7 @@ class HomeViewController: UIViewController {
             
             case "voiceSegue":
                 let voiceInputViewController = segue.destination as! VoiceInputViewController
+                voiceInputViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[0]
                 
             default:
                 return

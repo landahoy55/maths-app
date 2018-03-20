@@ -82,9 +82,9 @@ class MultipleChoiceViewController: UIViewController {
         startTimer()
         
         //debugging code - remove
-        if let subT = subTopic {
-            print(subT.questions[0].question)
-        }
+        //        if let subT = subTopic {
+        //            print(subT.questions[0].question)
+        //        }
     }
 
     func loadQuestions() {
