@@ -34,6 +34,15 @@
 		F037D17E205AA8E4004BE224 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F037D17D205AA8E4004BE224 /* RoundButton.swift */; };
 		F05C37682060046E004F39F7 /* DailyChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C37672060046E004F39F7 /* DailyChallenge.swift */; };
 		F05C698C20611A8D0057A6B0 /* VoiceInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C698B20611A8D0057A6B0 /* VoiceInputViewController.swift */; };
+		F05C6999206279AC0057A6B0 /* microphone-0.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C698F206279AB0057A6B0 /* microphone-0.png */; };
+		F05C699A206279AC0057A6B0 /* microphone-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6990206279AB0057A6B0 /* microphone-0@2x.png */; };
+		F05C699B206279AC0057A6B0 /* microphone-0@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6991206279AB0057A6B0 /* microphone-0@3x.png */; };
+		F05C699C206279AC0057A6B0 /* microphone-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6992206279AB0057A6B0 /* microphone-1.png */; };
+		F05C699D206279AC0057A6B0 /* microphone-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6993206279AB0057A6B0 /* microphone-1@2x.png */; };
+		F05C699E206279AC0057A6B0 /* microphone-1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6994206279AB0057A6B0 /* microphone-1@3x.png */; };
+		F05C699F206279AC0057A6B0 /* microphone-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6995206279AB0057A6B0 /* microphone-2.png */; };
+		F05C69A0206279AC0057A6B0 /* microphone-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6996206279AB0057A6B0 /* microphone-2@2x.png */; };
+		F05C69A1206279AC0057A6B0 /* microphone-2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6997206279AB0057A6B0 /* microphone-2@3x.png */; };
 		F07AFCED2048436000F37658 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */; };
 		F07AFCEF204D5ADE00F37658 /* menuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */; };
 		F07AFCF1204D7D5C00F37658 /* SubTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */; };
@@ -138,6 +147,15 @@
 		F037D17D205AA8E4004BE224 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		F05C37672060046E004F39F7 /* DailyChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChallenge.swift; sourceTree = "<group>"; };
 		F05C698B20611A8D0057A6B0 /* VoiceInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputViewController.swift; sourceTree = "<group>"; };
+		F05C698F206279AB0057A6B0 /* microphone-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-0.png"; sourceTree = "<group>"; };
+		F05C6990206279AB0057A6B0 /* microphone-0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-0@2x.png"; sourceTree = "<group>"; };
+		F05C6991206279AB0057A6B0 /* microphone-0@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-0@3x.png"; sourceTree = "<group>"; };
+		F05C6992206279AB0057A6B0 /* microphone-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-1.png"; sourceTree = "<group>"; };
+		F05C6993206279AB0057A6B0 /* microphone-1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-1@2x.png"; sourceTree = "<group>"; };
+		F05C6994206279AB0057A6B0 /* microphone-1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-1@3x.png"; sourceTree = "<group>"; };
+		F05C6995206279AB0057A6B0 /* microphone-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-2.png"; sourceTree = "<group>"; };
+		F05C6996206279AB0057A6B0 /* microphone-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-2@2x.png"; sourceTree = "<group>"; };
+		F05C6997206279AB0057A6B0 /* microphone-2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-2@3x.png"; sourceTree = "<group>"; };
 		F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCollectionViewCell.swift; sourceTree = "<group>"; };
 		F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopicViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +294,7 @@
 		F00EBE10203C1F7A00125618 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F05C698D206279AB0057A6B0 /* microphone */,
 				F00EBDE9203C1F1600125618 /* Assets.xcassets */,
 				F0BF7F372052F98E005D4A27 /* AppIcon.appiconset */,
 				F00EBDEE203C1F1600125618 /* Info.plist */,
@@ -367,6 +386,22 @@
 				F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F05C698D206279AB0057A6B0 /* microphone */ = {
+			isa = PBXGroup;
+			children = (
+				F05C698F206279AB0057A6B0 /* microphone-0.png */,
+				F05C6990206279AB0057A6B0 /* microphone-0@2x.png */,
+				F05C6991206279AB0057A6B0 /* microphone-0@3x.png */,
+				F05C6992206279AB0057A6B0 /* microphone-1.png */,
+				F05C6993206279AB0057A6B0 /* microphone-1@2x.png */,
+				F05C6994206279AB0057A6B0 /* microphone-1@3x.png */,
+				F05C6995206279AB0057A6B0 /* microphone-2.png */,
+				F05C6996206279AB0057A6B0 /* microphone-2@2x.png */,
+				F05C6997206279AB0057A6B0 /* microphone-2@3x.png */,
+			);
+			path = microphone;
 			sourceTree = "<group>";
 		};
 		F0BF7F372052F98E005D4A27 /* AppIcon.appiconset */ = {
@@ -516,10 +551,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0BF7F622052F98E005D4A27 /* Icon-App-76x76@2x.png in Resources */,
+				F05C699C206279AC0057A6B0 /* microphone-1.png in Resources */,
 				F0BF7F5D2052F98E005D4A27 /* Icon-App-60x60@2x.png in Resources */,
 				F0BF7F552052F98E005D4A27 /* Icon-App-29x29@2x.png in Resources */,
 				F0BF7F5C2052F98E005D4A27 /* Icon-App-60x60@1x.png in Resources */,
 				F0BF7F642052F98E005D4A27 /* Icon-App-83.5x83.5@2x.png in Resources */,
+				F05C699B206279AC0057A6B0 /* microphone-0@3x.png in Resources */,
 				F0BF7F502052F98E005D4A27 /* Contents.json in Resources */,
 				F0BF7F5A2052F98E005D4A27 /* Icon-App-57x57@1x.png in Resources */,
 				F0BF7F522052F98E005D4A27 /* Icon-App-20x20@2x.png in Resources */,
@@ -528,23 +565,30 @@
 				F0C872042059880B00B5AC34 /* ChallengeNo.xib in Resources */,
 				F0BF7F562052F98E005D4A27 /* Icon-App-29x29@3x.png in Resources */,
 				F0BF7F5E2052F98E005D4A27 /* Icon-App-60x60@3x.png in Resources */,
+				F05C699D206279AC0057A6B0 /* microphone-1@2x.png in Resources */,
 				F0BF7F5B2052F98E005D4A27 /* Icon-App-57x57@2x.png in Resources */,
 				F0BF7F532052F98E005D4A27 /* Icon-App-20x20@3x.png in Resources */,
 				F00EBDEA203C1F1600125618 /* Assets.xcassets in Resources */,
 				F0BF7F652052F98E005D4A27 /* Icon-Small-50x50@1x.png in Resources */,
+				F05C69A0206279AC0057A6B0 /* microphone-2@2x.png in Resources */,
 				F0BF7F602052F98E005D4A27 /* Icon-App-72x72@2x.png in Resources */,
 				F00EBE2B203D7B2D00125618 /* onboarding.xib in Resources */,
 				F0C872002059870400B5AC34 /* ChallengeGo.xib in Resources */,
+				F05C6999206279AC0057A6B0 /* microphone-0.png in Resources */,
 				F00EBDE8203C1F1600125618 /* Main.storyboard in Resources */,
 				F0BF7F672052F98E005D4A27 /* ItunesArtwork@2x.png in Resources */,
 				F0BF7F632052F98E005D4A27 /* Icon-App-76x76@3x.png in Resources */,
+				F05C69A1206279AC0057A6B0 /* microphone-2@3x.png in Resources */,
 				F0BF7F572052F98E005D4A27 /* Icon-App-40x40@1x.png in Resources */,
 				F0BF7F612052F98E005D4A27 /* Icon-App-76x76@1x.png in Resources */,
 				F0BF7F512052F98E005D4A27 /* Icon-App-20x20@1x.png in Resources */,
+				F05C699E206279AC0057A6B0 /* microphone-1@3x.png in Resources */,
 				F0BF7F592052F98E005D4A27 /* Icon-App-40x40@3x.png in Resources */,
+				F05C699F206279AC0057A6B0 /* microphone-2.png in Resources */,
 				F0BF7F582052F98E005D4A27 /* Icon-App-40x40@2x.png in Resources */,
 				F0BF7F542052F98E005D4A27 /* Icon-App-29x29@1x.png in Resources */,
 				F0BF7F662052F98E005D4A27 /* Icon-Small-50x50@2x.png in Resources */,
+				F05C699A206279AC0057A6B0 /* microphone-0@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

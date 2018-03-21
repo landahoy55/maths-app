@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
             }
         }
         
-        dataService.getDailyChallenge { (success) in }
+        //dataService.getDailyChallenge { (success) in }
         
         //set style of nav bar
         navigationController?.navigationBar.prefersLargeTitles = true

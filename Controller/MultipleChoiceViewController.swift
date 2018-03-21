@@ -105,6 +105,8 @@ class MultipleChoiceViewController: UIViewController {
     //including buttons
     func setQuestionLayout() {
         
+        //check to see if subtopic or daily challenge
+        
         if subTopic != nil {
             currentQuestion = subTopic?.questions[questionIndex]
 
@@ -113,6 +115,8 @@ class MultipleChoiceViewController: UIViewController {
         if dailyChallenge != nil {
             currentQuestion = dailyChallenge?.questions[questionIndex]
         }
+        
+        //set questions
         
         questionLabel.text = currentQuestion.question
         
@@ -256,8 +260,6 @@ class MultipleChoiceViewController: UIViewController {
         
         
         timer.invalidate() //timer was running between screens
-        
-        
         
         //MARK: LOGGING RESULTS HERE
         
