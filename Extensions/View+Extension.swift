@@ -24,3 +24,19 @@ extension UIView {
         self.layer.insertSublayer(gradient, at: 0)
     }
 }
+
+//capture image from view
+extension UIImage {
+    //pass in view
+    convenience init(view: UIView) {
+        //create a bitmap context, with init view
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        //create an image from the context
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        //end opration
+        UIGraphicsEndImageContext()
+        //call main init
+        self.init(cgImage: image!.cgImage!)
+    }
+}

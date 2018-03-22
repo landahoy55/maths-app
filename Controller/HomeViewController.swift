@@ -96,12 +96,14 @@ class HomeViewController: UIViewController {
                 subTopicViewController.subTopics = subTopics
                 subTopicViewController.subTopicResults = dataService.downloadedSubTopicResults
                 
-                //pass correct results if any.
-            
             case "voiceSegue":
                 let voiceInputViewController = segue.destination as! VoiceInputViewController
                 voiceInputViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[0]
-                
+            
+            
+            case "handWritingSegue":
+                let handWritingViewController = segue.destination as! HandWritingViewController
+                handWritingViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[0]
             default:
                 return
             }
@@ -153,6 +155,12 @@ class HomeViewController: UIViewController {
         let helpPopUp = sb.instantiateViewController(withIdentifier: "Help")
         present(helpPopUp, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func handWritingButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "handWritingSegue", sender: self)
+    }
+    
     
     @IBAction func voiceButton(_ sender: UIButton) {
         
