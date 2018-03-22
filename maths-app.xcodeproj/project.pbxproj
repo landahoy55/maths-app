@@ -43,6 +43,7 @@
 		F05C699F206279AC0057A6B0 /* microphone-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6995206279AB0057A6B0 /* microphone-2.png */; };
 		F05C69A0206279AC0057A6B0 /* microphone-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6996206279AB0057A6B0 /* microphone-2@2x.png */; };
 		F05C69A1206279AC0057A6B0 /* microphone-2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6997206279AB0057A6B0 /* microphone-2@3x.png */; };
+		F05C69A32063FFD60057A6B0 /* HandWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C69A22063FFD50057A6B0 /* HandWritingViewController.swift */; };
 		F07AFCED2048436000F37658 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */; };
 		F07AFCEF204D5ADE00F37658 /* menuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */; };
 		F07AFCF1204D7D5C00F37658 /* SubTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */; };
@@ -156,6 +157,7 @@
 		F05C6995206279AB0057A6B0 /* microphone-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-2.png"; sourceTree = "<group>"; };
 		F05C6996206279AB0057A6B0 /* microphone-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-2@2x.png"; sourceTree = "<group>"; };
 		F05C6997206279AB0057A6B0 /* microphone-2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-2@3x.png"; sourceTree = "<group>"; };
+		F05C69A22063FFD50057A6B0 /* HandWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandWritingViewController.swift; sourceTree = "<group>"; };
 		F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCollectionViewCell.swift; sourceTree = "<group>"; };
 		F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopicViewController.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				F07AFCF4204D9A3F00F37658 /* HelpPromptViewController.swift */,
 				F0C871F5205969BF00B5AC34 /* DailyChallengeViewController.swift */,
 				F05C698B20611A8D0057A6B0 /* VoiceInputViewController.swift */,
+				F05C69A22063FFD50057A6B0 /* HandWritingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				F07AFCED2048436000F37658 /* UILabel+Extensions.swift in Sources */,
 				F0F854D520470811007A794A /* MultipleChoiceViewController.swift in Sources */,
 				F0BF7FBF2056ADF2005D4A27 /* UNService.swift in Sources */,
+				F05C69A32063FFD60057A6B0 /* HandWritingViewController.swift in Sources */,
 				F0F854CD2046C71D007A794A /* slightRoundedView.swift in Sources */,
 				F00EBE18203C235700125618 /* AuthorisationService.swift in Sources */,
 				F00EBE16203C215000125618 /* Constants.swift in Sources */,

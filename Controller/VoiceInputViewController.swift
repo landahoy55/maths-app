@@ -257,6 +257,7 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
                     // let test = result.transcriptions
                     // print("TEST", test[0].segments[0].substring)
                     
+                    //TODO - check if this should be on main thread.
                     self.detectedSpeechLabel.text = bestString
                     
                     //results are passed back as an array.
@@ -415,6 +416,8 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
             if success {
                 print("WINNING")
                 self.questionIndex += 1
+                
+                //TODO: Check is this should be on the main thread
                 
                 //animate correct label
                 //nested animation block used.
