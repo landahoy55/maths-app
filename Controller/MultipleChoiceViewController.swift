@@ -421,14 +421,25 @@ class MultipleChoiceViewController: UIViewController {
             sender.pulsate()
             print("correct answer pressed")
             
+            //haptic feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+            correctSoundPlayer.play()
+            
             questionIndex += 1
             //show next question
             loadQuestions()
             
             
         } else {
+            
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+            
             sender.shake()
             print("Oops - Incorrect answer pressed")
+            wrongSoundPlayer.play()
+            
         }
     }
     

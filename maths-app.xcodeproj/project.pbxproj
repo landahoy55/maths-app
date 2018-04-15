@@ -58,6 +58,8 @@
 		F0934EF120503CD1007A4295 /* RetreivedSubtopicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0934EF020503CD1007A4295 /* RetreivedSubtopicResult.swift */; };
 		F0934EF32050446E007A4295 /* RetreivedTopicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0934EF22050446E007A4295 /* RetreivedTopicResult.swift */; };
 		F0934EF520504AE7007A4295 /* RetreivedTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0934EF420504AE7007A4295 /* RetreivedTopic.swift */; };
+		F0A4DA042083941D00C8C0E2 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F0A4DA032083941D00C8C0E2 /* correct.mp3 */; };
+		F0A4DA062083942B00C8C0E2 /* wrong.aiff in Resources */ = {isa = PBXBuildFile; fileRef = F0A4DA052083942B00C8C0E2 /* wrong.aiff */; };
 		F0BF7F362052CE93005D4A27 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BF7F352052CE93005D4A27 /* Account.swift */; };
 		F0BF7F502052F98E005D4A27 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = F0BF7F382052F98E005D4A27 /* Contents.json */; };
 		F0BF7F512052F98E005D4A27 /* Icon-App-20x20@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BF7F392052F98E005D4A27 /* Icon-App-20x20@1x.png */; };
@@ -174,6 +176,8 @@
 		F0934EF020503CD1007A4295 /* RetreivedSubtopicResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetreivedSubtopicResult.swift; sourceTree = "<group>"; };
 		F0934EF22050446E007A4295 /* RetreivedTopicResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetreivedTopicResult.swift; sourceTree = "<group>"; };
 		F0934EF420504AE7007A4295 /* RetreivedTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetreivedTopic.swift; sourceTree = "<group>"; };
+		F0A4DA032083941D00C8C0E2 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
+		F0A4DA052083942B00C8C0E2 /* wrong.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = wrong.aiff; sourceTree = "<group>"; };
 		F0BF7F352052CE93005D4A27 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		F0BF7F382052F98E005D4A27 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		F0BF7F392052F98E005D4A27 /* Icon-App-20x20@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@1x.png"; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 		F00EBE10203C1F7A00125618 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F0A4DA02208393F900C8C0E2 /* sounds */,
 				F05C698D206279AB0057A6B0 /* microphone */,
 				F00EBDE9203C1F1600125618 /* Assets.xcassets */,
 				F0BF7F372052F98E005D4A27 /* AppIcon.appiconset */,
@@ -411,6 +416,15 @@
 				F05C6997206279AB0057A6B0 /* microphone-2@3x.png */,
 			);
 			path = microphone;
+			sourceTree = "<group>";
+		};
+		F0A4DA02208393F900C8C0E2 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F0A4DA052083942B00C8C0E2 /* wrong.aiff */,
+				F0A4DA032083941D00C8C0E2 /* correct.mp3 */,
+			);
+			path = sounds;
 			sourceTree = "<group>";
 		};
 		F0BF7F372052F98E005D4A27 /* AppIcon.appiconset */ = {
@@ -559,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A4DA062083942B00C8C0E2 /* wrong.aiff in Resources */,
 				F0BF7F622052F98E005D4A27 /* Icon-App-76x76@2x.png in Resources */,
 				F05C699C206279AC0057A6B0 /* microphone-1.png in Resources */,
 				F0BF7F5D2052F98E005D4A27 /* Icon-App-60x60@2x.png in Resources */,
@@ -594,6 +609,7 @@
 				F05C699E206279AC0057A6B0 /* microphone-1@3x.png in Resources */,
 				F0BF7F592052F98E005D4A27 /* Icon-App-40x40@3x.png in Resources */,
 				F05C699F206279AC0057A6B0 /* microphone-2.png in Resources */,
+				F0A4DA042083941D00C8C0E2 /* correct.mp3 in Resources */,
 				F0BF7F582052F98E005D4A27 /* Icon-App-40x40@2x.png in Resources */,
 				F0BF7F542052F98E005D4A27 /* Icon-App-29x29@1x.png in Resources */,
 				F0BF7F662052F98E005D4A27 /* Icon-Small-50x50@2x.png in Resources */,

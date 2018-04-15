@@ -23,12 +23,19 @@ class SubTopicViewController: UIViewController {
     @IBOutlet weak var navbarTitle: UINavigationItem!
 
     
-    //Animations
+    //Animations for contraints
     @IBOutlet weak var stageOneConstaint: NSLayoutConstraint!
     @IBOutlet weak var stageTwoContraint: NSLayoutConstraint!
     @IBOutlet weak var stageThreeConstraint: NSLayoutConstraint!
     @IBOutlet weak var stageFourContraint: NSLayoutConstraint!
     @IBOutlet weak var stageFiveConstraint: NSLayoutConstraint!
+    
+    //chart views
+    @IBOutlet weak var bar1: UIView!
+    @IBOutlet weak var bar2: UIView!
+    @IBOutlet weak var bar3: UIView!
+    @IBOutlet weak var bar4: UIView!
+    @IBOutlet weak var bar5: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +44,17 @@ class SubTopicViewController: UIViewController {
         guard let subT = subTopics else { return }
         titleLabel.text = subT[0].parentTopic.description
         
+        subTopicResults = DataService.instance.downloadedSubTopicResults
+        
         tableView.dataSource = self
         tableView.delegate = self
         
-        print("******* JUST ADDED TYPE ********",(subT[0].quizType))
+        bar1.backgroundColor = .clear
+        bar2.backgroundColor = .clear
+        bar3.backgroundColor = .clear
+        bar4.backgroundColor = .clear
+        bar5.backgroundColor = .clear
+        
         
     }
     
@@ -51,13 +65,18 @@ class SubTopicViewController: UIViewController {
         
         print("View did appear")
         
-        //constraint scores
-        //loop over results and create constaints.
-        var constraints = [Int]()
-        if let results = self.subTopicResults  {
-            for result in results {
-                let constraint = topAnchorContant(score: result.score)
-                constraints.append(constraint)
+        var constraints = [40,40,40,40,40]
+        //what if no results?
+       
+        //loop over subtopics - check to see if result exists. adjust relevant containt
+        if let subtopics = subTopics {
+            for (index,topic) in subtopics.enumerated() {
+                if let results = subTopicResults {
+                    if let result = subtopicResult(results: results, subTopicID: topic._id) {
+                        let constraint = topAnchorContant(score: result.score)
+                        constraints[index] = constraint
+                    }
+                }
             }
         }
         
@@ -69,7 +88,10 @@ class SubTopicViewController: UIViewController {
             let constraintSize = constraints.count >= 0 ? CGFloat(constraints[0]) : CGFloat(40)
             self.stageOneConstaint.constant = constraintSize
             self.view.layoutIfNeeded()
-            print(self.stageOneConstaint.constant)
+            print("Stage 1 contraint:", self.stageOneConstaint.constant)
+            
+            self.barColours(contraint: constraints[0], bar: self.bar1)
+            
         }, completion: { finished in
     
         })
@@ -81,7 +103,10 @@ class SubTopicViewController: UIViewController {
             let constraintSize = constraints.count >= 1 ? CGFloat(constraints[1]) : CGFloat(40)
             self.stageTwoContraint.constant = constraintSize
             self.view.layoutIfNeeded()
-            print(self.stageTwoContraint.constant)
+            print("Stage 2 contraint:", self.stageTwoContraint.constant)
+            
+           self.barColours(contraint: constraints[1], bar: self.bar2)
+            
         }, completion: { finished in
             
         })
@@ -94,7 +119,8 @@ class SubTopicViewController: UIViewController {
             let constraintSize = constraints.count >= 2 ? CGFloat(constraints[2]) : CGFloat(40)
             self.stageThreeConstraint.constant = constraintSize
             self.view.layoutIfNeeded()
-            print(self.stageThreeConstraint.constant)
+            print("Stage 3 contraint:", self.stageThreeConstraint.constant)
+            self.barColours(contraint: constraints[2], bar: self.bar3)
         }, completion: { finished in
             
         })
@@ -106,7 +132,8 @@ class SubTopicViewController: UIViewController {
             let constraintSize = constraints.count >= 3 ? CGFloat(constraints[3]) : CGFloat(40)
             self.stageFourContraint.constant = constraintSize
             self.view.layoutIfNeeded()
-            print(self.stageFourContraint.constant)
+            print("Stage 4 contraint:", self.stageFourContraint.constant)
+            self.barColours(contraint: constraints[3], bar: self.bar4)
         }, completion: { finished in
             
         })
@@ -118,7 +145,8 @@ class SubTopicViewController: UIViewController {
             let constraintSize = constraints.count >= 4 ? CGFloat(constraints[4]) : CGFloat(40)
             self.stageFiveConstraint.constant = constraintSize
             self.view.layoutIfNeeded()
-            print(self.stageFiveConstraint.constant)
+            print("Stage 5 contraint:", self.stageFiveConstraint.constant)
+            self.barColours(contraint: constraints[4], bar: self.bar5)
         }, completion: { finished in
             
         })
@@ -168,6 +196,25 @@ class SubTopicViewController: UIViewController {
         }
     }
 
+    func barColours(contraint: Int, bar: UIView) {
+        switch contraint {
+        case 0:
+            bar.backgroundColor = timerGreen
+        case 8:
+            bar.backgroundColor = timerOrange
+        case 16:
+            bar.backgroundColor = timerOrange
+        case 24:
+            bar.backgroundColor = timerRed
+        case 32:
+            bar.backgroundColor = timerRed
+        case 40:
+            bar.backgroundColor = .clear
+        default:
+            bar.backgroundColor = .clear
+        }
+    }
+    
     //calculate top anchor constant
     func topAnchorContant(score: Int) ->  Int {
         
@@ -234,7 +281,6 @@ extension SubTopicViewController: UITableViewDataSource, UITableViewDelegate {
         
         //find related result
         //loop over results, unwrap first
-        //make this functional.
         if let subTopicResults = subTopicResults {
             for result in subTopicResults {
                 if result.subtopic._id == subTopics![indexPath.row]._id {
@@ -245,9 +291,7 @@ extension SubTopicViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         
-        print("CELL SCORE AT CELL FOR ROW AT....", score!)
-        
-        //is there a way to avoid the force?
+        //print("CELL SCORE AT CELL FOR ROW AT....", score!)
         cell.setSubTopics(subTopic: subTopics![indexPath.row], score: score )
         //custom delegate
         cell.delegate = self

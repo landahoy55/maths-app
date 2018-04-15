@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import AVFoundation
+
+var correctSoundPlayer: AVAudioPlayer = AVAudioPlayer()
+var wrongSoundPlayer: AVAudioPlayer = AVAudioPlayer()
 
 class HomeViewController: UIViewController {
 
-
+    @IBOutlet weak var activityBackgroundView: UIView!
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -21,6 +27,13 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
 
         //set gradient
         //view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
@@ -35,8 +48,16 @@ class HomeViewController: UIViewController {
         //download topics and get user information
         dataService.getAllTopics()
         
+        //set up AV players
+        let wrongURL = Bundle.main.url(forResource: "wrong", withExtension: "aiff")
+        wrongSoundPlayer = try! AVAudioPlayer(contentsOf: wrongURL!)
+        wrongSoundPlayer.prepareToPlay()
         
-        //THIS IS GROSS!!
+        let correctURL = Bundle.main.url(forResource: "correct", withExtension: "mp3")
+        correctSoundPlayer = try! AVAudioPlayer(contentsOf: correctURL!)
+        correctSoundPlayer.prepareToPlay()
+        
+        
         dataService.getUserId { (success) in
             if (success) {
                 
@@ -48,6 +69,8 @@ class HomeViewController: UIViewController {
                         if let name = self.dataService.accountDetails?.name {
                             OperationQueue.main.addOperation {
                                 self.nameLabel.text = "Welcome back \(name)"
+                                self.activityIndicator.stopAnimating()
+                                self.activityBackgroundView.removeFromSuperview()
                             }
                         }
                     })
@@ -55,7 +78,8 @@ class HomeViewController: UIViewController {
             }
         }
         
-        //dataService.getDailyChallenge { (success) in }
+        //download challenge
+        dataService.getDailyChallenge { (success) in }
         
         //set style of nav bar
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -94,7 +118,7 @@ class HomeViewController: UIViewController {
             case "subTopicMenuSegue":
                 let subTopicViewController = segue.destination as! SubTopicViewController
                 subTopicViewController.subTopics = subTopics
-                subTopicViewController.subTopicResults = dataService.downloadedSubTopicResults
+                //subTopicViewController.subTopicResults = dataService.downloadedSubTopicResults
                 
             case "voiceSegue":
                 let voiceInputViewController = segue.destination as! VoiceInputViewController
@@ -145,16 +169,9 @@ class HomeViewController: UIViewController {
     }
     
     
-    @IBAction func getTopicsBtn(_ sender: UIButton) {
-        topicsLoaded()
-    }
-    
-    //Now using a button on screen - this will eventually be removed
-    @IBAction func helpButton(_ sender: UIButton) {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let helpPopUp = sb.instantiateViewController(withIdentifier: "Help")
-        present(helpPopUp, animated: true, completion: nil)
-    }
+//    @IBAction func getTopicsBtn(_ sender: UIButton) {
+//        topicsLoaded()
+//    }
     
     
     @IBAction func handWritingButton(_ sender: UIButton) {

@@ -92,6 +92,20 @@ class InputAnswerViewController: UIViewController {
         //reset()
         scoreLabel.text = String(questionIndex)
         
+        if questionIndex > 0 {
+            UIView.transition(with: scoreLabel, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.scoreLabel.textColor = timerGreen
+            }, completion: { (success) in
+                if success {
+                    UIView.transition(with: self.scoreLabel, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                        self.scoreLabel.textColor = .black
+                    }, completion: nil)
+                }
+            })
+        }
+        
+ 
+        
         questionLabel.alpha = 0
         UIView.animate(withDuration: 0.7) {
             self.questionLabel.alpha = 1
@@ -394,12 +408,24 @@ class InputAnswerViewController: UIViewController {
         if inputAnswer == currentQuestion.correctAnswer {
             print("confirm")
             sender.pulsate()
+            
+            //haptic feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+            
+            correctSoundPlayer.play()
+            
             questionIndex += 1
             loadQuestions()
             reset()
         } else {
           //if incorrect clear label - use animations to suggest answers
             print("wrong")
+            
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+            wrongSoundPlayer.play()
+            
             sender.shake()
             reset()
         }

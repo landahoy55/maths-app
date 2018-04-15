@@ -411,6 +411,7 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
             self.initialInformationString.alpha = 0
         }
         
+    
         //remains in the recording function for lifecycle of challenge.
         recordAndRecogniseSpeechWithCallback { (success) in
             if success {

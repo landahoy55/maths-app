@@ -21,6 +21,8 @@ class HandWritingViewController: UIViewController {
     @IBOutlet weak var canvas2: CanvasView!
     @IBOutlet weak var recognisedLabel: UILabel!
     
+    @IBOutlet weak var correctLabel: UILabel!
+    @IBOutlet weak var helpLabel: UILabel!
     
     var subTopic: SubTopic?
     var currentQuestion: Question!
@@ -37,9 +39,23 @@ class HandWritingViewController: UIViewController {
         canvases.append(canvas1)
         canvases.append(canvas2)
         
-        //startTimer()
+        startTimer()
         loadQuestions()
         visionModelSetUp()
+        
+        correctLabel.alpha = 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        //fade out label... using dispatchAfter. Could use a timer
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.helpLabel.alpha = 0
+            })
+            
+        }
     }
     
     func visionModelSetUp() {
@@ -115,6 +131,33 @@ class HandWritingViewController: UIViewController {
             questionIndex += 1
             loadQuestions()
             clear()
+            
+            //animate correct label
+            UIView.animate(withDuration: 1, animations: {
+                self.correctLabel.alpha = 1
+            }, completion: { (success) in
+                UIView.animate(withDuration: 1, animations: {
+                    self.correctLabel.alpha = 0
+                })
+            })
+           
+        } else {
+
+            //falling through here as two requests are being processed - for each canvas.
+            //Use a flag, or process answer in a different way?
+            
+            //clear()
+            
+            //animate help label
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.helpLabel.alpha = 1
+//                self.helpLabel.text = "Try exaggerating each character"
+//            }, completion: { (success) in
+//                UIView.animate(withDuration: 0.5, animations: {
+//                    self.helpLabel.alpha = 0
+//                })
+//            })
+            
         }
         
     }
@@ -182,6 +225,7 @@ class HandWritingViewController: UIViewController {
     }
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
+        
         
         
         for (index, canvas) in canvases.enumerated() {
