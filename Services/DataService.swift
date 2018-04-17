@@ -250,12 +250,12 @@ class DataService {
                 guard let data = data else { return }
                 do {
                     
-                //  let dataAsString = String(data: data, encoding: .utf8)
-                //
-                //  print(dataAsString!)
+                    // let dataAsString = String(data: data, encoding: .utf8)
+                    //                //
+                    // print("DATA AT STRING", dataAsString!)
                     
                     let result = try JSONDecoder().decode([RetreivedSubtopicResult].self, from: data)
-                    print(result)
+                    //print(result)
                     
                     //TODO:WORK WITH RESULT
                     self.downloadedSubTopicResults = result
@@ -264,7 +264,7 @@ class DataService {
                     //self.delegate?.userLoaded()
                     
                 } catch let jsonErr {
-                    print("Error serialzing json", jsonErr)
+                    print("Error serialzing retireve subtopic results", jsonErr)
                 }
                 
             } else {
@@ -461,9 +461,9 @@ class DataService {
                 guard let data = data else { return }
                 do {
                     
-                    //  let dataAsString = String(data: data, encoding: .utf8)
-                    //
-                    //  print(dataAsString!)
+                      let dataAsString = String(data: data, encoding: .utf8)
+                    
+                      print(dataAsString!)
                     
                     let result = try JSONDecoder().decode([RetreivedTopicResult].self, from: data)
                     print(result)
@@ -476,7 +476,7 @@ class DataService {
                     //self.delegate?.userLoaded()
                     
                 } catch let jsonErr {
-                    print("Error serialzing json", jsonErr)
+                    print("Error serialzing topic results json", jsonErr)
                     completion(false)
                 }
                 
@@ -663,8 +663,8 @@ class DataService {
                     self.downloadedChallenge = result
                     completion(true)
                 } catch let jsonErr {
-                    print("Error serializing json", jsonErr)
-                    completion(false)
+                    print("Error serializing daily challenge json", jsonErr)
+                    completion(true)
                 }
              } else {
                 print("task failed: \(String(describing: err?.localizedDescription))")
