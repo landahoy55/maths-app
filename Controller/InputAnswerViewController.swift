@@ -93,7 +93,7 @@ class InputAnswerViewController: UIViewController {
         scoreLabel.text = String(questionIndex)
         
         if questionIndex > 0 {
-            UIView.transition(with: scoreLabel, duration: 0.2, options: .transitionCrossDissolve, animations: {
+            UIView.transition(with: scoreLabel, duration: 0.4, options: .transitionCrossDissolve, animations: {
                 self.scoreLabel.textColor = timerGreen
             }, completion: { (success) in
                 if success {

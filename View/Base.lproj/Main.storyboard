@@ -235,7 +235,7 @@
                                     <action selector="handWritingButton:" destination="FjF-v6-nwn" eventType="touchUpInside" id="o7y-SU-gY9"/>
                                 </connections>
                             </button>
-                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5e-BP-Yic">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5e-BP-Yic">
                                 <rect key="frame" x="-22" y="85" width="418" height="641"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -402,7 +402,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="xBr-Q0-mJ3">
-                                                    <rect key="frame" x="30" y="26" width="254" height="53"/>
+                                                    <rect key="frame" x="30" y="26" width="209" height="53"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -436,9 +436,14 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oMa-nO-Vb0">
+                                                    <rect key="frame" x="281" y="27" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="medalImage" destination="oMa-nO-Vb0" id="3qc-6V-Puv"/>
                                             <outlet property="scoreLabel" destination="wNS-VC-Gc5" id="D5P-pV-jME"/>
                                             <outlet property="stageLabel" destination="jP2-7z-SYm" id="H3a-pg-tp4"/>
                                             <outlet property="stageTypeLabel" destination="uJ9-zP-FKR" id="a6m-YB-869"/>
@@ -1448,8 +1453,8 @@
                                                         <subviews>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXs-la-4yx" customClass="slightRoundedButtons" customModule="Maths_App" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="89" height="73"/>
-                                                                <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                 <state key="normal" title="1">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -1470,8 +1475,8 @@
                                                         <subviews>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0s-QC-kX2" customClass="slightRoundedButtons" customModule="Maths_App" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="89" height="73"/>
-                                                                <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                 <state key="normal" title="2">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -1492,8 +1497,8 @@
                                                         <subviews>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFX-es-c9R" customClass="slightRoundedButtons" customModule="Maths_App" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="89" height="73"/>
-                                                                <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                                                 <state key="normal" title="3">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -1519,8 +1524,8 @@
                                                         <subviews>
                                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vo-3f-3Xn" customClass="slightRoundedButtons" customModule="Maths_App" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="89" height="73"/>
-                                                                <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                 <state key="normal" title="4">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -1541,8 +1546,8 @@
                                                         <subviews>
                                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-3n-bRs" customClass="slightRoundedButtons" customModule="Maths_App" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="89" height="73"/>
-                                                                <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                 <state key="normal" title="5">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -1563,8 +1568,8 @@
                                                         <subviews>
                                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xA-Gs-v6f" customClass="slightRoundedButtons" customModule="Maths_App" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="89" height="73"/>
-                                                                <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                 <state key="normal" title="6">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -1590,8 +1595,8 @@
                                                         <subviews>
                                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cG0-Kf-ICX" customClass="slightRoundedButtons" customModule="Maths_App" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="89" height="73"/>
-                                                                <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                 <state key="normal" title="7">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -1612,8 +1617,8 @@
                                                         <subviews>
                                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baK-Lu-Lsn" customClass="slightRoundedButtons" customModule="Maths_App" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="89" height="73"/>
-                                                                <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                 <state key="normal" title="8">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -1634,8 +1639,8 @@
                                                         <subviews>
                                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiH-R5-rVF" customClass="slightRoundedButtons" customModule="Maths_App" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="89" height="73"/>
-                                                                <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                 <state key="normal" title="9">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -1681,8 +1686,8 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5f-8s-V05" customClass="slightRoundedButtons" customModule="Maths_App" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="5" width="89" height="73"/>
-                                                                <color key="backgroundColor" red="0.90909830729999996" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                 <state key="normal" title="0">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -1859,7 +1864,7 @@
                     <viewLayoutGuide key="safeArea" id="eHb-Dp-4BS"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="8399" y="-1569"/>
+            <point key="canvasLocation" x="8396" y="-1595"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="zyJ-2O-VI2">
@@ -2201,7 +2206,7 @@
         <scene sceneID="RRh-n6-63X">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jFa-9s-sN5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="testIcon" id="y6l-y7-Lsb"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home-3" id="y6l-y7-Lsb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hHJ-zu-cD4">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -2220,7 +2225,7 @@
         <scene sceneID="hrh-aN-Cfn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hdj-QZ-cKI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Daily" image="testIcon" id="flc-JE-kAR"/>
+                    <tabBarItem key="tabBarItem" title="Daily" image="Clock-1" id="flc-JE-kAR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sLh-nN-0gw">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -2466,8 +2471,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Clock-1" width="27" height="27"/>
+        <image name="Home-3" width="22" height="24"/>
         <image name="No.png" width="376" height="376"/>
-        <image name="testIcon" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1UK-v8-aBZ"/>

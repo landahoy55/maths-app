@@ -21,6 +21,7 @@ class SubTopicCell: UITableViewCell {
     @IBOutlet weak var stageLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var stageTypeLabel: UILabel!
+    @IBOutlet weak var medalImage: UIImageView!
     
     var subT: SubTopic!
     var delegate: SubTopicCellDelegate?
@@ -48,17 +49,23 @@ class SubTopicCell: UITableViewCell {
             switch score {
             case 0:
             scoreLabel.textColor = .black
+            scoreLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
             case 1:
             scoreLabel.textColor = timerRed
+            scoreLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
             case 2:
             scoreLabel.textColor = .black
+            scoreLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
             case 3:
             scoreLabel.textColor = .black
+            medalImage.image = UIImage(named: "Bronze.png")
             case 4:
             scoreLabel.textColor = timerGreen
+            medalImage.image = UIImage(named: "Silver.png")
             case 5:
             scoreLabel.textColor = timerGreen
             scoreLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+            medalImage.image = UIImage(named: "Gold.png")
             
             default:
             scoreLabel.textColor = .black

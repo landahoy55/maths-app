@@ -47,7 +47,7 @@ class Emitter {
         
         let intensity = Float(0.8)
         
-        cell.contents = #imageLiteral(resourceName: "confetti.png").cgImage
+        cell.contents = #imageLiteral(resourceName: "Icon-App-20x20@2x.png").cgImage
         cell.birthRate = 15 * intensity
         cell.lifetime = 20 * intensity
         

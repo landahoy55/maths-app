@@ -140,6 +140,18 @@ class MultipleChoiceViewController: UIViewController {
         
         scoreLabel.text = String(questionIndex)
         
+        if questionIndex > 0 {
+            UIView.transition(with: scoreLabel, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                self.scoreLabel.textColor = timerGreen
+            }, completion: { (success) in
+                if success {
+                    UIView.transition(with: self.scoreLabel, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                        self.scoreLabel.textColor = .black
+                    }, completion: nil)
+                }
+            })
+        }
+        
         //Is this the most appropriate place
         if questionIndex >= 3 {
             countdownLabel.blink()
