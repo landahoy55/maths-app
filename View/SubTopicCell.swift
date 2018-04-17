@@ -50,12 +50,15 @@ class SubTopicCell: UITableViewCell {
             case 0:
             scoreLabel.textColor = .black
             scoreLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+            medalImage.image = UIImage(named: "Rectangle.png")
             case 1:
             scoreLabel.textColor = timerRed
             scoreLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+            medalImage.image = UIImage(named: "Rectangle.png")
             case 2:
             scoreLabel.textColor = .black
             scoreLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+            medalImage.image = UIImage(named: "Rectangle.png")
             case 3:
             scoreLabel.textColor = .black
             medalImage.image = UIImage(named: "Bronze.png")

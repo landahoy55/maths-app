@@ -40,7 +40,9 @@ class HandWritingViewController: UIViewController {
         canvases.append(canvas2)
         
         startTimer()
+        //set up questions
         loadQuestions()
+        //prepare pretrained model
         visionModelSetUp()
         
         correctLabel.alpha = 0
@@ -60,10 +62,12 @@ class HandWritingViewController: UIViewController {
     
     func visionModelSetUp() {
         
+        //prepare model
         //load in model - MNIST is a pretrained model allowing for handwriting characters to be recongised
         guard let visionModel = try? VNCoreMLModel(for: MNIST().model) else { fatalError("Not able to load model") }
         
-        //Request for image analysis - completion handler for request
+        //Set up request -  business logic runs in completion handler.
+        //these requests can now be called with VNImageRequestHandler
         let classificationRequest = VNCoreMLRequest(model: visionModel, completionHandler: self.handleClassification)
         
         //tidying
@@ -71,6 +75,7 @@ class HandWritingViewController: UIViewController {
         self.requests = [classificationRequest]
     }
     
+    //Handle request
     func handleClassification(request: VNRequest, error: Error?) {
         
         //request contains an array of results, type ANY - what has been observed
@@ -79,6 +84,8 @@ class HandWritingViewController: UIViewController {
         
         //results are in order by confidence. Needs to be cast as an observation to get at properties.
         let classification = observations.first as! VNClassificationObservation
+        
+        //returns the result
         let classificationIdentity = classification.identifier
         print("Classified", classificationIdentity)
     
@@ -99,7 +106,6 @@ class HandWritingViewController: UIViewController {
     //Convert canvas into 28 x 28 images.
     func performRequest(canvas: CanvasView) {
         
-        print("PERFORMING REQUEST")
         
         //create image from view
         let image = UIImage(view: canvas)
@@ -112,12 +118,11 @@ class HandWritingViewController: UIViewController {
         guard let filter = CIFilter(name: "CIColorInvert") else { print("issue with filter"); return }
         filter.setValue(imageToinvert, forKey: kCIInputImageKey)
         let imageToRequest = convertCIImageToCGImage(inputImage: filter.outputImage!)
-        //create
         
         //prepare request
         let imageRequestHandler = VNImageRequestHandler(cgImage: imageToRequest!, options: [:])
         
-        //do it!
+        //process
         do {
             try imageRequestHandler.perform(self.requests)
         } catch {
@@ -147,16 +152,6 @@ class HandWritingViewController: UIViewController {
             //Use a flag, or process answer in a different way?
             
             //clear()
-            
-            //animate help label
-//            UIView.animate(withDuration: 0.5, animations: {
-//                self.helpLabel.alpha = 1
-//                self.helpLabel.text = "Try exaggerating each character"
-//            }, completion: { (success) in
-//                UIView.animate(withDuration: 0.5, animations: {
-//                    self.helpLabel.alpha = 0
-//                })
-//            })
             
         }
         
@@ -209,6 +204,7 @@ class HandWritingViewController: UIViewController {
     }
     
     func clear() {
+        
         //if content is in canvas clear
         for canvas in canvases {
             if canvas.path != nil {

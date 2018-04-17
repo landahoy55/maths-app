@@ -25,6 +25,8 @@ class InputAnswerViewController: UIViewController {
     
     var dataService = DataService.instance
     
+    var subtopicResultsReturned = false
+    
     //outlets - timer
     @IBOutlet weak var timerProgressView: UIProgressView!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -335,7 +337,6 @@ class InputAnswerViewController: UIViewController {
                     
                     let topicResult = TopicResult(achieved: achieved, topic: topic, id: id, subTopicResults: deDuplicatedSubTopicResultsArray)
                     
-                    //TODO: put network request
                     let currentId = result._id
                     self.dataService.updateTopicResult(newResult: topicResult, idToUpdate: currentId, completion: { (success) in
                         if success {
@@ -343,8 +344,13 @@ class InputAnswerViewController: UIViewController {
                             //Redownload results
                             self.dataService.getTopicResult(id) { (success) in
                                 if success {
-                                    print("************\n REDOWNLOADED RESUTLS \n************")
-                                    self.dataService.getSubTopicResults(id, completion: { (_) in })
+                                    print("************\n REDOWNLOADED RESUTLS - 1 \n************")
+                                    self.dataService.getSubTopicResults(id, completion: { (success) in
+                                        if (success) {
+                                            self.subtopicResultsReturned = true
+                                            print("SUB TOPIC RESULTS RETURNED")
+                                        }
+                                    })
                                 }
                             }
                         }
@@ -363,8 +369,15 @@ class InputAnswerViewController: UIViewController {
                             //redownload here
                             self.dataService.getTopicResult(id) { (success) in
                                 if success {
-                                    print("************\n REDOWNLOADED RESUTLS \n************")
-                                    self.dataService.getSubTopicResults(id, completion: { (_) in })
+                                    print("************\n REDOWNLOADED RESUTLS - 2 \n************")
+                                    self.dataService.getSubTopicResults(id, completion: { (success) in
+                                        
+                                        if (success) {
+                                            self.subtopicResultsReturned = true
+                                            print("SUB TOPIC RESULTS RETURNED")
+                                        }
+                                       
+                                    })
                                 }
                             }
                         }

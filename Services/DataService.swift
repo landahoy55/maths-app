@@ -257,12 +257,12 @@ class DataService {
                     let result = try JSONDecoder().decode([RetreivedSubtopicResult].self, from: data)
                     //print(result)
                     
-                    //TODO:WORK WITH RESULT
+                    
                     self.downloadedSubTopicResults = result
                     
                     //call delegate method
                     //self.delegate?.userLoaded()
-                    
+                    completion(true)
                 } catch let jsonErr {
                     print("Error serialzing retireve subtopic results", jsonErr)
                 }

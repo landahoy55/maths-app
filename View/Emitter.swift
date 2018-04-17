@@ -6,6 +6,9 @@
 //  Copyright © 2018 landahoy55. All rights reserved.
 //
 
+
+//CA Emitter
+
 import UIKit
 
 class Emitter {
@@ -17,7 +20,7 @@ class Emitter {
         //postition set in app
         emitter.emitterShape = kCAEmitterLayerLine
         
-        //cells - what is emitter
+        //cells - the thing to emit.
         emitter.emitterCells = generateEmitterCells()
         
         return emitter
@@ -27,7 +30,8 @@ class Emitter {
     static func generateEmitterCells() -> [CAEmitterCell] {
         
         var cells = [CAEmitterCell]()
-        //array of colours
+        
+        //array of colours - now using icon image so no longer accurate, but effect is correct
         let colours = [UIColor(red:0.95, green:0.40, blue:0.27, alpha:1.0),
                   UIColor(red:1.00, green:0.78, blue:0.36, alpha:1.0),
                   UIColor(red:0.48, green:0.78, blue:0.64, alpha:1.0),
@@ -42,6 +46,9 @@ class Emitter {
        
     }
     
+    //configuring the cells
+    //lots of properties available
+    //https://developer.apple.com/documentation/quartzcore/caemitterlayer
     static func createCells(colour: UIColor) -> CAEmitterCell {
         let cell = CAEmitterCell()
         

@@ -72,6 +72,9 @@
 		F0A4DA1D20862FEA00C8C0E2 /* No@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0A4DA1120862FE900C8C0E2 /* No@1x.png */; };
 		F0A4DA1E20862FEA00C8C0E2 /* Silver@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0A4DA1220862FE900C8C0E2 /* Silver@2x.png */; };
 		F0A4DA1F20862FEA00C8C0E2 /* Gold.png in Resources */ = {isa = PBXBuildFile; fileRef = F0A4DA1320862FE900C8C0E2 /* Gold.png */; };
+		F0A4DA2320864A0600C8C0E2 /* Rectangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0A4DA2020864A0600C8C0E2 /* Rectangle@2x.png */; };
+		F0A4DA2420864A0600C8C0E2 /* Rectangle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0A4DA2120864A0600C8C0E2 /* Rectangle@3x.png */; };
+		F0A4DA2520864A0600C8C0E2 /* Rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = F0A4DA2220864A0600C8C0E2 /* Rectangle.png */; };
 		F0BF7F362052CE93005D4A27 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BF7F352052CE93005D4A27 /* Account.swift */; };
 		F0BF7F502052F98E005D4A27 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = F0BF7F382052F98E005D4A27 /* Contents.json */; };
 		F0BF7F512052F98E005D4A27 /* Icon-App-20x20@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BF7F392052F98E005D4A27 /* Icon-App-20x20@1x.png */; };
@@ -202,6 +205,9 @@
 		F0A4DA1120862FE900C8C0E2 /* No@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "No@1x.png"; sourceTree = "<group>"; };
 		F0A4DA1220862FE900C8C0E2 /* Silver@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Silver@2x.png"; sourceTree = "<group>"; };
 		F0A4DA1320862FE900C8C0E2 /* Gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gold.png; sourceTree = "<group>"; };
+		F0A4DA2020864A0600C8C0E2 /* Rectangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle@2x.png"; sourceTree = "<group>"; };
+		F0A4DA2120864A0600C8C0E2 /* Rectangle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle@3x.png"; sourceTree = "<group>"; };
+		F0A4DA2220864A0600C8C0E2 /* Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rectangle.png; sourceTree = "<group>"; };
 		F0BF7F352052CE93005D4A27 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		F0BF7F382052F98E005D4A27 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		F0BF7F392052F98E005D4A27 /* Icon-App-20x20@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@1x.png"; sourceTree = "<group>"; };
@@ -455,6 +461,9 @@
 		F0A4DA0720862FE900C8C0E2 /* medals */ = {
 			isa = PBXGroup;
 			children = (
+				F0A4DA2220864A0600C8C0E2 /* Rectangle.png */,
+				F0A4DA2020864A0600C8C0E2 /* Rectangle@2x.png */,
+				F0A4DA2120864A0600C8C0E2 /* Rectangle@3x.png */,
 				F0A4DA0820862FE900C8C0E2 /* Gold@3x.png */,
 				F0A4DA0920862FE900C8C0E2 /* No@2x.png */,
 				F0A4DA0A20862FE900C8C0E2 /* No@3x.png */,
@@ -628,6 +637,7 @@
 				F0BF7F642052F98E005D4A27 /* Icon-App-83.5x83.5@2x.png in Resources */,
 				F05C699B206279AC0057A6B0 /* microphone-0@3x.png in Resources */,
 				F0A4DA1C20862FEA00C8C0E2 /* Silver@3x.png in Resources */,
+				F0A4DA2420864A0600C8C0E2 /* Rectangle@3x.png in Resources */,
 				F0BF7F502052F98E005D4A27 /* Contents.json in Resources */,
 				F0BF7F5A2052F98E005D4A27 /* Icon-App-57x57@1x.png in Resources */,
 				F0A4DA1A20862FEA00C8C0E2 /* Bronze@3x.png in Resources */,
@@ -644,6 +654,7 @@
 				F0BF7F5B2052F98E005D4A27 /* Icon-App-57x57@2x.png in Resources */,
 				F0BF7F532052F98E005D4A27 /* Icon-App-20x20@3x.png in Resources */,
 				F0A4DA1420862FEA00C8C0E2 /* Gold@3x.png in Resources */,
+				F0A4DA2520864A0600C8C0E2 /* Rectangle.png in Resources */,
 				F00EBDEA203C1F1600125618 /* Assets.xcassets in Resources */,
 				F0BF7F652052F98E005D4A27 /* Icon-Small-50x50@1x.png in Resources */,
 				F05C69A0206279AC0057A6B0 /* microphone-2@2x.png in Resources */,
@@ -656,6 +667,7 @@
 				F0BF7F632052F98E005D4A27 /* Icon-App-76x76@3x.png in Resources */,
 				F0A4DA1F20862FEA00C8C0E2 /* Gold.png in Resources */,
 				F05C69A1206279AC0057A6B0 /* microphone-2@3x.png in Resources */,
+				F0A4DA2320864A0600C8C0E2 /* Rectangle@2x.png in Resources */,
 				F0BF7F572052F98E005D4A27 /* Icon-App-40x40@1x.png in Resources */,
 				F0BF7F612052F98E005D4A27 /* Icon-App-76x76@1x.png in Resources */,
 				F0BF7F512052F98E005D4A27 /* Icon-App-20x20@1x.png in Resources */,

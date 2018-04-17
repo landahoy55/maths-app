@@ -62,6 +62,9 @@ class CanvasView: UIView {
         shapeLayer.lineWidth = lineWidth
         shapeLayer.fillColor = UIColor.clear.cgColor
         
+        //smooth line :)
+        shapeLayer.lineCap = kCALineCapRound
+        
         self.layer.addSublayer(shapeLayer)
         self.setNeedsDisplay()
         

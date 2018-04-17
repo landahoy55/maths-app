@@ -39,6 +39,8 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
     var status: SpeechStatus = .ready
     var isFirstTime = true
     
+    
+    //single digits returned as word. Dictionary sets words to ints.
     let helperStringToNumbers: [String: Int] = [
     
         "one" : 1,
@@ -221,14 +223,14 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
         }
         
         //further checks, making sure recogniser is supported
-        guard let myRecongiser = SFSpeechRecognizer() else {
+        guard let recogniser = SFSpeechRecognizer() else {
             
             //TODO - show in UI
             //recongiser not supported
             return
         }
         
-        if !myRecongiser.isAvailable {
+        if !recogniser.isAvailable {
             
             //TODO - show in UI
             //recogniser is not availble at current time
@@ -276,10 +278,10 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
                         lastString = String(bestString[indexTo...])
 //                        print("LAST STRING", lastString)
                         var resultToCheck: String? = nil //clear string
-                        resultToCheck = lastString //pass in last part of results
+                        resultToCheck = lastString //last part of results
 //                        print("STRING TO ", resultToCheck) //debugging
                         
-                        //grab answer t0 check
+                        //answer to check
                         let correctAnswer = self.subTopic?.questions[self.questionIndex].correctAnswer
 //                        print("********* ANSWER *********", correctAnswer)
                         
@@ -349,42 +351,10 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
         recognitionTask?.cancel()
         status = .ready
         
-        
-//        audioEngine.stop()
-//        request.endAudio()
-//        // Cancel the previous task if it's running
-//        if let recognitionTask = recognitionTask {
-//            recognitionTask.cancel()
-//            self.recognitionTask = nil
-//        }
     
     }
     
-    //logic in recording function.
-//    func checkAnswer(guess: String) {
-//
-//        if let subtopic = subTopic{
-//            let correctAnswer = subtopic.questions[questionIndex].correctAnswer
-//            print("********* ANSWER *********", correctAnswer)
-//
-//            if guess == correctAnswer {
-//                print("Correct!!")
-//                cancelRecording()
-//                questionIndex += 1
-//
-//                //load question triggers recording - not working correctly
-//                loadQuestions()
-//                return
-//            }
-//
-//            if guess != correctAnswer {
-//                print("NOT correct")
-//                //cancelRecording()
-//                //triggerRecording()
-//
-//            }
-//        }
-//    }
+
     
     func triggerRecording() {
         
@@ -430,16 +400,6 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
                         self.correctLabel.alpha = 0
                     })
                 })
-                
-//                UIView.animate(withDuration: 1, delay: 0, options: .autoreverse, animations: {
-//                    self.correctLabel.alpha = 1
-//                })
-                
-//                UIView.animate(withDuration: 1, delay: 0, options: .autoreverse, animations: {
-//                    self.correctLabel.alpha = 1
-//                }, completion: { (success) in
-//                    self.correctLabel.alpha = 0
-//                })
                 
                 self.loadQuestions()
             }
