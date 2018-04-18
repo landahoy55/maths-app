@@ -27,6 +27,7 @@ class MultipleChoiceViewController: UIViewController {
     var timer = Timer()
     var score = 0 //CURRENTLY USING QUESITON INDEX... WHAT ABOUT INCORRECT
     var isHalfTime = false
+    var incorrect = 0
     
     var dataService = DataService.instance
     
@@ -117,7 +118,7 @@ class MultipleChoiceViewController: UIViewController {
         }
         
         //set questions
-        
+        incorrect = 0
         questionLabel.text = currentQuestion.question
         
         //animate in question
@@ -138,14 +139,14 @@ class MultipleChoiceViewController: UIViewController {
             button.titleLabel?.adjustsFontSizeToFitWidth = true
         }
         
-        scoreLabel.text = String(questionIndex)
+        scoreLabel.text = String(score)
         
-        if questionIndex > 0 {
-            UIView.transition(with: scoreLabel, duration: 0.4, options: .transitionCrossDissolve, animations: {
+        if score > 0 {
+            UIView.transition(with: scoreLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
                 self.scoreLabel.textColor = timerGreen
             }, completion: { (success) in
                 if success {
-                    UIView.transition(with: self.scoreLabel, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                    UIView.transition(with: self.scoreLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
                         self.scoreLabel.textColor = .black
                     }, completion: nil)
                 }
@@ -220,10 +221,10 @@ class MultipleChoiceViewController: UIViewController {
         }
         
         //update score label
-        scoreLabel.text = String(questionIndex)
+        scoreLabel.text = String(score)
   
         //add emitter to view
-        if questionIndex >= 4 {
+        if score >= 4 {
             let emitter = Emitter.createEmitter()
             emitter.emitterPosition = CGPoint(x: resultsPopup.frame.width / 2.0, y: 0)
             emitter.emitterSize = CGSize(width: resultsPopup.frame.width, height: 1)
@@ -231,7 +232,7 @@ class MultipleChoiceViewController: UIViewController {
         }
         
         //set score label test
-        switch questionIndex {
+        switch score {
         case 0:
             popupScoreTitle.text = "Oops"
         case 1:
@@ -262,13 +263,13 @@ class MultipleChoiceViewController: UIViewController {
             self.resultsPopup.alpha = 1
         }) { (success) in
             for (index, star) in self.stars.enumerated() {
-                if index <= self.questionIndex - 1 {
+                if index <= self.score - 1 {
                     star.fadeIn()
                 }
             }
         }
         
-        popupScoreLabel.text = "\(questionIndex)/5"
+        popupScoreLabel.text = "\(score)/5"
         
         
         timer.invalidate() //timer was running between screens
@@ -278,7 +279,7 @@ class MultipleChoiceViewController: UIViewController {
         if subTopic != nil {
             recordSubTopicResult()
             
-            //authorise notification
+            //authorise notification - will prompt user if not auth
             UNService.instance.authorise()
             
             //schedule with check for authorisation
@@ -296,10 +297,10 @@ class MultipleChoiceViewController: UIViewController {
         guard let topicId = subTopic?.parentTopic._id else { return }
         guard let id = UserDefaults.standard.string(forKey: DEFAULTS_USERID) else { return }
         
-        let score = String(questionIndex)
+        let scoreToRecord = String(score)
         let subAchieved: String
         
-        if score == "5" {
+        if scoreToRecord == "5" {
             subAchieved = "true"
         } else {
             subAchieved = "false"
@@ -310,7 +311,7 @@ class MultipleChoiceViewController: UIViewController {
         if let subTopicResult = subResult {
             
             //put new result
-            let result = SubtopicResult(achieved: subAchieved, score: score, subtopic: sub, id: id)
+            let result = SubtopicResult(achieved: subAchieved, score: scoreToRecord, subtopic: sub, id: id)
             
             dataService.updateSubTopicResult(newResult: result, idToUpdate: subTopicResult._id, completion: { (success) in
                 if (success) {
@@ -324,7 +325,7 @@ class MultipleChoiceViewController: UIViewController {
             
         } else {
             //post a new one
-            let subtopicResult = SubtopicResult(achieved: subAchieved, score: score, subtopic: sub, id: id)
+            let subtopicResult = SubtopicResult(achieved: subAchieved, score: scoreToRecord, subtopic: sub, id: id)
             //Post subtopic result
             print("**** ABOUT TO POST NEW SUB *****")
             print(subtopicResult)
@@ -439,6 +440,7 @@ class MultipleChoiceViewController: UIViewController {
             correctSoundPlayer.play()
             
             questionIndex += 1
+            score += 1
             //show next question
             loadQuestions()
             
@@ -451,6 +453,26 @@ class MultipleChoiceViewController: UIViewController {
             sender.shake()
             print("Oops - Incorrect answer pressed")
             wrongSoundPlayer.play()
+            
+            //animate to red
+            UIView.transition(with: questionLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.questionLabel.textColor = .red
+            }) { (success) in
+                if (success) {
+                    UIView.transition(with: self.questionLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                        self.questionLabel.textColor = .white
+                    })
+                }
+            }
+            
+            incorrect += 1
+            print("Incorrect Count", incorrect)
+            
+            if incorrect >= 2 {
+                questionIndex += 1
+                loadQuestions()
+            }
+            
             
         }
     }

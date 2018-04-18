@@ -55,5 +55,16 @@ extension UILabel {
         self.layoutIfNeeded()
         self.alpha = 1
     }
+    
+    
+    func animateTextColor(to color: UIColor) {
+        UIView.transition(with: self,
+                          duration: 0.25,
+                          options: .transitionCrossDissolve,
+                          animations: { [weak self] in
+                            self?.textColor = color
+        })
+        
+    }
 
 }
