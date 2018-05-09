@@ -46,6 +46,7 @@ class InputAnswerViewController: UIViewController {
     @IBOutlet var resultsPopUp: UIView!
     @IBOutlet weak var resultsTitleLabel: UILabel!
     @IBOutlet weak var resultsScoreLabel: UILabel!
+    @IBOutlet weak var popUpCloseBtn: UIButton!
     
     
     override func viewDidLoad() {
@@ -60,6 +61,9 @@ class InputAnswerViewController: UIViewController {
         stars.append(star3)
         stars.append(star4)
         stars.append(star5)
+        
+        popUpCloseBtn.isEnabled = false
+        popUpCloseBtn.alpha = 0
         
         loadQuestions()
     }
@@ -349,6 +353,14 @@ class InputAnswerViewController: UIViewController {
                                         if (success) {
                                             self.subtopicResultsReturned = true
                                             print("SUB TOPIC RESULTS RETURNED")
+                                            
+                                            DispatchQueue.main.async {
+                                                UIView.animate(withDuration: 0.3, animations: {
+                                                    self.popUpCloseBtn.alpha = 1
+                                                    self.popUpCloseBtn.isEnabled = true
+                                                })
+                                            }
+                                            
                                         }
                                     })
                                 }
@@ -375,6 +387,16 @@ class InputAnswerViewController: UIViewController {
                                         if (success) {
                                             self.subtopicResultsReturned = true
                                             print("SUB TOPIC RESULTS RETURNED")
+                                            
+                                            
+                                            DispatchQueue.main.async {
+                                                UIView.animate(withDuration: 0.3, animations: {
+                                                    self.popUpCloseBtn.alpha = 1
+                                                    self.popUpCloseBtn.isEnabled = true
+                                                })
+                                            }
+                                            
+                                            
                                         }
                                        
                                     })
@@ -438,6 +460,18 @@ class InputAnswerViewController: UIViewController {
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
             wrongSoundPlayer.play()
+            
+            //animate to red
+            UIView.transition(with: questionLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.questionLabel.textColor = .red
+            }) { (success) in
+                if (success) {
+                    UIView.transition(with: self.questionLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                        self.questionLabel.textColor = .white
+                    })
+                }
+            }
+            
             
             sender.shake()
             reset()

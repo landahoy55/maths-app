@@ -15,7 +15,7 @@ class CanvasView: UIView {
     var lineWidth: CGFloat!
     var path: UIBezierPath!
     var touchPoint: CGPoint!
-    var startingPoint: CGPoint!
+    
     
     //replacing the init
     override func layoutSubviews() {
@@ -26,14 +26,16 @@ class CanvasView: UIView {
         
         lineColour = UIColor.black
         //lineColour = UIColor.white
-        lineWidth = 10
+        lineWidth = 13
     }
+    
+    var start: CGPoint!
     
     //take placement of first touch and assign to starting point
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         let touch = touches.first
-        startingPoint = touch?.location(in: self)
+        start = touch?.location(in: self)
         
     }
     
@@ -44,10 +46,10 @@ class CanvasView: UIView {
         touchPoint = touch?.location(in: self)
     
         path = UIBezierPath()
-        path.move(to: startingPoint)
+        path.move(to: start)
         path.addLine(to: touchPoint)
         
-        startingPoint = touchPoint
+        start = touchPoint
         
         drawShapeLayer()
         

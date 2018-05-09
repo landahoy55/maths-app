@@ -17,7 +17,7 @@ class Emitter {
     static func createEmitter() -> CAEmitterLayer {
         
         let emitter = CAEmitterLayer()
-        //postition set in app
+        //postition set in vc
         emitter.emitterShape = kCAEmitterLayerLine
         
         //cells - the thing to emit.

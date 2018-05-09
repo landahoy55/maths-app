@@ -50,11 +50,11 @@ class HomeViewController: UIViewController {
         dataService.getAllTopics()
         
         //set up AV players
-        let wrongURL = Bundle.main.url(forResource: "wrong", withExtension: "aiff")
+        let wrongURL = Bundle.main.url(forResource: "incorrect-2", withExtension: "mp3")
         wrongSoundPlayer = try! AVAudioPlayer(contentsOf: wrongURL!)
         wrongSoundPlayer.prepareToPlay()
         
-        let correctURL = Bundle.main.url(forResource: "correct", withExtension: "mp3")
+        let correctURL = Bundle.main.url(forResource: "success-1", withExtension: "mp3")
         correctSoundPlayer = try! AVAudioPlayer(contentsOf: correctURL!)
         correctSoundPlayer.prepareToPlay()
         

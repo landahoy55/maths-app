@@ -53,6 +53,7 @@ class MultipleChoiceViewController: UIViewController {
     @IBOutlet weak var star3: UILabel!
     @IBOutlet weak var star4: UILabel!
     @IBOutlet weak var star5: UILabel!
+    @IBOutlet weak var popUpCloseBtn: UIButton!
     
     
     override func viewDidLoad() {
@@ -69,6 +70,9 @@ class MultipleChoiceViewController: UIViewController {
         stars.append(star3)
         stars.append(star4)
         stars.append(star5)
+        
+        popUpCloseBtn.isEnabled = false
+        popUpCloseBtn.alpha = 0
         
         loadQuestions()
         
@@ -176,7 +180,7 @@ class MultipleChoiceViewController: UIViewController {
         
         timerProgressView.progress -= 0.01/30
         
-        //countdown timer - not 100% accurate
+        //countdown timer - not 100% accurate, almost 30 seconds though
         let countdown = Int((timerProgressView.progress / 3.33) * 100)
         countdownLabel.text = String(countdown)
        
@@ -216,6 +220,7 @@ class MultipleChoiceViewController: UIViewController {
     
     func close() {
         
+        //disable all button is array.
         for button in buttons {
             button.isEnabled = false
         }
@@ -332,7 +337,7 @@ class MultipleChoiceViewController: UIViewController {
             dataService.postNewSubtopicResult(subtopicResult) { (success) in
                 if (success) {
                     print("Posted new sub result")
-//                    print(self.dataService.recentSubTopicResult!)
+                        //print(self.dataService.recentSubTopicResult!)
                     if let recentResult = self.dataService.recentSubTopicResult {
                         print("********* RECENT SUB - \(recentResult)")
                         self.recordTopicResult(subTopicResult: recentResult, topicID: topicId, userID: id)
@@ -387,7 +392,6 @@ class MultipleChoiceViewController: UIViewController {
                     
                     let topicResult = TopicResult(achieved: achieved, topic: topic, id: id, subTopicResults: deDuplicatedSubTopicResultsArray)
                    
-                    //TODO: put network request
                     let currentId = result._id
                     self.dataService.updateTopicResult(newResult: topicResult, idToUpdate: currentId, completion: { (success) in
                         if success {
@@ -396,7 +400,21 @@ class MultipleChoiceViewController: UIViewController {
                             self.dataService.getTopicResult(id) { (success) in
                                 if success {
                                     print("************\n REDOWNLOADED RESUTLS \n************")
-                                    self.dataService.getSubTopicResults(id, completion: { (_) in })
+                                    self.dataService.getSubTopicResults(id, completion: { (success) in
+                                        
+                                        if (success) {
+                                            print("Fade in button here")
+                                            DispatchQueue.main.async {
+                                                
+                                                
+                                                UIView.animate(withDuration: 0.3, animations: {
+                                                    self.popUpCloseBtn.alpha = 1
+                                                    self.popUpCloseBtn.isEnabled = true
+                                                })
+                                                
+                                            }
+                                        }
+                                    })
                                 }
                             }
                         }
@@ -416,7 +434,21 @@ class MultipleChoiceViewController: UIViewController {
                             self.dataService.getTopicResult(id) { (success) in
                                 if success {
                                     print("************\n REDOWNLOADED RESUTLS \n************")
-                                    self.dataService.getSubTopicResults(id, completion: { (_) in })
+                                    self.dataService.getSubTopicResults(id, completion: { (success) in
+                                        
+                                        if (success) {
+                                            
+                                            print("Fade in button here")
+                                            DispatchQueue.main.async {
+                                                UIView.animate(withDuration: 0.3, animations: {
+                                                    self.popUpCloseBtn.alpha = 1
+                                                    self.popUpCloseBtn.isEnabled = true
+                                                })
+                                            }
+                                            
+                                        }
+                                        
+                                    })
                                 }
                             }
                         }

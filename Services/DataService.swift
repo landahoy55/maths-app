@@ -663,8 +663,8 @@ class DataService {
                     self.downloadedChallenge = result
                     completion(true)
                 } catch let jsonErr {
-                    print("Error serializing daily challenge json", jsonErr)
-                    completion(true)
+                    print("Error serializing daily challenge json - here we are", jsonErr)
+                    completion(false)
                 }
              } else {
                 print("task failed: \(String(describing: err?.localizedDescription))")

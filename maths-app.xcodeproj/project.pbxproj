@@ -108,6 +108,8 @@
 		F0C872042059880B00B5AC34 /* ChallengeNo.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C872032059880B00B5AC34 /* ChallengeNo.xib */; };
 		F0C872062059881900B5AC34 /* ChallengeNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C872052059881900B5AC34 /* ChallengeNo.swift */; };
 		F0C872082059E53F00B5AC34 /* testAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C872072059E53F00B5AC34 /* testAnimation.swift */; };
+		F0EFF0D62094A8DD00E1CFBA /* success-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F0EFF0D52094A8DC00E1CFBA /* success-1.mp3 */; };
+		F0EFF0D82094A8EB00E1CFBA /* incorrect-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F0EFF0D72094A8EB00E1CFBA /* incorrect-2.mp3 */; };
 		F0F854BD20459B8B007A794A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854BC20459B8B007A794A /* DataService.swift */; };
 		F0F854C12045B3A8007A794A /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854C02045B3A8007A794A /* Topic.swift */; };
 		F0F854C32045B3B9007A794A /* SubTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854C22045B3B9007A794A /* SubTopic.swift */; };
@@ -242,6 +244,8 @@
 		F0C872032059880B00B5AC34 /* ChallengeNo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeNo.xib; sourceTree = "<group>"; };
 		F0C872052059881900B5AC34 /* ChallengeNo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeNo.swift; sourceTree = "<group>"; };
 		F0C872072059E53F00B5AC34 /* testAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testAnimation.swift; sourceTree = "<group>"; };
+		F0EFF0D52094A8DC00E1CFBA /* success-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "success-1.mp3"; sourceTree = "<group>"; };
+		F0EFF0D72094A8EB00E1CFBA /* incorrect-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "incorrect-2.mp3"; sourceTree = "<group>"; };
 		F0F854BC20459B8B007A794A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		F0F854C02045B3A8007A794A /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		F0F854C22045B3B9007A794A /* SubTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopic.swift; sourceTree = "<group>"; };
@@ -452,6 +456,8 @@
 		F0A4DA02208393F900C8C0E2 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				F0EFF0D72094A8EB00E1CFBA /* incorrect-2.mp3 */,
+				F0EFF0D52094A8DC00E1CFBA /* success-1.mp3 */,
 				F0A4DA052083942B00C8C0E2 /* wrong.aiff */,
 				F0A4DA032083941D00C8C0E2 /* correct.mp3 */,
 			);
@@ -646,6 +652,7 @@
 				F00EBDED203C1F1600125618 /* LaunchScreen.storyboard in Resources */,
 				F0BF7F5F2052F98E005D4A27 /* Icon-App-72x72@1x.png in Resources */,
 				F0C872042059880B00B5AC34 /* ChallengeNo.xib in Resources */,
+				F0EFF0D62094A8DD00E1CFBA /* success-1.mp3 in Resources */,
 				F0BF7F562052F98E005D4A27 /* Icon-App-29x29@3x.png in Resources */,
 				F0A4DA1920862FEA00C8C0E2 /* Bronze@2x.png in Resources */,
 				F0BF7F5E2052F98E005D4A27 /* Icon-App-60x60@3x.png in Resources */,
@@ -658,6 +665,7 @@
 				F00EBDEA203C1F1600125618 /* Assets.xcassets in Resources */,
 				F0BF7F652052F98E005D4A27 /* Icon-Small-50x50@1x.png in Resources */,
 				F05C69A0206279AC0057A6B0 /* microphone-2@2x.png in Resources */,
+				F0EFF0D82094A8EB00E1CFBA /* incorrect-2.mp3 in Resources */,
 				F0BF7F602052F98E005D4A27 /* Icon-App-72x72@2x.png in Resources */,
 				F00EBE2B203D7B2D00125618 /* onboarding.xib in Resources */,
 				F0C872002059870400B5AC34 /* ChallengeGo.xib in Resources */,

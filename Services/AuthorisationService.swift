@@ -87,7 +87,7 @@ class AuthorisationService {
         
         //carry out request
         do {
-            //could this be done with Swift 4 encode?
+            //could this be done with Swift 4 encode? - it is
             request.httpBody = try JSONSerialization.data(withJSONObject: json, options: [])
             //completion handler code can be reduced.
             let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in

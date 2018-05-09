@@ -237,7 +237,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try new experimental stages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdd-Iu-zLD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try new stages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdd-Iu-zLD">
                                 <rect key="frame" x="15" y="407" width="285.66666666666669" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="LWm-9C-D5d"/>
@@ -1174,6 +1174,7 @@
                         <outlet property="answerButton2" destination="Hqj-zC-NBL" id="vMY-vK-SGM"/>
                         <outlet property="answerButton3" destination="7I8-8x-shg" id="pQ5-YV-X9N"/>
                         <outlet property="countdownLabel" destination="HlQ-2R-80F" id="MqL-DS-hbJ"/>
+                        <outlet property="popUpCloseBtn" destination="TEX-Et-cFo" id="d1g-zw-sVq"/>
                         <outlet property="popupScoreLabel" destination="Jx6-Hz-apo" id="hhT-Ae-BHJ"/>
                         <outlet property="popupScoreTitle" destination="dG7-sY-aqM" id="ht4-DZ-TuU"/>
                         <outlet property="questionLabel" destination="Psm-EV-D2Q" id="oXq-04-Rjb"/>
@@ -1302,7 +1303,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="322"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of the topic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dcy-vr-Wci">
-                                        <rect key="frame" x="39" y="280.33333333333331" width="297" height="33.666666666666686"/>
+                                        <rect key="frame" x="39" y="279.33333333333331" width="297" height="33.666666666666686"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1773,6 +1774,7 @@
                     <connections>
                         <outlet property="answerLabel" destination="Am9-nd-ZiU" id="sH8-PF-CoL"/>
                         <outlet property="countdownLabel" destination="lQc-XA-byz" id="mwN-6r-Tlr"/>
+                        <outlet property="popUpCloseBtn" destination="p4H-1B-bPX" id="b4b-uz-dQz"/>
                         <outlet property="questionLabel" destination="rl9-f2-8we" id="AtA-mn-slY"/>
                         <outlet property="resultsPopUp" destination="354-Ds-hdz" id="1zv-Fz-9u0"/>
                         <outlet property="resultsScoreLabel" destination="pZv-CJ-5Q9" id="fa9-an-L2L"/>

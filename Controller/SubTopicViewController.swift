@@ -300,8 +300,7 @@ extension SubTopicViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    //TODO: Is this method not performing segue after a challenge has been complete?
-    //passing quiz on to view controller - only multiple choice at this point
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print("************* didSelectRow")

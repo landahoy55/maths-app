@@ -46,7 +46,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         } else {
                          //get on main thread to handle UI
                             OperationQueue.main.addOperation {
-                                self.showAlert(with: "Error", message: "Incorrect Password")
+                                self.showAlert(with: "Oops", message: "Already Registered")
                             }
                         }
                     })
