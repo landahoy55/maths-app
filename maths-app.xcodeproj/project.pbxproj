@@ -108,6 +108,9 @@
 		F0C872042059880B00B5AC34 /* ChallengeNo.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C872032059880B00B5AC34 /* ChallengeNo.xib */; };
 		F0C872062059881900B5AC34 /* ChallengeNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C872052059881900B5AC34 /* ChallengeNo.swift */; };
 		F0C872082059E53F00B5AC34 /* testAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C872072059E53F00B5AC34 /* testAnimation.swift */; };
+		F0CE65FF20A2FF7F00C894D8 /* GoldEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CE65FE20A2FF7F00C894D8 /* GoldEmitter.swift */; };
+		F0CE660120A2FFD400C894D8 /* SilverEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CE660020A2FFD400C894D8 /* SilverEmitter.swift */; };
+		F0CE660320A3000C00C894D8 /* BronzeEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CE660220A3000C00C894D8 /* BronzeEmitter.swift */; };
 		F0EFF0D62094A8DD00E1CFBA /* success-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F0EFF0D52094A8DC00E1CFBA /* success-1.mp3 */; };
 		F0EFF0D82094A8EB00E1CFBA /* incorrect-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F0EFF0D72094A8EB00E1CFBA /* incorrect-2.mp3 */; };
 		F0F854BD20459B8B007A794A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854BC20459B8B007A794A /* DataService.swift */; };
@@ -244,6 +247,12 @@
 		F0C872032059880B00B5AC34 /* ChallengeNo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeNo.xib; sourceTree = "<group>"; };
 		F0C872052059881900B5AC34 /* ChallengeNo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeNo.swift; sourceTree = "<group>"; };
 		F0C872072059E53F00B5AC34 /* testAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testAnimation.swift; sourceTree = "<group>"; };
+		F0CE65FE20A2FF7F00C894D8 /* GoldEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldEmitter.swift; sourceTree = "<group>"; };
+		F0CE660020A2FFD400C894D8 /* SilverEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilverEmitter.swift; sourceTree = "<group>"; };
+		F0CE660220A3000C00C894D8 /* BronzeEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BronzeEmitter.swift; sourceTree = "<group>"; };
+		F0CE660420A3053900C894D8 /* gold-emitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gold-emitter.png"; sourceTree = "<group>"; };
+		F0CE660520A3053900C894D8 /* bronze-emitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bronze-emitter.png"; sourceTree = "<group>"; };
+		F0CE660620A3053900C894D8 /* silver-emitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "silver-emitter.png"; sourceTree = "<group>"; };
 		F0EFF0D52094A8DC00E1CFBA /* success-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "success-1.mp3"; sourceTree = "<group>"; };
 		F0EFF0D72094A8EB00E1CFBA /* incorrect-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "incorrect-2.mp3"; sourceTree = "<group>"; };
 		F0F854BC20459B8B007A794A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -392,6 +401,9 @@
 				F0C872072059E53F00B5AC34 /* testAnimation.swift */,
 				F037D17B205A9B46004BE224 /* ResultsPopUpView.swift */,
 				F037D17D205AA8E4004BE224 /* RoundButton.swift */,
+				F0CE65FE20A2FF7F00C894D8 /* GoldEmitter.swift */,
+				F0CE660020A2FFD400C894D8 /* SilverEmitter.swift */,
+				F0CE660220A3000C00C894D8 /* BronzeEmitter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -467,6 +479,9 @@
 		F0A4DA0720862FE900C8C0E2 /* medals */ = {
 			isa = PBXGroup;
 			children = (
+				F0CE660520A3053900C894D8 /* bronze-emitter.png */,
+				F0CE660420A3053900C894D8 /* gold-emitter.png */,
+				F0CE660620A3053900C894D8 /* silver-emitter.png */,
 				F0A4DA2220864A0600C8C0E2 /* Rectangle.png */,
 				F0A4DA2020864A0600C8C0E2 /* Rectangle@2x.png */,
 				F0A4DA2120864A0600C8C0E2 /* Rectangle@3x.png */,
@@ -714,6 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0CE660120A2FFD400C894D8 /* SilverEmitter.swift in Sources */,
 				F0C871F6205969BF00B5AC34 /* DailyChallengeViewController.swift in Sources */,
 				F0F854CB2046C483007A794A /* slightRoundedButtons.swift in Sources */,
 				F05C69A520640E7A0057A6B0 /* CanvasView.swift in Sources */,
@@ -725,6 +741,7 @@
 				F07AFCEF204D5ADE00F37658 /* menuCollectionViewCell.swift in Sources */,
 				F0F854BD20459B8B007A794A /* DataService.swift in Sources */,
 				F037D17A205A9635004BE224 /* Emitter.swift in Sources */,
+				F0CE660320A3000C00C894D8 /* BronzeEmitter.swift in Sources */,
 				F0934EF520504AE7007A4295 /* RetreivedTopic.swift in Sources */,
 				F0F854D120470640007A794A /* InputAnswerViewController.swift in Sources */,
 				F00EBE27203C7CBB00125618 /* RoundedButton.swift in Sources */,
@@ -758,6 +775,7 @@
 				F0F854C72045B3D1007A794A /* Answer.swift in Sources */,
 				F07AFCF3204D81F600F37658 /* SubTopicCell.swift in Sources */,
 				F00EBE29203C808B00125618 /* UIButton+Extensions.swift in Sources */,
+				F0CE65FF20A2FF7F00C894D8 /* GoldEmitter.swift in Sources */,
 				F00EBE33203D80A900125618 /* onboardingView.swift in Sources */,
 				F05C698C20611A8D0057A6B0 /* VoiceInputViewController.swift in Sources */,
 				F00EBE1A203C46BE00125618 /* InitialViewController.swift in Sources */,

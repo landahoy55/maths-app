@@ -229,8 +229,29 @@ class MultipleChoiceViewController: UIViewController {
         scoreLabel.text = String(score)
   
         //add emitter to view
-        if score >= 4 {
+        if score < 3 {
             let emitter = Emitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopup.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopup.frame.width, height: 1)
+            resultsPopup.layer.addSublayer(emitter)
+        }
+        
+        if score == 3 {
+            let emitter = BronzeEmitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopup.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopup.frame.width, height: 1)
+            resultsPopup.layer.addSublayer(emitter)
+        }
+        
+        if score == 4 {
+            let emitter = SilverEmitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopup.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopup.frame.width, height: 1)
+            resultsPopup.layer.addSublayer(emitter)
+        }
+    
+        if score >= 5 {
+            let emitter = GoldEmitter.createEmitter()
             emitter.emitterPosition = CGPoint(x: resultsPopup.frame.width / 2.0, y: 0)
             emitter.emitterSize = CGSize(width: resultsPopup.frame.width, height: 1)
             resultsPopup.layer.addSublayer(emitter)
@@ -405,7 +426,6 @@ class MultipleChoiceViewController: UIViewController {
                                         if (success) {
                                             print("Fade in button here")
                                             DispatchQueue.main.async {
-                                                
                                                 
                                                 UIView.animate(withDuration: 0.3, animations: {
                                                     self.popUpCloseBtn.alpha = 1

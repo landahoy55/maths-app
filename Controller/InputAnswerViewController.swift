@@ -187,12 +187,45 @@ class InputAnswerViewController: UIViewController {
         scoreLabel.text = String(questionIndex)
         
         //add emitter to view
-        if questionIndex >= 4 {
+//        if questionIndex >= 4 {
+//            let emitter = Emitter.createEmitter()
+//            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
+//            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
+//            resultsPopUp.layer.addSublayer(emitter)
+//        }
+        
+        if questionIndex < 3 {
+            print("Standard Emitter")
             let emitter = Emitter.createEmitter()
             emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
             emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
             resultsPopUp.layer.addSublayer(emitter)
         }
+        
+        if questionIndex == 3 {
+            print("Bronze Emitter")
+            let emitter = BronzeEmitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
+            resultsPopUp.layer.addSublayer(emitter)
+        }
+        
+        if questionIndex == 4 {
+            print("Silver Emitter")
+            let emitter = SilverEmitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
+            resultsPopUp.layer.addSublayer(emitter)
+        }
+        
+        if questionIndex >= 5 {
+            print("Gold Emitter")
+            let emitter = GoldEmitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
+            resultsPopUp.layer.addSublayer(emitter)
+        }
+        
         
         //set score label test
         switch questionIndex {
