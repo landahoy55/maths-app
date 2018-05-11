@@ -37,6 +37,8 @@ class SubTopicCell: UITableViewCell {
             stageTypeLabel.text = "Input Answers"
         case "multipleChoice":
             stageTypeLabel.text = "Multiple Choice"
+        case "multipleChoiceImage":
+            stageTypeLabel.text = "Image Quiz"
         default:
             stageTypeLabel.text = ""
         }

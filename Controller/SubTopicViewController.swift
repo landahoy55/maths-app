@@ -173,9 +173,11 @@ class SubTopicViewController: UIViewController {
         //Go to quizzes
         if let identifier = segue.identifier {
             switch identifier {
+            
             case "helpSegue":
                 let helpPromptViewController = segue.destination as! HelpPromptViewController
                 helpPromptViewController.topic = subTopicToPass
+                
             case "inputSegue":
                 
                 let inputAnswerViewController = segue.destination as! InputAnswerViewController
@@ -189,6 +191,13 @@ class SubTopicViewController: UIViewController {
                 print("RESULT TO PASS ******** \(String(describing: resultToPass))")
                 multipleChoiceViewController.subResult = resultToPass
                 multipleChoiceViewController.subTopic = subTopicToPass
+        
+                
+            case "multipleChoiceImageSegue":
+                let multipleChoiceImagesViewController = segue.destination as! MultipleChoiceImagesViewController
+                
+                multipleChoiceImagesViewController.subTopic = subTopicToPass
+                multipleChoiceImagesViewController.subResult = resultToPass
             
             default:
                 return

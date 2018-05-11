@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MultipleChoiceImagesViewController: UIViewController {
 
@@ -27,8 +28,16 @@ class MultipleChoiceImagesViewController: UIViewController {
     
     
     //TODO: Add results popup
-    
-    
+    var stars = [UILabel]()
+    @IBOutlet var resultsPopUp: UIView!
+    @IBOutlet weak var popupScoreLabel: UILabel!
+    @IBOutlet weak var popupScoreTitle: UILabel!
+    @IBOutlet weak var popUpCloseBtn: UIButton!
+    @IBOutlet weak var star1: UILabel!
+    @IBOutlet weak var star2: UILabel!
+    @IBOutlet weak var star3: UILabel!
+    @IBOutlet weak var star4: UILabel!
+    @IBOutlet weak var star5: UILabel!
     
     
     //Variables
@@ -54,6 +63,17 @@ class MultipleChoiceImagesViewController: UIViewController {
         buttons.append(answerBtn1)
         buttons.append(answerBtn2)
         buttons.append(answerBtn3)
+        
+        stars.append(star1)
+        stars.append(star2)
+        stars.append(star3)
+        stars.append(star4)
+        stars.append(star5)
+        
+        
+        //hide the close button - reveal laters
+//        popUpCloseBtn.isEnabled = false
+//        popUpCloseBtn.alpha = 0
         
         loadQuestions()
     }
@@ -181,14 +201,122 @@ class MultipleChoiceImagesViewController: UIViewController {
     
     //TODO: Close logic - present
     func close() {
-        dismiss(animated: true, completion: nil)
+        
+        //dismiss(animated: true, completion: nil)
+        
+        //disable buttons
+        for button in buttons {
+            button.isEnabled = false
+        }
+        
+        scoreLbl.text = String(score)
+        
+        //emitters
+        //add emitter to view - placed at top and 1 tall
+        
+        if score < 3 {
+            let emitter = Emitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
+            resultsPopUp.layer.addSublayer(emitter)
+        }
+        
+        if score == 3 {
+            let emitter = BronzeEmitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
+            resultsPopUp.layer.addSublayer(emitter)
+        }
+        
+        if score == 4 {
+            let emitter = SilverEmitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
+            resultsPopUp.layer.addSublayer(emitter)
+        }
+        
+        if score >= 5 {
+            let emitter = GoldEmitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
+            resultsPopUp.layer.addSublayer(emitter)
+        }
+        
+        //set score label test
+        switch score {
+        case 0:
+            popupScoreTitle.text = "Oops"
+        case 1:
+            popupScoreTitle.text = "Keep trying"
+        case 2:
+            popupScoreTitle.text = "Go again!"
+        case 3:
+            popupScoreTitle.text = "Almost there"
+        case 4:
+            popupScoreTitle.text = "Great!"
+        case 5:
+            popupScoreTitle.text = "Awesome!!"
+        default:
+            popupScoreTitle.text = "Score"
+        }
+        
+        
+        //adding popup subview
+        resultsPopUp.center = view.center
+        //transparent
+        resultsPopUp.alpha = 0
+        //add to view
+        view.addSubview(resultsPopUp)
+        //animate opactiy back to 1
+        
+        //fade in popup
+        //then fade in stars representing scores
+        UIView.animate(withDuration: 1, animations: {
+            self.resultsPopUp.alpha = 1
+        }) { (success) in
+            for (index, star) in self.stars.enumerated() {
+                if index <= self.score - 1 {
+                    star.fadeIn()
+                }
+            }
+        }
+        
+        popupScoreLabel.text = "\(score)/5"
+        
+        //clear timer from memory
+        timer.invalidate()
+        
     }
     
     //TODO: networking and notifications
+    func scheduleNotificaion() {
+        //check to see if permissions granted - 2 is granted
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("User settings notification ******* \(settings.authorizationStatus.rawValue)")
+            
+            //if authorised.
+            if settings.authorizationStatus.rawValue == 2 {
+                
+                //currently set to one minute after completing - for testing.
+                UNService.instance.timerRequest(with: 60)
+                
+                //if a request has been set remove and replace
+                //This might not be neccessary. Can only schedule one notification with id
+                UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { ( pending ) in
+                    for request in pending {
+                        print("Pending requests ******** \(request.identifier)")
+                    }
+                })
+            }
+        }
+    }
+    
+    @IBAction func popupClose(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     
     
     
-    //TODO: Confirm action...
     @IBAction func answerPressed(_ sender: UIButton) {
         //check to see if correct answer pressed
         if sender.titleLabel?.text == currentQuestion.correctAnswer {
