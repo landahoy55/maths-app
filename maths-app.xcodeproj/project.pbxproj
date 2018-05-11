@@ -46,6 +46,8 @@
 		F05C69A32063FFD60057A6B0 /* HandWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C69A22063FFD50057A6B0 /* HandWritingViewController.swift */; };
 		F05C69A520640E7A0057A6B0 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C69A420640E7A0057A6B0 /* CanvasView.swift */; };
 		F05C69A7206414A60057A6B0 /* MNIST.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F05C69A6206414A60057A6B0 /* MNIST.mlmodel */; };
+		F073B57D20A592910046FA85 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F073B57C20A592910046FA85 /* UIImageView+Extension.swift */; };
+		F073B57F20A598C20046FA85 /* MultipleChoiceImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F073B57E20A598C20046FA85 /* MultipleChoiceImagesViewController.swift */; };
 		F07AFCED2048436000F37658 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */; };
 		F07AFCEF204D5ADE00F37658 /* menuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */; };
 		F07AFCF1204D7D5C00F37658 /* SubTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */; };
@@ -184,6 +186,8 @@
 		F05C69A22063FFD50057A6B0 /* HandWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandWritingViewController.swift; sourceTree = "<group>"; };
 		F05C69A420640E7A0057A6B0 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		F05C69A6206414A60057A6B0 /* MNIST.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MNIST.mlmodel; sourceTree = "<group>"; };
+		F073B57C20A592910046FA85 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		F073B57E20A598C20046FA85 /* MultipleChoiceImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceImagesViewController.swift; sourceTree = "<group>"; };
 		F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		F07AFCEE204D5ADE00F37658 /* menuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCollectionViewCell.swift; sourceTree = "<group>"; };
 		F07AFCF0204D7D5C00F37658 /* SubTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopicViewController.swift; sourceTree = "<group>"; };
@@ -424,6 +428,7 @@
 				F0C871F5205969BF00B5AC34 /* DailyChallengeViewController.swift */,
 				F05C698B20611A8D0057A6B0 /* VoiceInputViewController.swift */,
 				F05C69A22063FFD50057A6B0 /* HandWritingViewController.swift */,
+				F073B57E20A598C20046FA85 /* MultipleChoiceImagesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				F00EBE28203C808B00125618 /* UIButton+Extensions.swift */,
 				F0F854CE2046DB1A007A794A /* UIView+Extensions.swift */,
 				F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */,
+				F073B57C20A592910046FA85 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -754,6 +760,7 @@
 				F0F854C12045B3A8007A794A /* Topic.swift in Sources */,
 				F00EBE22203C4E5A00125618 /* HomeViewController.swift in Sources */,
 				F037D17C205A9B46004BE224 /* ResultsPopUpView.swift in Sources */,
+				F073B57F20A598C20046FA85 /* MultipleChoiceImagesViewController.swift in Sources */,
 				F0934EF32050446E007A4295 /* RetreivedTopicResult.swift in Sources */,
 				F0934EEF20502F44007A4295 /* TopicResult.swift in Sources */,
 				F00EBE1C203C4B2700125618 /* MenuViewController.swift in Sources */,
@@ -777,6 +784,7 @@
 				F00EBE29203C808B00125618 /* UIButton+Extensions.swift in Sources */,
 				F0CE65FF20A2FF7F00C894D8 /* GoldEmitter.swift in Sources */,
 				F00EBE33203D80A900125618 /* onboardingView.swift in Sources */,
+				F073B57D20A592910046FA85 /* UIImageView+Extension.swift in Sources */,
 				F05C698C20611A8D0057A6B0 /* VoiceInputViewController.swift in Sources */,
 				F00EBE1A203C46BE00125618 /* InitialViewController.swift in Sources */,
 				F0F854C32045B3B9007A794A /* SubTopic.swift in Sources */,

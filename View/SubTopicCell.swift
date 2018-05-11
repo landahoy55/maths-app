@@ -62,13 +62,18 @@ class SubTopicCell: UITableViewCell {
             case 3:
             scoreLabel.textColor = .black
             medalImage.image = UIImage(named: "Bronze.png")
+                // self.backgroundColor = UIColor(red:0.96, green:0.73, blue:0.51, alpha:1.0)
+                
             case 4:
             scoreLabel.textColor = timerGreen
             medalImage.image = UIImage(named: "Silver.png")
+                //self.backgroundColor = UIColor(red:0.87, green:0.87, blue:0.87, alpha:1.0)
+                
             case 5:
             scoreLabel.textColor = timerGreen
             scoreLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
             medalImage.image = UIImage(named: "Gold.png")
+            self.backgroundColor = UIColor(red:1.00, green:0.94, blue:0.75, alpha:1.0)
             
             default:
             scoreLabel.textColor = .black

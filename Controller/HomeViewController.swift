@@ -72,6 +72,7 @@ class HomeViewController: UIViewController {
                                 self.nameLabel.text = "Welcome back \(name)"
                                 self.activityIndicator.stopAnimating()
                                 self.activityBackgroundView.removeFromSuperview()
+                                print("*IMAGE URL*", DataService.instance.downloadedTopics[4].subTopics[0].questions[0].imageurl ?? "NO image" )
                             }
                         }
                     })
@@ -129,6 +130,12 @@ class HomeViewController: UIViewController {
             case "handWritingSegue":
                 let handWritingViewController = segue.destination as! HandWritingViewController
                 handWritingViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[0]
+                
+            
+            case "multipleChoiceImageSegue":
+                let MultipleChoiceImagesViewController = segue.destination as! MultipleChoiceImagesViewController
+            
+                
             default:
                 return
             }
@@ -149,8 +156,9 @@ class HomeViewController: UIViewController {
         
         //optional
         print("****** \(String(describing: specificResult))")
-        //loop over subtopic for count of achieved?
         
+        
+        //loop over subtopic for count of achieved?
         var counter = 0
         if let specificResult = specificResult {
             for result in specificResult.subTopicResults {
@@ -184,6 +192,14 @@ class HomeViewController: UIViewController {
         
         performSegue(withIdentifier: "voiceSegue", sender: self)
     }
+    
+
+    @IBAction func imagesButton(_ sender: UIButton) {
+    
+        performSegue(withIdentifier: "multipleChoiceImageSegue", sender: self)
+    
+    }
+    
     
 }
 

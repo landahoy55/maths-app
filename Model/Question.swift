@@ -13,4 +13,10 @@ struct Question: Codable {
     let correctAnswer: String
     let _id: String
     let answers: [Answer]
+    let imageurl: String?
+    
+    //imageURL may be optional...
+    //    https://developer.apple.com/documentation/swift/keyeddecodingcontainer/2893445-decodeifpresent
+    //decodeIfPresent key
+    //Requires initialiser and enum stating keys.
 }
