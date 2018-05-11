@@ -14,7 +14,7 @@ extension UIImageView {
     //get url, if not use default image
     func downloadImageFromURL(imgURL: String?) {
         guard let imageURL = imgURL else {
-            self.image = UIImage(named: "icon.png")
+            self.image = UIImage(named: "Silver.png")
             return
         }
         
@@ -24,7 +24,8 @@ extension UIImageView {
             
             //put back on main thread
             DispatchQueue.main.async {
-                self.image = data != nil ? UIImage(data: data!) : UIImage(named: "icon.png")
+                print("DATA...", data as Any)
+                self.image = data != nil ? UIImage(data: data!) : UIImage(named: "Silver.png")
             }
         }
     }

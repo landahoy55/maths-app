@@ -111,7 +111,6 @@ class MultipleChoiceViewController: UIViewController {
     func setQuestionLayout() {
         
         //check to see if subtopic or daily challenge
-        
         if subTopic != nil {
             currentQuestion = subTopic?.questions[questionIndex]
 

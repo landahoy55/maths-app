@@ -133,8 +133,9 @@ class HomeViewController: UIViewController {
                 
             
             case "multipleChoiceImageSegue":
-                let MultipleChoiceImagesViewController = segue.destination as! MultipleChoiceImagesViewController
-            
+                let multipleChoiceImagesViewController = segue.destination as! MultipleChoiceImagesViewController
+                
+                multipleChoiceImagesViewController.subTopic = DataService.instance.downloadedTopics[4].subTopics[0]
                 
             default:
                 return
