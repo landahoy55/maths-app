@@ -70,11 +70,10 @@ class Emitter {
         cell.spin = CGFloat(3.5 * intensity)
         
         //adjust size
-        cell.spinRange = CGFloat(4.0 * intensity)
-        cell.scaleRange = CGFloat(intensity)
-        cell.scaleSpeed = CGFloat(-0.1 * intensity)
-        
-        cell.color = colour.cgColor
+        cell.spinRange = CGFloat(4.0)
+        cell.scaleRange = CGFloat(1)
+        cell.scaleSpeed = CGFloat(-0.1)
+    
         
         return cell
     }

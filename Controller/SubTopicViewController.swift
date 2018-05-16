@@ -13,7 +13,7 @@ class SubTopicViewController: UIViewController {
     
     //injections
     var subTopics: [SubTopic]?
-    var subTopicResults: [RetreivedSubtopicResult]? //result not updating on this screen. Can a delegate method after update help?
+    var subTopicResults: [RetreivedSubtopicResult]? //may be no results
     
     var subTopicToPass: SubTopic!
     var resultToPass: RetreivedSubtopicResult?
@@ -22,7 +22,9 @@ class SubTopicViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var navbarTitle: UINavigationItem!
 
+    @IBOutlet weak var noResultsPanel: UIView!
     
+    var isFirstResult = false
     //Animations for contraints
     @IBOutlet weak var stageOneConstaint: NSLayoutConstraint!
     @IBOutlet weak var stageTwoContraint: NSLayoutConstraint!
@@ -55,6 +57,7 @@ class SubTopicViewController: UIViewController {
         bar4.backgroundColor = .clear
         bar5.backgroundColor = .clear
         
+        noResultsPanel.isHidden = true
         
     }
     
@@ -68,13 +71,15 @@ class SubTopicViewController: UIViewController {
         var constraints = [40,40,40,40,40]
         //what if no results?
        
-        //loop over subtopics - check to see if result exists. adjust relevant containt
+        //loop over subtopics - check to see if result exists. adjust relevant constraint
+        
         if let subtopics = subTopics {
             for (index,topic) in subtopics.enumerated() {
                 if let results = subTopicResults {
                     if let result = subtopicResult(results: results, subTopicID: topic._id) {
                         let constraint = topAnchorContant(score: result.score)
                         constraints[index] = constraint
+                        noResultsPanel.isHidden = true
                     }
                 }
             }
@@ -161,14 +166,22 @@ class SubTopicViewController: UIViewController {
         navbarTitle.title = subT[0].parentTopic.title
         
         subTopicResults = DataService.instance.downloadedSubTopicResults
+        
+        if isFirstResult == true {
+            print("********* isFirstResult is true")
+            UIView.animate(withDuration: 0.3) {
+                self.noResultsPanel.isHidden = true
+            }
+        } else {
+          print("********* isFirstResult is false")
+        }
+        
         tableView.reloadData()
     }
     
     
     //segue logic
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        
-        //TODO: HANDLE ERROR/DEFAULT SEGUE
         
         //Go to quizzes
         if let identifier = segue.identifier {
@@ -198,6 +211,18 @@ class SubTopicViewController: UIViewController {
                 
                 multipleChoiceImagesViewController.subTopic = subTopicToPass
                 multipleChoiceImagesViewController.subResult = resultToPass
+                
+            //TODO add additional challenges
+            case "voiceInputSegue":
+                let voiceInputViewController = segue.destination as! VoiceInputViewController
+                voiceInputViewController.subTopic = subTopicToPass
+                voiceInputViewController.subResult = resultToPass
+                
+            case "handWritingSegue":
+                let handWritingViewController = segue.destination as! HandWritingViewController
+                
+                handWritingViewController.subTopic = subTopicToPass
+                handWritingViewController.subResult = resultToPass
             
             default:
                 return

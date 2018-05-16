@@ -28,6 +28,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         let token = UserDefaults.standard.object(forKey: DEFAULTS_TOKEN) as! String
         print("token", token)
         activityIndicator.center = self.view.center
@@ -72,7 +74,6 @@ class HomeViewController: UIViewController {
                                 self.nameLabel.text = "Welcome back \(name)"
                                 self.activityIndicator.stopAnimating()
                                 self.activityBackgroundView.removeFromSuperview()
-                                print("*IMAGE URL*", DataService.instance.downloadedTopics[4].subTopics[0].questions[0].imageurl ?? "NO image" )
                             }
                         }
                     })

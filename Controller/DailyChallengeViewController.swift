@@ -17,6 +17,7 @@ class DailyChallengeViewController: UIViewController {
     @IBOutlet weak var viewToShow: UIView!
     @IBOutlet weak var playButton: RoundButton!
     @IBOutlet weak var pulseView: UIView!
+    @IBOutlet weak var challengeDescription: UILabel!
     
     var isAvailable = false
     
@@ -28,6 +29,7 @@ class DailyChallengeViewController: UIViewController {
         if (dataService.downloadedChallenge != nil) {
             isAvailable = true
             dailyChallenge = dataService.downloadedChallenge
+            challengeDescription.text = dailyChallenge?.description
         }
         
         //show not available view if no challenge is present
@@ -50,9 +52,15 @@ class DailyChallengeViewController: UIViewController {
         if let identifier = segue.identifier {
             
             switch identifier {
+                
                 case "multipleChoiceSegue":
                 let multipleChoiceViewController = segue.destination as! MultipleChoiceViewController
                 multipleChoiceViewController.dailyChallenge = dailyChallenge
+                
+                case "inputSegue":
+                let inputAnswerViewController = segue.destination as! InputAnswerViewController
+                inputAnswerViewController.dailyChallenge = dailyChallenge
+            
                 default: return
             }
             
@@ -77,8 +85,9 @@ class DailyChallengeViewController: UIViewController {
     }
     
     @IBAction func playChallenge(_ sender: UIButton) {
-
-        performSegue(withIdentifier: "multipleChoiceSegue", sender: self)
+        guard let dc = dailyChallenge else { return }
+        let segue = "\(dc.type)Segue"
+        performSegue(withIdentifier: segue, sender: self)
 
     }
     

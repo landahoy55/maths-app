@@ -72,8 +72,8 @@ class MultipleChoiceImagesViewController: UIViewController {
         
         
         //hide the close button - reveal laters
-//        popUpCloseBtn.isEnabled = false
-//        popUpCloseBtn.alpha = 0
+        popUpCloseBtn.isEnabled = false
+        popUpCloseBtn.alpha = 0
         
         loadQuestions()
     }
@@ -286,6 +286,18 @@ class MultipleChoiceImagesViewController: UIViewController {
         //clear timer from memory
         timer.invalidate()
         
+        //log results
+        if subTopic != nil {
+            recordSubTopicResult()
+            
+            //authorise notification - will prompt user if not auth
+            NotificationService.instance.authorise()
+            
+            //schedule with check for authorisation
+            scheduleNotificaion()
+        }
+        
+        
     }
     
     //TODO: networking and notifications
@@ -298,7 +310,7 @@ class MultipleChoiceImagesViewController: UIViewController {
             if settings.authorizationStatus.rawValue == 2 {
                 
                 //currently set to one minute after completing - for testing.
-                UNService.instance.timerRequest(with: 60)
+                NotificationService.instance.timerRequest(with: 60)
                 
                 //if a request has been set remove and replace
                 //This might not be neccessary. Can only schedule one notification with id
@@ -307,6 +319,171 @@ class MultipleChoiceImagesViewController: UIViewController {
                         print("Pending requests ******** \(request.identifier)")
                     }
                 })
+            }
+        }
+    }
+    
+    
+    //networking calls and logic
+    //Create or update subtopic result
+    
+    func recordSubTopicResult() {
+        
+        guard let sub = subTopic?._id else { return }
+        guard let topicId = subTopic?.parentTopic._id else { return }
+        guard let id = UserDefaults.standard.string(forKey: DEFAULTS_USERID) else { return }
+        
+        let scoreToRecord = String(score)
+        let subAchieved: String
+        
+        if scoreToRecord == "5" {
+            subAchieved = "true"
+        } else {
+            subAchieved = "false"
+        }
+        
+        //create subtopic result || updated.
+        // if result exists...
+        if let subTopicResult = subResult {
+            
+            //put new result
+            let result = SubtopicResult(achieved: subAchieved, score: scoreToRecord, subtopic: sub, id: id)
+            
+            dataService.updateSubTopicResult(newResult: result, idToUpdate: subTopicResult._id, completion: { (success) in
+                if (success) {
+                    print("Updated sub result")
+                    
+                    self.recordTopicResult(subTopicResult: subTopicResult._id, topicID: topicId, userID: id)
+                } else {
+                    print("Error")
+                }
+            })
+            
+        } else {
+            //post a new one
+            let subtopicResult = SubtopicResult(achieved: subAchieved, score: scoreToRecord, subtopic: sub, id: id)
+            //Post subtopic result
+            print("**** ABOUT TO POST NEW SUB *****")
+            print(subtopicResult)
+            dataService.postNewSubtopicResult(subtopicResult) { (success) in
+                if (success) {
+                    print("Posted new sub result")
+                    //print(self.dataService.recentSubTopicResult!)
+                    if let recentResult = self.dataService.recentSubTopicResult {
+                        print("********* RECENT SUB - \(recentResult)")
+                        self.recordTopicResult(subTopicResult: recentResult, topicID: topicId, userID: id)
+                    }
+                } else {
+                    print("Error")
+                }
+            }
+        }
+    }
+    
+    //create or update topic result
+    func recordTopicResult(subTopicResult: String, topicID: String, userID: String) {
+        
+        //create topic result
+        
+        //get topic results
+        guard let id = UserDefaults.standard.string(forKey: DEFAULTS_USERID) else { return }
+        dataService.getTopicResult(id) { (success) in
+            
+            if (success) {
+                
+                let topicResults = self.dataService.downloadedTopicResults
+                
+                if let result = topicResults.first(where: {$0.topic._id == self.subTopic?.parentTopic._id}) {
+                    print("******* FOUND A TOPIC RESULT ********")
+                    
+                    //UPDATE topic result - need subtopic result!
+                    //append result - if array count is five then adjust achieved.
+                    
+                    let topic = result.topic._id
+                    var subTopicResultsArray = [String]()
+                    
+                    //existing results - could check to see if achieved here?
+                    for subs in result.subTopicResults {
+                        subTopicResultsArray.append(subs._id)
+                    }
+                    
+                    subTopicResultsArray.append(subTopicResult)
+                    
+                    //check for duplicates and remove
+                    let deDuplicatedSubTopicResultsArray = Array(Set(subTopicResultsArray))
+                    
+                    let achieved: String
+                    
+                    // check to see if all results are in.
+                    if deDuplicatedSubTopicResultsArray.count == 5 {
+                        achieved = "true"
+                    } else {
+                        achieved = "false"
+                    }
+                    
+                    let topicResult = TopicResult(achieved: achieved, topic: topic, id: id, subTopicResults: deDuplicatedSubTopicResultsArray)
+                    
+                    let currentId = result._id
+                    self.dataService.updateTopicResult(newResult: topicResult, idToUpdate: currentId, completion: { (success) in
+                        if success {
+                            print("Updated topic!!")
+                            //Redownload results
+                            self.dataService.getTopicResult(id) { (success) in
+                                if success {
+                                    print("************\n REDOWNLOADED RESUTLS \n************")
+                                    self.dataService.getSubTopicResults(id, completion: { (success) in
+                                        
+                                        if (success) {
+                                            print("Fade in button here")
+                                            DispatchQueue.main.async {
+                                                
+                                                UIView.animate(withDuration: 0.3, animations: {
+                                                    self.popUpCloseBtn.alpha = 1
+                                                    self.popUpCloseBtn.isEnabled = true
+                                                })
+                                                
+                                            }
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    })
+                    
+                } else {
+                    print("******* FOUND NO TOPIC RESULT ********")
+                    
+                    //CREATE topic result - set to false as not all five achieved.
+                    
+                    let topicResult = TopicResult(achieved: "false", topic: topicID, id: userID, subTopicResults: [subTopicResult])
+                    //post
+                    self.dataService.postNewTopicResult(topicResult, completion: { (success) in
+                        if success {
+                            print("TOPIC saved")
+                            //redownload here
+                            self.dataService.getTopicResult(id) { (success) in
+                                if success {
+                                    print("************\n REDOWNLOADED RESUTLS \n************")
+                                    self.dataService.getSubTopicResults(id, completion: { (success) in
+                                        
+                                        if (success) {
+                                            
+                                            print("Fade in button here")
+                                            DispatchQueue.main.async {
+                                                UIView.animate(withDuration: 0.3, animations: {
+                                                    self.popUpCloseBtn.alpha = 1
+                                                    self.popUpCloseBtn.isEnabled = true
+                                                })
+                                            }
+                                            
+                                        }
+                                        
+                                    })
+                                }
+                            }
+                        }
+                    })
+                }
             }
         }
     }

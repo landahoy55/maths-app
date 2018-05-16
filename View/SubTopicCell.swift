@@ -39,10 +39,13 @@ class SubTopicCell: UITableViewCell {
             stageTypeLabel.text = "Multiple Choice"
         case "multipleChoiceImage":
             stageTypeLabel.text = "Image Quiz"
+        case "voiceInput":
+            stageTypeLabel.text = "Voice Input"
+        case "handWriting":
+            stageTypeLabel.text = "Handwriting"
         default:
             stageTypeLabel.text = ""
         }
-        
         
         if let score = score {
             print("CELL SCORE ON CREATION....", score)

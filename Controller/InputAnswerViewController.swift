@@ -13,6 +13,7 @@ class InputAnswerViewController: UIViewController {
 
     var subTopic: SubTopic?
     var subResult: RetreivedSubtopicResult?
+    var dailyChallenge: DailyChallenge?
     
     var questionIndex = 0
     var currentQuestion: Question!
@@ -87,12 +88,26 @@ class InputAnswerViewController: UIViewController {
             questionIndex < subT.questions.count ? setQuestionLayout() : close()
         }
         
+        if let dailyChallenge = dailyChallenge {
+            print("****** DAILYCHALLENGE FOUND")
+            questionIndex < dailyChallenge.questions.count ? setQuestionLayout() : close()
+        }
+        
         
     }
     
     func setQuestionLayout() {
         
-        currentQuestion = subTopic?.questions[questionIndex]
+        //check to see if subtopic or daily challenge
+        if subTopic != nil {
+            currentQuestion = subTopic?.questions[questionIndex]
+            
+        }
+        
+        if dailyChallenge != nil {
+            currentQuestion = dailyChallenge?.questions[questionIndex]
+        }
+        
         questionLabel.text = currentQuestion.question
         
         //reset()
@@ -167,7 +182,7 @@ class InputAnswerViewController: UIViewController {
             if settings.authorizationStatus.rawValue == 2 {
                 
                 //currently set to one minute after completing - for testing.
-                UNService.instance.timerRequest(with: 60)
+                NotificationService.instance.timerRequest(with: 60)
                 
                 //if a request has been set remove and replace
                 //This might not be neccessary. Can only schedule one notification with id
@@ -269,13 +284,32 @@ class InputAnswerViewController: UIViewController {
         
         
         timer.invalidate() //timer was running between screens
-        recordSubTopicResult()
         
-        //authorise notification
-        UNService.instance.authorise()
+        if subTopic != nil {
+            recordSubTopicResult()
+            
+            //authorise notification
+            NotificationService.instance.authorise()
+            
+            //schedule with check for authorisation
+            scheduleNotificaion()
+            
+        }
         
-        //schedule with check for authorisation
-        scheduleNotificaion()
+        if dailyChallenge != nil {
+            
+            //set close button to active
+            popUpCloseBtn.alpha = 1
+            popUpCloseBtn.isEnabled = true
+            
+            //authorise notification - will prompt user if not auth
+            NotificationService.instance.authorise()
+            
+            //schedule with check for authorisation
+            scheduleNotificaion()
+            
+        }
+        
     }
     
     func recordSubTopicResult() {

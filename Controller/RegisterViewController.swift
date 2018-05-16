@@ -30,11 +30,31 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func registerBtn(_ sender: UIButton) {
+        
         //basic validation
         guard let name = nameText.text, nameText.text != "", let email = emailText.text, emailText.text != "", let pass = passwordText.text, passwordText.text != "" else {
             self.showAlert(with: "Error", message: "Please enter name, email and password")
             return
         }
+        
+        
+        //check for valid email using extension
+        if (emailText.text?.isValidEmail() == false) {
+            
+            showAlert(with: "Email", message: "Is your email address formatted correctly?")
+            return
+        }
+        
+        
+        //check password is 8 digits
+        if (passwordText.text?.count)! < 4 {
+         showAlert(with: "Password", message: "Your password needs to be 4 characters")
+            
+            passwordText.text = ""
+            
+            return
+        }
+        
         
         //Call register method - then login user
         AuthorisationService.instance.registerUser(email: email, password: pass, name: name) { (success) in
@@ -47,6 +67,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                          //get on main thread to handle UI
                             OperationQueue.main.addOperation {
                                 self.showAlert(with: "Oops", message: "Already Registered")
+                                
+                                //clear form
+                                self.nameText.text = ""
+                                self.emailText.text = ""
+                                self.passwordText.text = ""
+                                
                             }
                         }
                     })

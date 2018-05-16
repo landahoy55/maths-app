@@ -49,29 +49,27 @@ class SilverEmitter {
     static func createCells() -> CAEmitterCell {
         let cell = CAEmitterCell()
         
-        let intensity = Float(0.8)
+        
         
         cell.contents = #imageLiteral(resourceName: "silver-emitter.png").cgImage
-        cell.birthRate = 15 * intensity
-        cell.lifetime = 20 * intensity
+        cell.birthRate = 15
+        cell.lifetime = 20
         
         cell.lifetimeRange = 0
-        cell.velocity = CGFloat(350.0 * intensity)
-        cell.velocityRange = CGFloat(80.0 * intensity)
+        cell.velocity = CGFloat(350.0)
+        cell.velocityRange = CGFloat(80.0)
         
         //sends cells down
-        //cell.emissionLongitude = (180 * (.pi/180))
         cell.emissionLongitude = CGFloat(Double.pi)
         //creates more dynamic feel
         cell.emissionRange = CGFloat(Double.pi)
-        cell.spin = CGFloat(3.5 * intensity)
+        cell.spin = CGFloat(3.5)
         
         //adjust size
-        cell.spinRange = CGFloat(4.0 * intensity)
-        cell.scaleRange = CGFloat(intensity)
-        cell.scaleSpeed = CGFloat(-0.1 * intensity)
+        cell.spinRange = CGFloat(4.0)
+        cell.scaleRange = CGFloat(1)
+        cell.scaleSpeed = CGFloat(-0.1)
         
-//        cell.color = colour.cgColor
         
         return cell
     }

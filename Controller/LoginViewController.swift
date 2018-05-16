@@ -30,6 +30,11 @@ class LoginViewController: UIViewController {
             return
         }
         
+        if (emailText.text?.isValidEmail() == false) {
+            showAlert(with: "Email", message: "Check email address format")
+            return
+        }
+        
         AuthorisationService.instance.logIn(email: email, password: pass) { (success) in
             
             //handle with callback

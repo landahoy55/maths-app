@@ -13,10 +13,11 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var onboardingScrollView: UIScrollView!
     @IBOutlet weak var onboardingPageControl: UIPageControl!
     
-    //TODO: replace with view model or pList.
-    let onboardingScreen1 = ["title":"Practice Maths","tagLine":"Sign up to personalise your experience","image":"onboarding1"]
-    let onboardingScreen3 = ["title":"Across Many Topics","tagLine":"Cover the major maths subjects","image":"onboarding1"]
-    let onboardingScreen4 = ["title":"Sign Up Now","tagLine":"Keep track of your progress over time","image":"onboarding1"]
+    //TODO: replace with view model or pList - dict is working
+    //image name matches asset folder
+    let onboardingScreen1 = ["title":"Practice Maths","tagLine":"Sign up to personalise your experience","image":"icon"]
+    let onboardingScreen3 = ["title":"Achieve Medals","tagLine":"Try to achieve gold, silver or bronze","image":"Medals"]
+    let onboardingScreen4 = ["title":"Sign Up Now","tagLine":"Keep track of your progress over time","image":"Graph"]
     
     //dictionary of strings.
     var onboardingArray = [Dictionary<String,String>]()
@@ -55,7 +56,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
-    
+    //loop over dict
     func loadOnboarding() {
         for (index, screen) in onboardingArray.enumerated() {
             //load nib - Cast to view.

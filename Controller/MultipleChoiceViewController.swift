@@ -55,10 +55,38 @@ class MultipleChoiceViewController: UIViewController {
     @IBOutlet weak var star5: UILabel!
     @IBOutlet weak var popUpCloseBtn: UIButton!
     
+    //button constraint - help with smaller device sizes
+    @IBOutlet weak var buttonTopConstraint: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        //adjust constraint dependent on size
+        let deviceHeight = UIScreen.main.bounds.size.height
+        
+        switch deviceHeight {
+        case let val where val == 568:
+            print("iPhone SE")
+            buttonTopConstraint.constant = 300
+            break
+        case let val where val == 667:
+            print("iPhone 6,7,8")
+            buttonTopConstraint.constant = 300
+            break
+        case let val where val == 736:
+            print("iPhone 6P,7P,8P")
+            buttonTopConstraint.constant = 370
+            break
+        case let val where val >= 737:
+            print("iPhone X")
+            buttonTopConstraint.constant = 370
+            break
+        default:
+            break
+        }
+        
         //append buttons
         buttons.append(answerButton0)
         buttons.append(answerButton1)
@@ -204,7 +232,7 @@ class MultipleChoiceViewController: UIViewController {
             if settings.authorizationStatus.rawValue == 2 {
                 
                 //currently set to one minute after completing - for testing.
-                UNService.instance.timerRequest(with: 60)
+                NotificationService.instance.timerRequest(with: 60)
                 
                 //if a request has been set remove and replace
                 //This might not be neccessary. Can only schedule one notification with id
@@ -300,22 +328,33 @@ class MultipleChoiceViewController: UIViewController {
         timer.invalidate() //timer was running between screens
         
         //MARK: LOGGING RESULTS HERE
-        
         if subTopic != nil {
             recordSubTopicResult()
             
             //authorise notification - will prompt user if not auth
-            UNService.instance.authorise()
+            NotificationService.instance.authorise()
             
             //schedule with check for authorisation
             scheduleNotificaion()
         }
         
+        if dailyChallenge != nil {
+            
+            //set close button to active
+            popUpCloseBtn.alpha = 1
+            popUpCloseBtn.isEnabled = true
+            
+            //authorise notification - will prompt user if not auth
+            NotificationService.instance.authorise()
+            
+            //schedule with check for authorisation
+            scheduleNotificaion()
 
+        }
+    
     }
     
     //Create or update subtopic result
-    
     func recordSubTopicResult() {
         
         guard let sub = subTopic?._id else { return }

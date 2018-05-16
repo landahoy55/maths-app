@@ -12,12 +12,12 @@
 import UIKit
 import UserNotifications
 
-class UNService: NSObject {
+class NotificationService: NSObject {
     
     //Create singleton - we only need instance
     //Requires override as NSObject
     private override init(){}
-    static let instance = UNService()
+    static let instance = NotificationService()
     
     let userNotificationsCentre = UNUserNotificationCenter.current()
     
@@ -28,7 +28,7 @@ class UNService: NSObject {
         let options: UNAuthorizationOptions = [.alert, .sound]
         userNotificationsCentre.requestAuthorization(options: options) { (granted, error) in
             
-            //nil coalescing operator. If error is not nil use it, or use string
+            //If error is not nil use it, or use string
             print (error ?? "No UserNotification Error")
             
             guard granted else {
@@ -83,12 +83,12 @@ class UNService: NSObject {
 }
 
 //conform to delegate - will allow interactions with notifications
-extension UNService: UNUserNotificationCenterDelegate {
+extension NotificationService: UNUserNotificationCenterDelegate {
     
     //Triggered when app is NOT in foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        print("UserNotif didRecieveResponse delegate method")
+        print("User Notif didRecieveResponse delegate method")
         
         completionHandler()
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 import Vision //Vision frame work combines CoreML, classificaion models and images/video
 //https://developer.apple.com/documentation/vision/classifying_images_with_vision_and_core_ml
 
@@ -24,10 +25,24 @@ class HandWritingViewController: UIViewController {
     @IBOutlet weak var correctLabel: UILabel!
     @IBOutlet weak var helpLabel: UILabel!
     
+    var stars = [UILabel]()
+    @IBOutlet var resultsPopUp: UIView!
+    @IBOutlet weak var resultScoreTitle: UILabel!
+    @IBOutlet weak var resultsScoreLabel: UILabel!
+    @IBOutlet weak var star1: UILabel!
+    @IBOutlet weak var star2: UILabel!
+    @IBOutlet weak var star3: UILabel!
+    @IBOutlet weak var star4: UILabel!
+    @IBOutlet weak var star5: UILabel!
+    @IBOutlet weak var popUpCloseBtn: UIButton!
+    
+    
     var subTopic: SubTopic?
+    var subResult: RetreivedSubtopicResult?
     var currentQuestion: Question!
     var questionIndex = 0
     var timer = Timer()
+    var dataService = DataService.instance
     
     var canvases = [CanvasView]() //to loop over canvases
     var requests = [VNRequest]() //to store requests
@@ -44,6 +59,14 @@ class HandWritingViewController: UIViewController {
         loadQuestions()
         //prepare pretrained model
         visionModelSetUp()
+        
+        stars.append(star1)
+        stars.append(star2)
+        stars.append(star3)
+        stars.append(star4)
+        stars.append(star5)
+        popUpCloseBtn.isEnabled = false
+        popUpCloseBtn.alpha = 0
         
         correctLabel.alpha = 0
     }
@@ -199,8 +222,259 @@ class HandWritingViewController: UIViewController {
     }
     
     func close() {
+        
+        //present popup
+        //update score label
+        scoreLabel.text = String(questionIndex)
+        
+        //add emitter to view
+        if questionIndex < 3 {
+            let emitter = Emitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
+            resultsPopUp.layer.addSublayer(emitter)
+        }
+        
+        if questionIndex == 3 {
+            let emitter = BronzeEmitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
+            resultsPopUp.layer.addSublayer(emitter)
+        }
+        
+        if questionIndex == 4 {
+            let emitter = SilverEmitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
+            resultsPopUp.layer.addSublayer(emitter)
+        }
+        
+        if questionIndex >= 5 {
+            let emitter = GoldEmitter.createEmitter()
+            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
+            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
+            resultsPopUp.layer.addSublayer(emitter)
+        }
+        
+        //set score label test
+        switch questionIndex {
+        case 0:
+            resultScoreTitle.text = "Oops"
+        case 1:
+            resultScoreTitle.text = "Keep trying"
+        case 2:
+            resultScoreTitle.text = "Go again!"
+        case 3:
+            resultScoreTitle.text = "Almost there"
+        case 4:
+            resultScoreTitle.text = "Great!"
+        case 5:
+            resultScoreTitle.text = "Awesome!!"
+        default:
+            resultScoreTitle.text = "Score"
+        }
+        
+        //adding popup subview
+        resultsPopUp.center = view.center
+        //transparent
+        resultsPopUp.alpha = 0
+        //add to view
+        view.addSubview(resultsPopUp)
+        //animate opactiy back to 1
+        
+        //fade in popup
+        //then fade in stars representing scores
+        UIView.animate(withDuration: 1, animations: {
+            self.resultsPopUp.alpha = 1
+        }) { (success) in
+            for (index, star) in self.stars.enumerated() {
+                if index <= self.questionIndex - 1 {
+                    star.fadeIn()
+                }
+            }
+        }
+        
+        resultsScoreLabel.text = "\(questionIndex)/5"
+        
+    
         timer.invalidate()
-        dismiss(animated: true, completion: nil)
+        
+        //networking
+        //MARK: LOGGING RESULTS HERE
+        if subTopic != nil {
+            recordSubTopicResult()
+            
+            //authorise notification - will prompt user if not auth
+            NotificationService.instance.authorise()
+            
+            //schedule with check for authorisation
+            scheduleNotificaion()
+        }
+        
+        //TODO: add to popUpBtnClose
+        //dismiss(animated: true, completion: nil)
+    }
+    
+    //Create or update subtopic result
+    func recordSubTopicResult() {
+        
+        guard let sub = subTopic?._id else { return }
+        guard let topicId = subTopic?.parentTopic._id else { return }
+        guard let id = UserDefaults.standard.string(forKey: DEFAULTS_USERID) else { return }
+        
+        let scoreToRecord = String(questionIndex)
+        let subAchieved: String
+        
+        if scoreToRecord == "5" {
+            subAchieved = "true"
+        } else {
+            subAchieved = "false"
+        }
+        
+        //create subtopic result || updated.
+        // if result exists...
+        if let subTopicResult = subResult {
+            
+            //put new result
+            let result = SubtopicResult(achieved: subAchieved, score: scoreToRecord, subtopic: sub, id: id)
+            
+            dataService.updateSubTopicResult(newResult: result, idToUpdate: subTopicResult._id, completion: { (success) in
+                if (success) {
+                    print("Updated sub result")
+                    
+                    self.recordTopicResult(subTopicResult: subTopicResult._id, topicID: topicId, userID: id)
+                } else {
+                    print("Error")
+                }
+            })
+            
+        } else {
+            //post a new one
+            let subtopicResult = SubtopicResult(achieved: subAchieved, score: scoreToRecord, subtopic: sub, id: id)
+            //Post subtopic result
+            print("**** ABOUT TO POST NEW SUB *****")
+            print(subtopicResult)
+            dataService.postNewSubtopicResult(subtopicResult) { (success) in
+                if (success) {
+                    print("Posted new sub result")
+                    //print(self.dataService.recentSubTopicResult!)
+                    if let recentResult = self.dataService.recentSubTopicResult {
+                        print("********* RECENT SUB - \(recentResult)")
+                        self.recordTopicResult(subTopicResult: recentResult, topicID: topicId, userID: id)
+                    }
+                } else {
+                    print("Error")
+                }
+            }
+        }
+    }
+    
+    //create or update topic result
+    func recordTopicResult(subTopicResult: String, topicID: String, userID: String) {
+        
+        //create topic result
+        
+        //get topic results
+        guard let id = UserDefaults.standard.string(forKey: DEFAULTS_USERID) else { return }
+        dataService.getTopicResult(id) { (success) in
+            
+            if (success) {
+                
+                let topicResults = self.dataService.downloadedTopicResults
+                
+                if let result = topicResults.first(where: {$0.topic._id == self.subTopic?.parentTopic._id}) {
+                    print("******* FOUND A TOPIC RESULT ********")
+                    
+                    //UPDATE topic result - need subtopic result!
+                    //append result - if array count is five then adjust achieved.
+                    
+                    let topic = result.topic._id
+                    var subTopicResultsArray = [String]()
+                    
+                    //existing results - could check to see if achieved here?
+                    for subs in result.subTopicResults {
+                        subTopicResultsArray.append(subs._id)
+                    }
+                    
+                    subTopicResultsArray.append(subTopicResult)
+                    
+                    //check for duplicates and remove
+                    let deDuplicatedSubTopicResultsArray = Array(Set(subTopicResultsArray))
+                    
+                    let achieved: String
+                    
+                    // check to see if all results are in.
+                    if deDuplicatedSubTopicResultsArray.count == 5 {
+                        achieved = "true"
+                    } else {
+                        achieved = "false"
+                    }
+                    
+                    let topicResult = TopicResult(achieved: achieved, topic: topic, id: id, subTopicResults: deDuplicatedSubTopicResultsArray)
+                    
+                    let currentId = result._id
+                    self.dataService.updateTopicResult(newResult: topicResult, idToUpdate: currentId, completion: { (success) in
+                        if success {
+                            print("Updated topic!!")
+                            //Redownload results
+                            self.dataService.getTopicResult(id) { (success) in
+                                if success {
+                                    print("************\n REDOWNLOADED RESUTLS \n************")
+                                    self.dataService.getSubTopicResults(id, completion: { (success) in
+                                        
+                                        if (success) {
+                                            print("Fade in button here")
+                                            DispatchQueue.main.async {
+                                                
+                                                UIView.animate(withDuration: 0.3, animations: {
+                                                    self.popUpCloseBtn.alpha = 1
+                                                    self.popUpCloseBtn.isEnabled = true
+                                                })
+                                                
+                                            }
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    })
+                    
+                } else {
+                    print("******* FOUND NO TOPIC RESULT ********")
+                    
+                    //CREATE topic result - set to false as not all five achieved.
+                    
+                    let topicResult = TopicResult(achieved: "false", topic: topicID, id: userID, subTopicResults: [subTopicResult])
+                    //post
+                    self.dataService.postNewTopicResult(topicResult, completion: { (success) in
+                        if success {
+                            print("TOPIC saved")
+                            //redownload here
+                            self.dataService.getTopicResult(id) { (success) in
+                                if success {
+                                    print("************\n REDOWNLOADED RESUTLS \n************")
+                                    self.dataService.getSubTopicResults(id, completion: { (success) in
+                                        
+                                        if (success) {
+                                            
+                                            print("Fade in button here")
+                                            DispatchQueue.main.async {
+                                                UIView.animate(withDuration: 0.3, animations: {
+                                                    self.popUpCloseBtn.alpha = 1
+                                                    self.popUpCloseBtn.isEnabled = true
+                                                })
+                                            }
+                                            
+                                        }
+                                        
+                                    })
+                                }
+                            }
+                        }
+                    })
+                }
+            }
+        }
     }
     
     func clear() {
@@ -220,6 +494,28 @@ class HandWritingViewController: UIViewController {
         visionModelSetUp()
     }
     
+    func scheduleNotificaion() {
+        //check to see if permissions granted - 2 is granted
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("User settings notification ******* \(settings.authorizationStatus.rawValue)")
+            
+            //if authorised.
+            if settings.authorizationStatus.rawValue == 2 {
+                
+                //currently set to one minute after completing - for testing.
+                NotificationService.instance.timerRequest(with: 60)
+                
+                //if a request has been set remove and replace
+                //This might not be neccessary. Can only schedule one notification with id
+                UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { ( pending ) in
+                    for request in pending {
+                        print("Pending requests ******** \(request.identifier)")
+                    }
+                })
+            }
+        }
+    }
+    
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
         
         
@@ -231,7 +527,7 @@ class HandWritingViewController: UIViewController {
             //first time - blank canvas may be nil - no result captured.
             if canvas.path != nil {
                 
-                print("CANVAS IS EMPTY:", canvas.path.cgPath.isEmpty)
+//                print("CANVAS IS EMPTY:", canvas.path.cgPath.isEmpty)
                 
                 //check to see if empty - canvas paths are nil if blank
                 //allowing users to write in either canvas
@@ -243,6 +539,14 @@ class HandWritingViewController: UIViewController {
         }
         
     }
+    
+    
+    @IBAction func popUpCloseBtn(_ sender: UIButton) {
+    
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
     
     @IBAction func clearButtonTapped(_ sender: UIButton) {
     
