@@ -18,6 +18,7 @@ class DailyChallengeViewController: UIViewController {
     @IBOutlet weak var playButton: RoundButton!
     @IBOutlet weak var pulseView: UIView!
     @IBOutlet weak var challengeDescription: UILabel!
+    @IBOutlet weak var challengeAvailableLabel: UILabel!
     
     var isAvailable = false
     
@@ -30,8 +31,10 @@ class DailyChallengeViewController: UIViewController {
             isAvailable = true
             dailyChallenge = dataService.downloadedChallenge
             challengeDescription.text = dailyChallenge?.description
+            challengeDescription.alpha = 1
+            challengeAvailableLabel.alpha = 1
         }
-        
+            
         //show not available view if no challenge is present
         if !isAvailable {
             challengeNotAvailableView.center = viewToShow.center

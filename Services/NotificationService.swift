@@ -8,17 +8,22 @@
 
 
 //User notification service - to add local notifications
+//Extensive details - https://developer.apple.com/notifications/
+//Guidance - https://www.raywenderlich.com/156966/push-notifications-tutorial-getting-started
+
 
 import UIKit
 import UserNotifications
 
 class NotificationService: NSObject {
     
-    //Create singleton - we only need instance
     //Requires override as NSObject
-    private override init(){}
+    private override init(){
+        
+    }
     static let instance = NotificationService()
     
+    //in order to retireve notif settings - another singleton...
     let userNotificationsCentre = UNUserNotificationCenter.current()
     
     //request user permissions
@@ -52,12 +57,12 @@ class NotificationService: NSObject {
         userNotificationsCentre.delegate = self
         
         //register for remote notifications
-        let app = UIApplication.shared //might need to case as delegate
+        let app = UIApplication.shared 
         app.registerForRemoteNotifications()
     }
     
     //create notification based on timer
-    func timerRequest(with interval: TimeInterval) {
+    func request(time interval: TimeInterval) {
         
         //Notifications need:
             //Content
@@ -78,8 +83,6 @@ class NotificationService: NSObject {
         userNotificationsCentre.add(request)
         
     }
-
-
 }
 
 //conform to delegate - will allow interactions with notifications

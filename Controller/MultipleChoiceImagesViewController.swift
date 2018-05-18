@@ -15,7 +15,7 @@ class MultipleChoiceImagesViewController: UIViewController {
     //Outlets
     @IBOutlet weak var timerLbl: UILabel!
     @IBOutlet weak var scoreLbl: UILabel!
-    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var timeRemainingBar: UIProgressView!
     @IBOutlet weak var questionLbl: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
@@ -85,29 +85,29 @@ class MultipleChoiceImagesViewController: UIViewController {
     
     //timer functions
     func startTimer() {
-        progressBar.tintColor = timerGreen
-        progressBar.trackTintColor = UIColor.white
-        progressBar.progress = 1.0
+        timeRemainingBar.tintColor = timerGreen
+        timeRemainingBar.trackTintColor = UIColor.white
+        timeRemainingBar.progress = 1.0
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimerProgress), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimerProgress(){
         
-        progressBar.progress -= 0.01/30
+        timeRemainingBar.progress -= 0.01/60
         
         //countdown timer - not 100% accurate, almost 30 seconds though
-        let countdown = Int((progressBar.progress / 3.33) * 100)
+        let countdown = Int((timeRemainingBar.progress) * 60)
         timerLbl.text = String(countdown)
         
-        if progressBar.progress <= 0 {
+        if timeRemainingBar.progress <= 0 {
             print("Out of time")
         close()
-        } else if progressBar.progress <= 0.2 {
+        } else if timeRemainingBar.progress <= 0.2 {
             
-            progressBar.progressTintColor = timerRed
-        } else if progressBar.progress <= 0.5 {
-            progressBar.progressTintColor = timerOrange
-        isHalfTime = true
+            timeRemainingBar.progressTintColor = timerRed
+        } else if timeRemainingBar.progress <= 0.5 {
+            timeRemainingBar.progressTintColor = timerOrange
+            isHalfTime = true
         }
     }
     
@@ -310,7 +310,7 @@ class MultipleChoiceImagesViewController: UIViewController {
             if settings.authorizationStatus.rawValue == 2 {
                 
                 //currently set to one minute after completing - for testing.
-                NotificationService.instance.timerRequest(with: 60)
+                NotificationService.instance.request(time: 60)
                 
                 //if a request has been set remove and replace
                 //This might not be neccessary. Can only schedule one notification with id

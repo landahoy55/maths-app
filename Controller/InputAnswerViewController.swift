@@ -18,6 +18,7 @@ class InputAnswerViewController: UIViewController {
     var questionIndex = 0
     var currentQuestion: Question!
     
+    //link to progressBar - done
     var timer = Timer()
     var score = 0 // currently using index
     var isHalfTime = false
@@ -29,7 +30,7 @@ class InputAnswerViewController: UIViewController {
     var subtopicResultsReturned = false
     
     //outlets - timer
-    @IBOutlet weak var timerProgressView: UIProgressView!
+    @IBOutlet weak var timeRemainingBar: UIProgressView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var countdownLabel: UILabel!
     
@@ -147,33 +148,39 @@ class InputAnswerViewController: UIViewController {
     }
     
     func startTimer() {
-        timerProgressView.tintColor = timerGreen
-        timerProgressView.trackTintColor = UIColor.white
-        timerProgressView.progress = 1.0
+        timeRemainingBar.tintColor = timerGreen
+        timeRemainingBar.trackTintColor = UIColor.white
+        //progress set to full.
+        timeRemainingBar.progress = 1.0
+        
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimerProgress), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimerProgress(){
-        timerProgressView.progress -= 0.01/30
         
-        //countdown timer - not 100% accurate
-        let countdown = Int((timerProgressView.progress / 3.33) * 100)
+        //remove 1 60th
+        timeRemainingBar.progress -= 0.01/60
+        
+        //seconds to display
+        let countdown = Int((timeRemainingBar.progress) * 60)
+        print(countdown)
+        
         countdownLabel.text = String(countdown)
         
-        if timerProgressView.progress <= 0 {
+        //change tracking color.
+        if timeRemainingBar.progress <= 0 {
             print("Out of time")
             close()
-        } else if timerProgressView.progress <= 0.2 {
-            
-            timerProgressView.progressTintColor = timerRed
-        } else if timerProgressView.progress <= 0.5 {
-            timerProgressView.progressTintColor = timerOrange
+        } else if timeRemainingBar.progress <= 0.2 {
+            timeRemainingBar.progressTintColor = timerRed
+        } else if timeRemainingBar.progress <= 0.5 {
+            timeRemainingBar.progressTintColor = timerOrange
             isHalfTime = true
         }
     }
     
-    //TODO: Schedule notification
-    fileprivate func scheduleNotificaion() {
+    
+    func scheduleNotificaion() {
         //check to see if permissions granted - 2 is granted
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             print("User settings notification ******* \(settings.authorizationStatus.rawValue)")
@@ -182,10 +189,9 @@ class InputAnswerViewController: UIViewController {
             if settings.authorizationStatus.rawValue == 2 {
                 
                 //currently set to one minute after completing - for testing.
-                NotificationService.instance.timerRequest(with: 60)
+                NotificationService.instance.request(time: 60)
                 
                 //if a request has been set remove and replace
-                //This might not be neccessary. Can only schedule one notification with id
                 UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { ( pending ) in
                     for request in pending {
                         print("Pending requests ******** \(request.identifier)")

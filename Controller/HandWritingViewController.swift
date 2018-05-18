@@ -8,18 +8,25 @@
 
 import UIKit
 import UserNotifications
-import Vision //Vision frame work combines CoreML, classificaion models and images/video
+import Vision
+
+//Vision frame work combines CoreML, classificaion models and images/video
 //https://developer.apple.com/documentation/vision/classifying_images_with_vision_and_core_ml
+
+//Code extended from Brian Advent open source project series
+//Intergration with scoring system and multiple characters added
+//Additional handling of images added to allow for white background - consistent with UI
+//Ref https://github.com/brianadvent/CoreMLHandwritingRecognition
 
 class HandWritingViewController: UIViewController {
 
     //Outlets
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var timerProgressView: UIProgressView!
+    @IBOutlet weak var timeRemainingBar: UIProgressView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var countdownLabel: UILabel!
-    @IBOutlet weak var canvas1: CanvasView!
-    @IBOutlet weak var canvas2: CanvasView!
+    @IBOutlet weak var digit1: DigitDrawView!
+    @IBOutlet weak var digit2: DigitDrawView!
     @IBOutlet weak var recognisedLabel: UILabel!
     
     @IBOutlet weak var correctLabel: UILabel!
@@ -44,21 +51,21 @@ class HandWritingViewController: UIViewController {
     var timer = Timer()
     var dataService = DataService.instance
     
-    var canvases = [CanvasView]() //to loop over canvases
+    var writingAreas = [DigitDrawView]() //to loop over writing areas
     var requests = [VNRequest]() //to store requests
     var possibleAnswer: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        canvases.append(canvas1)
-        canvases.append(canvas2)
+        writingAreas.append(digit1)
+        writingAreas.append(digit2)
         
         startTimer()
         //set up questions
         loadQuestions()
         //prepare pretrained model
-        visionModelSetUp()
+        modelSetUp()
         
         stars.append(star1)
         stars.append(star2)
@@ -83,39 +90,47 @@ class HandWritingViewController: UIViewController {
         }
     }
     
-    func visionModelSetUp() {
+    func modelSetUp() {
         
         //prepare model
-        //load in model - MNIST is a pretrained model allowing for handwriting characters to be recongised
-        guard let visionModel = try? VNCoreMLModel(for: MNIST().model) else { fatalError("Not able to load model") }
+        //load in model
+        guard let visionModel = try? VNCoreMLModel(for: MNIST().model) else {
+            print("Model not available")
+            //exit if issue with model
+            dismiss(animated: true, completion: nil)
+            return
+        }
         
-        //Set up request -  business logic runs in completion handler.
-        //these requests can now be called with VNImageRequestHandler
-        let classificationRequest = VNCoreMLRequest(model: visionModel, completionHandler: self.handleClassification)
+        //Set up request
+        //requests can now be called with VNImageRequestHandler
+        let request = VNCoreMLRequest(model: visionModel, completionHandler: self.classificationRequest)
         
         //tidying
         self.requests.removeAll()
-        self.requests = [classificationRequest]
+        self.requests = [request]
     }
     
     //Handle request
-    func handleClassification(request: VNRequest, error: Error?) {
+    func classificationRequest(request: VNRequest, error: Error?) {
         
         //request contains an array of results, type ANY - what has been observed
-        guard let observations = request.results else { print("no results"); return }
+        guard let observations = request.results else {
+            print("no observation");
+            return
+        }
         print("Observations ********", observations)
         
         //results are in order by confidence. Needs to be cast as an observation to get at properties.
         let classification = observations.first as! VNClassificationObservation
         
         //returns the result
-        let classificationIdentity = classification.identifier
-        print("Classified", classificationIdentity)
+        let classificationId = classification.identifier
+        print("Classified", classificationId)
     
         //push result var
-        possibleAnswer += classificationIdentity
+        possibleAnswer += classificationId
         
-        //display - move back to main thread as per documentation
+        //display - move back to main thread to update label.
         DispatchQueue.main.async {
             //Configure label
             self.recognisedLabel.text = self.possibleAnswer
@@ -127,7 +142,7 @@ class HandWritingViewController: UIViewController {
     
     //Model requires a 28 x 28 monochrome images.
     //Convert canvas into 28 x 28 images.
-    func performRequest(canvas: CanvasView) {
+    func performRequest(canvas: DigitDrawView) {
         
         
         //create image from view
@@ -138,8 +153,13 @@ class HandWritingViewController: UIViewController {
         //Invert colour - model prefers black background
         //https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorMonochrome
         let imageToinvert = CIImage(image: scaledImage)
-        guard let filter = CIFilter(name: "CIColorInvert") else { print("issue with filter"); return }
+        guard let filter = CIFilter(name: "CIColorInvert") else {
+            print("issue with filter")
+            return
+        }
+        
         filter.setValue(imageToinvert, forKey: kCIInputImageKey)
+        
         let imageToRequest = convertCIImageToCGImage(inputImage: filter.outputImage!)
         
         //prepare request
@@ -196,28 +216,28 @@ class HandWritingViewController: UIViewController {
     }
     
     func startTimer() {
-        timerProgressView.tintColor = timerGreen
-        timerProgressView.trackTintColor = UIColor.white
-        timerProgressView.progress = 1.0
+        timeRemainingBar.tintColor = timerGreen
+        timeRemainingBar.trackTintColor = UIColor.white
+        timeRemainingBar.progress = 1.0
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimerProgress), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimerProgress(){
         
-        timerProgressView.progress -= 0.01/30
+        timeRemainingBar.progress -= 0.01/60
         
-        //countdown timer - not 100% accurate
-        let countdown = Int((timerProgressView.progress / 3.33) * 100)
+        
+        let countdown = Int((timeRemainingBar.progress) * 60)
         countdownLabel.text = String(countdown)
         
-        if timerProgressView.progress <= 0 {
+        if timeRemainingBar.progress <= 0 {
             print("Out of time")
             close()
-        } else if timerProgressView.progress <= 0.2 {
+        } else if timeRemainingBar.progress <= 0.2 {
             
-            timerProgressView.progressTintColor = timerRed
-        } else if timerProgressView.progress <= 0.5 {
-            timerProgressView.progressTintColor = timerOrange
+            timeRemainingBar.progressTintColor = timerRed
+        } else if timeRemainingBar.progress <= 0.5 {
+            timeRemainingBar.progressTintColor = timerOrange
         }
     }
     
@@ -288,6 +308,8 @@ class HandWritingViewController: UIViewController {
             self.resultsPopUp.alpha = 1
         }) { (success) in
             for (index, star) in self.stars.enumerated() {
+                print("QUESTION INDEX", self.questionIndex)
+                
                 if index <= self.questionIndex - 1 {
                     star.fadeIn()
                 }
@@ -311,8 +333,6 @@ class HandWritingViewController: UIViewController {
             scheduleNotificaion()
         }
         
-        //TODO: add to popUpBtnClose
-        //dismiss(animated: true, completion: nil)
     }
     
     //Create or update subtopic result
@@ -480,7 +500,7 @@ class HandWritingViewController: UIViewController {
     func clear() {
         
         //if content is in canvas clear
-        for canvas in canvases {
+        for canvas in writingAreas {
             if canvas.path != nil {
                 canvas.clearCanvas()
             }
@@ -491,7 +511,7 @@ class HandWritingViewController: UIViewController {
         recognisedLabel.text = possibleAnswer
         
         //reset vision - may not be necessary.
-        visionModelSetUp()
+        modelSetUp()
     }
     
     func scheduleNotificaion() {
@@ -503,7 +523,7 @@ class HandWritingViewController: UIViewController {
             if settings.authorizationStatus.rawValue == 2 {
                 
                 //currently set to one minute after completing - for testing.
-                NotificationService.instance.timerRequest(with: 60)
+                NotificationService.instance.request(time: 60)
                 
                 //if a request has been set remove and replace
                 //This might not be neccessary. Can only schedule one notification with id
@@ -520,7 +540,7 @@ class HandWritingViewController: UIViewController {
         
         
         
-        for (index, canvas) in canvases.enumerated() {
+        for (index, canvas) in writingAreas.enumerated() {
             
             print("CANVAS :", index)
 

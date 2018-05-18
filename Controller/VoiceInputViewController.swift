@@ -10,6 +10,13 @@ import UIKit
 import Speech
 import UserNotifications
 
+//Ref code extended from Apple example project
+//https://developer.apple.com/library/content/samplecode/SpeakToMe/Introduction/Intro.html
+//Integration with scoring system
+//Converts single digits from string to ints
+//UI enhancements follow HIG - animation
+
+
 //enum to indicate status
 enum SpeechStatus {
     case ready
@@ -18,14 +25,14 @@ enum SpeechStatus {
 }
 
 //Speech recongniser delegate required to access methods
-//plist variables also set
+//plist variables also set - see docs
 class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
 
     @IBOutlet weak var voiceButton: UIButton!
     @IBOutlet weak var detectedSpeechLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var timerProgressView: UIProgressView!
+    @IBOutlet weak var timeRemainingBar: UIProgressView!
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet weak var correctLabel: UILabel!
     @IBOutlet weak var initialInformationString: UILabel!
@@ -129,7 +136,7 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
 
     
-    //create image arrays for animation - could be broken out into extension.
+    //create image arrays for animation
     func animate(imageView: UIImageView, images: [UIImage]) {
             imageView.animationImages = images
             imageView.animationDuration = 1.5
@@ -348,7 +355,7 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
             if settings.authorizationStatus.rawValue == 2 {
                 
                 //currently set to one minute after completing - for testing.
-                NotificationService.instance.timerRequest(with: 60)
+                NotificationService.instance.request(time: 60)
                 
                 //if a request has been set remove and replace
                 //This might not be neccessary. Can only schedule one notification with id
@@ -470,29 +477,32 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     func startTimer() {
-        timerProgressView.tintColor = timerGreen
-        timerProgressView.trackTintColor = UIColor.white
-        timerProgressView.progress = 1.0
+        timeRemainingBar.tintColor = timerGreen
+        timeRemainingBar.trackTintColor = UIColor.white
+        timeRemainingBar.progress = 1.0
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimerProgress), userInfo: nil, repeats: true)
     }
     
 
     @objc func updateTimerProgress(){
         
-        timerProgressView.progress -= 0.01/30
+        timeRemainingBar.progress -= 0.01/60
         
-        //countdown timer - not 100% accurate
-        let countdown = Int((timerProgressView.progress / 3.33) * 100)
+
+        let countdown = Int((timeRemainingBar.progress) * 60)
         countdownLabel.text = String(countdown)
         
-        if timerProgressView.progress <= 0 {
+        if timeRemainingBar.progress <= 0 {
             print("Out of time")
             close() //exit when reaches 0
-        } else if timerProgressView.progress <= 0.2 {
+        } else if timeRemainingBar.progress <= 0.2 {
             
-            timerProgressView.progressTintColor = timerRed
-        } else if timerProgressView.progress <= 0.5 {
-            timerProgressView.progressTintColor = timerOrange
+            timeRemainingBar.progressTintColor = timerRed
+            
+        } else if timeRemainingBar.progress <= 0.5 {
+            
+            timeRemainingBar.progressTintColor = timerOrange
+            
         }
     }
     
@@ -555,10 +565,10 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
                 //check result
                 if let result = result {
                     
-                    for transcriptions in result.transcriptions {
-                        print("TRANSCRIPTION", transcriptions.formattedString)
+                    for returnedTranscription in result.transcriptions {
+                        print("TRANSCRIPTION", returnedTranscription.formattedString)
                         var stringToCheck = ""
-                        stringToCheck = transcriptions.formattedString
+                        stringToCheck = returnedTranscription.formattedString
                         print("STRING TO CHECK", stringToCheck)
                     }
                     
@@ -568,7 +578,7 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
                     // let test = result.transcriptions
                     // print("TEST", test[0].segments[0].substring)
                     
-                    //TODO - check if this should be on main thread.
+                   
                     self.detectedSpeechLabel.text = bestString
                     
                     //results are passed back as an array.
@@ -609,7 +619,7 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
                             return //can remove
                         }
                         
-                        //Results from 1 through to 9 are analysed as words - look through dictionary to return number.
+                        //Results from 1 through to 9 are returned as words - look through dictionary to return number.
                         if resultToCheck != correctAnswer {
                             print("NOT correct")
                             
@@ -682,6 +692,8 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     func startGame(){
+        
+        print("Start pressed")
         
         //start animation - uiimageview animation
         animate(imageView: microphoneImageView, images: microphoneImages)

@@ -125,12 +125,12 @@ class HomeViewController: UIViewController {
                 
             case "voiceSegue":
                 let voiceInputViewController = segue.destination as! VoiceInputViewController
-                voiceInputViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[0]
+                voiceInputViewController.subTopic = DataService.instance.downloadedTopics[2].subTopics[0]
             
             
             case "handWritingSegue":
                 let handWritingViewController = segue.destination as! HandWritingViewController
-                handWritingViewController.subTopic = DataService.instance.downloadedTopics[0].subTopics[0]
+                handWritingViewController.subTopic = DataService.instance.downloadedTopics[2].subTopics[1]
                 
             
             case "multipleChoiceImageSegue":

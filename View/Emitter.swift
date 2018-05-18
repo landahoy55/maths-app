@@ -8,12 +8,12 @@
 
 
 //CA Emitter
-
+//Ref - https://developer.apple.com/documentation/quartzcore/caemitterlayer
 import UIKit
 
 class Emitter {
     
-    //static funcs are type func - don't need to create an object to use
+    //Emmiter layer and emitter cells.
     static func createEmitter() -> CAEmitterLayer {
         
         let emitter = CAEmitterLayer()
@@ -21,26 +21,21 @@ class Emitter {
         emitter.emitterShape = kCAEmitterLayerLine
         
         //cells - the thing to emit.
-        emitter.emitterCells = generateEmitterCells()
+        emitter.emitterCells = createEmitterCells()
         
         return emitter
         
     }
 
-    static func generateEmitterCells() -> [CAEmitterCell] {
+    //some cells - three seems optimum
+    static func createEmitterCells() -> [CAEmitterCell] {
         
         var cells = [CAEmitterCell]()
         
-        //array of colours - now using icon image so no longer accurate, but effect is correct
-        let colours = [UIColor(red:0.95, green:0.40, blue:0.27, alpha:1.0),
-                  UIColor(red:1.00, green:0.78, blue:0.36, alpha:1.0),
-                  UIColor(red:0.48, green:0.78, blue:0.64, alpha:1.0),
-                  UIColor(red:0.30, green:0.76, blue:0.85, alpha:1.0),
-                  UIColor(red:0.58, green:0.39, blue:0.55, alpha:1.0)]
+        cells.append(createCells())
+        cells.append(createCells())
+        cells.append(createCells())
         
-        for colour in colours {
-            cells.append(createCells(colour: colour))
-        }
         
         return cells
        
@@ -48,33 +43,28 @@ class Emitter {
     
     //configuring the cells
     //lots of properties available
-    //https://developer.apple.com/documentation/quartzcore/caemitterlayer
-    static func createCells(colour: UIColor) -> CAEmitterCell {
+    //Ref - https://developer.apple.com/documentation/quartzcore/caemitterlayer
+    static func createCells() -> CAEmitterCell {
         let cell = CAEmitterCell()
         
-        let intensity = Float(0.8)
-        
         cell.contents = #imageLiteral(resourceName: "Icon-App-20x20@2x.png").cgImage
-        cell.birthRate = 15 * intensity
-        cell.lifetime = 20 * intensity
+        cell.birthRate = 15
+        cell.lifetime = 20
         
         cell.lifetimeRange = 0
-        cell.velocity = CGFloat(350.0 * intensity)
-        cell.velocityRange = CGFloat(80.0 * intensity)
+        cell.velocity = CGFloat(350.0)
+        cell.velocityRange = CGFloat(80.0)
         
-        //sends cells down
-        //cell.emissionLongitude = (180 * (.pi/180))
+        //sends cells down - pi used in docs
         cell.emissionLongitude = CGFloat(Double.pi)
-        //creates more dynamic feel
         cell.emissionRange = CGFloat(Double.pi)
-        cell.spin = CGFloat(3.5 * intensity)
+        cell.spin = CGFloat(3.5)
         
         //adjust size
         cell.spinRange = CGFloat(4.0)
         cell.scaleRange = CGFloat(1)
         cell.scaleSpeed = CGFloat(-0.1)
     
-        
         return cell
     }
     

@@ -34,17 +34,8 @@
 		F037D17E205AA8E4004BE224 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F037D17D205AA8E4004BE224 /* RoundButton.swift */; };
 		F05C37682060046E004F39F7 /* DailyChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C37672060046E004F39F7 /* DailyChallenge.swift */; };
 		F05C698C20611A8D0057A6B0 /* VoiceInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C698B20611A8D0057A6B0 /* VoiceInputViewController.swift */; };
-		F05C6999206279AC0057A6B0 /* microphone-0.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C698F206279AB0057A6B0 /* microphone-0.png */; };
-		F05C699A206279AC0057A6B0 /* microphone-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6990206279AB0057A6B0 /* microphone-0@2x.png */; };
-		F05C699B206279AC0057A6B0 /* microphone-0@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6991206279AB0057A6B0 /* microphone-0@3x.png */; };
-		F05C699C206279AC0057A6B0 /* microphone-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6992206279AB0057A6B0 /* microphone-1.png */; };
-		F05C699D206279AC0057A6B0 /* microphone-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6993206279AB0057A6B0 /* microphone-1@2x.png */; };
-		F05C699E206279AC0057A6B0 /* microphone-1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6994206279AB0057A6B0 /* microphone-1@3x.png */; };
-		F05C699F206279AC0057A6B0 /* microphone-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6995206279AB0057A6B0 /* microphone-2.png */; };
-		F05C69A0206279AC0057A6B0 /* microphone-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6996206279AB0057A6B0 /* microphone-2@2x.png */; };
-		F05C69A1206279AC0057A6B0 /* microphone-2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F05C6997206279AB0057A6B0 /* microphone-2@3x.png */; };
 		F05C69A32063FFD60057A6B0 /* HandWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C69A22063FFD50057A6B0 /* HandWritingViewController.swift */; };
-		F05C69A520640E7A0057A6B0 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C69A420640E7A0057A6B0 /* CanvasView.swift */; };
+		F05C69A520640E7A0057A6B0 /* DigitDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C69A420640E7A0057A6B0 /* DigitDrawView.swift */; };
 		F05C69A7206414A60057A6B0 /* MNIST.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F05C69A6206414A60057A6B0 /* MNIST.mlmodel */; };
 		F073B57D20A592910046FA85 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F073B57C20A592910046FA85 /* UIImageView+Extension.swift */; };
 		F073B57F20A598C20046FA85 /* MultipleChoiceImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F073B57E20A598C20046FA85 /* MultipleChoiceImagesViewController.swift */; };
@@ -79,6 +70,15 @@
 		F0A4DA2320864A0600C8C0E2 /* Rectangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0A4DA2020864A0600C8C0E2 /* Rectangle@2x.png */; };
 		F0A4DA2420864A0600C8C0E2 /* Rectangle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0A4DA2120864A0600C8C0E2 /* Rectangle@3x.png */; };
 		F0A4DA2520864A0600C8C0E2 /* Rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = F0A4DA2220864A0600C8C0E2 /* Rectangle.png */; };
+		F0BC025A20ADF38F00CACD8E /* microphone-2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC025120ADF38D00CACD8E /* microphone-2@3x.png */; };
+		F0BC025B20ADF38F00CACD8E /* microphone-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC025220ADF38D00CACD8E /* microphone-0@2x.png */; };
+		F0BC025C20ADF38F00CACD8E /* microphone-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC025320ADF38E00CACD8E /* microphone-1@2x.png */; };
+		F0BC025D20ADF38F00CACD8E /* microphone-1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC025420ADF38E00CACD8E /* microphone-1@3x.png */; };
+		F0BC025E20ADF38F00CACD8E /* microphone-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC025520ADF38E00CACD8E /* microphone-2@2x.png */; };
+		F0BC025F20ADF38F00CACD8E /* microphone-0.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC025620ADF38E00CACD8E /* microphone-0.png */; };
+		F0BC026020ADF38F00CACD8E /* microphone-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC025720ADF38E00CACD8E /* microphone-1.png */; };
+		F0BC026120ADF38F00CACD8E /* microphone-0@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC025820ADF38E00CACD8E /* microphone-0@3x.png */; };
+		F0BC026220ADF38F00CACD8E /* microphone-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC025920ADF38F00CACD8E /* microphone-2.png */; };
 		F0BF7F362052CE93005D4A27 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BF7F352052CE93005D4A27 /* Account.swift */; };
 		F0BF7F502052F98E005D4A27 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = F0BF7F382052F98E005D4A27 /* Contents.json */; };
 		F0BF7F512052F98E005D4A27 /* Icon-App-20x20@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BF7F392052F98E005D4A27 /* Icon-App-20x20@1x.png */; };
@@ -176,17 +176,8 @@
 		F037D17D205AA8E4004BE224 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		F05C37672060046E004F39F7 /* DailyChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChallenge.swift; sourceTree = "<group>"; };
 		F05C698B20611A8D0057A6B0 /* VoiceInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputViewController.swift; sourceTree = "<group>"; };
-		F05C698F206279AB0057A6B0 /* microphone-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-0.png"; sourceTree = "<group>"; };
-		F05C6990206279AB0057A6B0 /* microphone-0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-0@2x.png"; sourceTree = "<group>"; };
-		F05C6991206279AB0057A6B0 /* microphone-0@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-0@3x.png"; sourceTree = "<group>"; };
-		F05C6992206279AB0057A6B0 /* microphone-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-1.png"; sourceTree = "<group>"; };
-		F05C6993206279AB0057A6B0 /* microphone-1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-1@2x.png"; sourceTree = "<group>"; };
-		F05C6994206279AB0057A6B0 /* microphone-1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-1@3x.png"; sourceTree = "<group>"; };
-		F05C6995206279AB0057A6B0 /* microphone-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-2.png"; sourceTree = "<group>"; };
-		F05C6996206279AB0057A6B0 /* microphone-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-2@2x.png"; sourceTree = "<group>"; };
-		F05C6997206279AB0057A6B0 /* microphone-2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone-2@3x.png"; sourceTree = "<group>"; };
 		F05C69A22063FFD50057A6B0 /* HandWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandWritingViewController.swift; sourceTree = "<group>"; };
-		F05C69A420640E7A0057A6B0 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		F05C69A420640E7A0057A6B0 /* DigitDrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitDrawView.swift; sourceTree = "<group>"; };
 		F05C69A6206414A60057A6B0 /* MNIST.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MNIST.mlmodel; sourceTree = "<group>"; };
 		F073B57C20A592910046FA85 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		F073B57E20A598C20046FA85 /* MultipleChoiceImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceImagesViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +212,15 @@
 		F0A4DA2020864A0600C8C0E2 /* Rectangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle@2x.png"; sourceTree = "<group>"; };
 		F0A4DA2120864A0600C8C0E2 /* Rectangle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle@3x.png"; sourceTree = "<group>"; };
 		F0A4DA2220864A0600C8C0E2 /* Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rectangle.png; sourceTree = "<group>"; };
+		F0BC025120ADF38D00CACD8E /* microphone-2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone-2@3x.png"; path = "../../../Computing Project Report/medals/microphone-2@3x.png"; sourceTree = "<group>"; };
+		F0BC025220ADF38D00CACD8E /* microphone-0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone-0@2x.png"; path = "../../../Computing Project Report/medals/microphone-0@2x.png"; sourceTree = "<group>"; };
+		F0BC025320ADF38E00CACD8E /* microphone-1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone-1@2x.png"; path = "../../../Computing Project Report/medals/microphone-1@2x.png"; sourceTree = "<group>"; };
+		F0BC025420ADF38E00CACD8E /* microphone-1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone-1@3x.png"; path = "../../../Computing Project Report/medals/microphone-1@3x.png"; sourceTree = "<group>"; };
+		F0BC025520ADF38E00CACD8E /* microphone-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone-2@2x.png"; path = "../../../Computing Project Report/medals/microphone-2@2x.png"; sourceTree = "<group>"; };
+		F0BC025620ADF38E00CACD8E /* microphone-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone-0.png"; path = "../../../Computing Project Report/medals/microphone-0.png"; sourceTree = "<group>"; };
+		F0BC025720ADF38E00CACD8E /* microphone-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone-1.png"; path = "../../../Computing Project Report/medals/microphone-1.png"; sourceTree = "<group>"; };
+		F0BC025820ADF38E00CACD8E /* microphone-0@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone-0@3x.png"; path = "../../../Computing Project Report/medals/microphone-0@3x.png"; sourceTree = "<group>"; };
+		F0BC025920ADF38F00CACD8E /* microphone-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone-2.png"; path = "../../../Computing Project Report/medals/microphone-2.png"; sourceTree = "<group>"; };
 		F0BF7F352052CE93005D4A27 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		F0BF7F382052F98E005D4A27 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		F0BF7F392052F98E005D4A27 /* Icon-App-20x20@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@1x.png"; sourceTree = "<group>"; };
@@ -390,7 +390,7 @@
 		F00EBE12203C1F8C00125618 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F05C69A420640E7A0057A6B0 /* CanvasView.swift */,
+				F05C69A420640E7A0057A6B0 /* DigitDrawView.swift */,
 				F037D179205A9635004BE224 /* Emitter.swift */,
 				F0F854CA2046C483007A794A /* slightRoundedButtons.swift */,
 				F00EBDEB203C1F1600125618 /* LaunchScreen.storyboard */,
@@ -464,15 +464,15 @@
 		F05C698D206279AB0057A6B0 /* microphone */ = {
 			isa = PBXGroup;
 			children = (
-				F05C698F206279AB0057A6B0 /* microphone-0.png */,
-				F05C6990206279AB0057A6B0 /* microphone-0@2x.png */,
-				F05C6991206279AB0057A6B0 /* microphone-0@3x.png */,
-				F05C6992206279AB0057A6B0 /* microphone-1.png */,
-				F05C6993206279AB0057A6B0 /* microphone-1@2x.png */,
-				F05C6994206279AB0057A6B0 /* microphone-1@3x.png */,
-				F05C6995206279AB0057A6B0 /* microphone-2.png */,
-				F05C6996206279AB0057A6B0 /* microphone-2@2x.png */,
-				F05C6997206279AB0057A6B0 /* microphone-2@3x.png */,
+				F0BC025620ADF38E00CACD8E /* microphone-0.png */,
+				F0BC025220ADF38D00CACD8E /* microphone-0@2x.png */,
+				F0BC025820ADF38E00CACD8E /* microphone-0@3x.png */,
+				F0BC025720ADF38E00CACD8E /* microphone-1.png */,
+				F0BC025320ADF38E00CACD8E /* microphone-1@2x.png */,
+				F0BC025420ADF38E00CACD8E /* microphone-1@3x.png */,
+				F0BC025920ADF38F00CACD8E /* microphone-2.png */,
+				F0BC025520ADF38E00CACD8E /* microphone-2@2x.png */,
+				F0BC025120ADF38D00CACD8E /* microphone-2@3x.png */,
 			);
 			path = microphone;
 			sourceTree = "<group>";
@@ -662,61 +662,61 @@
 				F0A4DA062083942B00C8C0E2 /* wrong.aiff in Resources */,
 				F0A4DA1720862FEA00C8C0E2 /* Gold@2x.png in Resources */,
 				F0BF7F622052F98E005D4A27 /* Icon-App-76x76@2x.png in Resources */,
-				F05C699C206279AC0057A6B0 /* microphone-1.png in Resources */,
+				F0BC025C20ADF38F00CACD8E /* microphone-1@2x.png in Resources */,
 				F0BF7F5D2052F98E005D4A27 /* Icon-App-60x60@2x.png in Resources */,
 				F0BF7F552052F98E005D4A27 /* Icon-App-29x29@2x.png in Resources */,
 				F0A4DA1B20862FEA00C8C0E2 /* Silver.png in Resources */,
+				F0BC026220ADF38F00CACD8E /* microphone-2.png in Resources */,
 				F0BF7F5C2052F98E005D4A27 /* Icon-App-60x60@1x.png in Resources */,
 				F0BF7F642052F98E005D4A27 /* Icon-App-83.5x83.5@2x.png in Resources */,
-				F05C699B206279AC0057A6B0 /* microphone-0@3x.png in Resources */,
 				F0A4DA1C20862FEA00C8C0E2 /* Silver@3x.png in Resources */,
 				F0A4DA2420864A0600C8C0E2 /* Rectangle@3x.png in Resources */,
 				F0BF7F502052F98E005D4A27 /* Contents.json in Resources */,
+				F0BC026120ADF38F00CACD8E /* microphone-0@3x.png in Resources */,
 				F0BF7F5A2052F98E005D4A27 /* Icon-App-57x57@1x.png in Resources */,
 				F0A4DA1A20862FEA00C8C0E2 /* Bronze@3x.png in Resources */,
 				F0BF7F522052F98E005D4A27 /* Icon-App-20x20@2x.png in Resources */,
 				F0A4DA1E20862FEA00C8C0E2 /* Silver@2x.png in Resources */,
 				F00EBDED203C1F1600125618 /* LaunchScreen.storyboard in Resources */,
 				F0BF7F5F2052F98E005D4A27 /* Icon-App-72x72@1x.png in Resources */,
+				F0BC025F20ADF38F00CACD8E /* microphone-0.png in Resources */,
 				F0C872042059880B00B5AC34 /* ChallengeNo.xib in Resources */,
 				F0EFF0D62094A8DD00E1CFBA /* success-1.mp3 in Resources */,
 				F0BF7F562052F98E005D4A27 /* Icon-App-29x29@3x.png in Resources */,
 				F0A4DA1920862FEA00C8C0E2 /* Bronze@2x.png in Resources */,
 				F0BF7F5E2052F98E005D4A27 /* Icon-App-60x60@3x.png in Resources */,
-				F05C699D206279AC0057A6B0 /* microphone-1@2x.png in Resources */,
 				F0A4DA1520862FEA00C8C0E2 /* No@2x.png in Resources */,
 				F0BF7F5B2052F98E005D4A27 /* Icon-App-57x57@2x.png in Resources */,
 				F0BF7F532052F98E005D4A27 /* Icon-App-20x20@3x.png in Resources */,
 				F0A4DA1420862FEA00C8C0E2 /* Gold@3x.png in Resources */,
+				F0BC025B20ADF38F00CACD8E /* microphone-0@2x.png in Resources */,
 				F0A4DA2520864A0600C8C0E2 /* Rectangle.png in Resources */,
 				F00EBDEA203C1F1600125618 /* Assets.xcassets in Resources */,
 				F0BF7F652052F98E005D4A27 /* Icon-Small-50x50@1x.png in Resources */,
-				F05C69A0206279AC0057A6B0 /* microphone-2@2x.png in Resources */,
 				F0EFF0D82094A8EB00E1CFBA /* incorrect-2.mp3 in Resources */,
 				F0BF7F602052F98E005D4A27 /* Icon-App-72x72@2x.png in Resources */,
+				F0BC025D20ADF38F00CACD8E /* microphone-1@3x.png in Resources */,
 				F00EBE2B203D7B2D00125618 /* onboarding.xib in Resources */,
 				F0C872002059870400B5AC34 /* ChallengeGo.xib in Resources */,
-				F05C6999206279AC0057A6B0 /* microphone-0.png in Resources */,
+				F0BC025A20ADF38F00CACD8E /* microphone-2@3x.png in Resources */,
 				F00EBDE8203C1F1600125618 /* Main.storyboard in Resources */,
 				F0BF7F672052F98E005D4A27 /* ItunesArtwork@2x.png in Resources */,
 				F0BF7F632052F98E005D4A27 /* Icon-App-76x76@3x.png in Resources */,
 				F0A4DA1F20862FEA00C8C0E2 /* Gold.png in Resources */,
-				F05C69A1206279AC0057A6B0 /* microphone-2@3x.png in Resources */,
 				F0A4DA2320864A0600C8C0E2 /* Rectangle@2x.png in Resources */,
 				F0BF7F572052F98E005D4A27 /* Icon-App-40x40@1x.png in Resources */,
 				F0BF7F612052F98E005D4A27 /* Icon-App-76x76@1x.png in Resources */,
 				F0BF7F512052F98E005D4A27 /* Icon-App-20x20@1x.png in Resources */,
-				F05C699E206279AC0057A6B0 /* microphone-1@3x.png in Resources */,
 				F0A4DA1620862FEA00C8C0E2 /* No@3x.png in Resources */,
 				F0BF7F592052F98E005D4A27 /* Icon-App-40x40@3x.png in Resources */,
 				F0A4DA1820862FEA00C8C0E2 /* Bronze.png in Resources */,
-				F05C699F206279AC0057A6B0 /* microphone-2.png in Resources */,
 				F0A4DA042083941D00C8C0E2 /* correct.mp3 in Resources */,
 				F0A4DA1D20862FEA00C8C0E2 /* No@1x.png in Resources */,
 				F0BF7F582052F98E005D4A27 /* Icon-App-40x40@2x.png in Resources */,
 				F0BF7F542052F98E005D4A27 /* Icon-App-29x29@1x.png in Resources */,
+				F0BC026020ADF38F00CACD8E /* microphone-1.png in Resources */,
+				F0BC025E20ADF38F00CACD8E /* microphone-2@2x.png in Resources */,
 				F0BF7F662052F98E005D4A27 /* Icon-Small-50x50@2x.png in Resources */,
-				F05C699A206279AC0057A6B0 /* microphone-0@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,7 +744,7 @@
 				F0CE660120A2FFD400C894D8 /* SilverEmitter.swift in Sources */,
 				F0C871F6205969BF00B5AC34 /* DailyChallengeViewController.swift in Sources */,
 				F0F854CB2046C483007A794A /* slightRoundedButtons.swift in Sources */,
-				F05C69A520640E7A0057A6B0 /* CanvasView.swift in Sources */,
+				F05C69A520640E7A0057A6B0 /* DigitDrawView.swift in Sources */,
 				F0934EE82050043D007A4295 /* ParentTopic.swift in Sources */,
 				F00EBE1E203C4B3B00125618 /* LoginViewController.swift in Sources */,
 				F037D17E205AA8E4004BE224 /* RoundButton.swift in Sources */,

@@ -57,7 +57,7 @@ class SubTopicViewController: UIViewController {
         bar4.backgroundColor = .clear
         bar5.backgroundColor = .clear
         
-        noResultsPanel.isHidden = true
+        noResultsPanel.alpha = 0
         
     }
     
@@ -79,7 +79,12 @@ class SubTopicViewController: UIViewController {
                     if let result = subtopicResult(results: results, subTopicID: topic._id) {
                         let constraint = topAnchorContant(score: result.score)
                         constraints[index] = constraint
-                        noResultsPanel.isHidden = true
+                        
+                    } else {
+                        UIView.animate(withDuration: 0.7) {
+                            self.noResultsPanel.alpha = 0.4
+                        }
+                        
                     }
                 }
             }

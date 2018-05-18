@@ -38,7 +38,7 @@ class MultipleChoiceViewController: UIViewController {
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
     @IBOutlet weak var answerButton3: UIButton!
-    @IBOutlet weak var timerProgressView: UIProgressView!
+    @IBOutlet weak var timeRemainingBar: UIProgressView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var countdownLabel: UILabel!
     
@@ -197,33 +197,33 @@ class MultipleChoiceViewController: UIViewController {
     
     //timer functions
     func startTimer() {
-        timerProgressView.tintColor = timerGreen
-        timerProgressView.trackTintColor = UIColor.white
-        timerProgressView.progress = 1.0
+        timeRemainingBar.tintColor = timerGreen
+        timeRemainingBar.trackTintColor = UIColor.white
+        timeRemainingBar.progress = 1.0
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimerProgress), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimerProgress(){
         
-        timerProgressView.progress -= 0.01/30
+        timeRemainingBar.progress -= 0.01/60
         
         //countdown timer - not 100% accurate, almost 30 seconds though
-        let countdown = Int((timerProgressView.progress / 3.33) * 100)
+        let countdown = Int((timeRemainingBar.progress) * 60)
         countdownLabel.text = String(countdown)
        
-        if timerProgressView.progress <= 0 {
+        if timeRemainingBar.progress <= 0 {
             print("Out of time")
             close()
-        } else if timerProgressView.progress <= 0.2 {
+        } else if timeRemainingBar.progress <= 0.2 {
             
-            timerProgressView.progressTintColor = timerRed
-        } else if timerProgressView.progress <= 0.5 {
-            timerProgressView.progressTintColor = timerOrange
+            timeRemainingBar.progressTintColor = timerRed
+        } else if timeRemainingBar.progress <= 0.5 {
+            timeRemainingBar.progressTintColor = timerOrange
             isHalfTime = true
         }
     }
     
-    fileprivate func scheduleNotificaion() {
+     func scheduleNotificaion() {
         //check to see if permissions granted - 2 is granted
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             print("User settings notification ******* \(settings.authorizationStatus.rawValue)")
@@ -232,7 +232,7 @@ class MultipleChoiceViewController: UIViewController {
             if settings.authorizationStatus.rawValue == 2 {
                 
                 //currently set to one minute after completing - for testing.
-                NotificationService.instance.timerRequest(with: 60)
+                NotificationService.instance.request(time: 60)
                 
                 //if a request has been set remove and replace
                 //This might not be neccessary. Can only schedule one notification with id

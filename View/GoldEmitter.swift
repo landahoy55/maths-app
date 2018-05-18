@@ -10,6 +10,9 @@ import Foundation
 
 import UIKit
 
+//CA Emitter
+//Ref - https://developer.apple.com/documentation/quartzcore/caemitterlayer
+
 class GoldEmitter {
     
     //static funcs are type func - don't need to create an object to use
@@ -30,17 +33,12 @@ class GoldEmitter {
         
         var cells = [CAEmitterCell]()
         
-        //array of colours - now using icon image so no longer accurate, but effect is correct
-        let colours = [UIColor(red:0.95, green:0.40, blue:0.27, alpha:1.0),
-                       UIColor(red:1.00, green:0.78, blue:0.36, alpha:1.0),
-                       UIColor(red:0.48, green:0.78, blue:0.64, alpha:1.0),
-                       UIColor(red:0.30, green:0.76, blue:0.85, alpha:1.0),
-                       UIColor(red:0.58, green:0.39, blue:0.55, alpha:1.0)]
-
-        for colour in colours {
-            cells.append(createCells())
-        }
+        //adding several cells
+        cells.append(createCells())
+        cells.append(createCells())
+        cells.append(createCells())
         
+
         return cells
         
     }
@@ -59,15 +57,13 @@ class GoldEmitter {
         cell.velocity = CGFloat(350.0)
         cell.velocityRange = CGFloat(80.0)
         
-        //sends cells down
-        //cell.emissionLongitude = (180 * (.pi/180))
+        //sends cells down - pi used in docs
         cell.emissionLongitude = CGFloat(Double.pi)
-        //creates more dynamic feel
         cell.emissionRange = CGFloat(Double.pi)
         cell.spin = CGFloat(3.5)
         
         //adjust size
-        cell.spinRange = CGFloat(4.0 )
+        cell.spinRange = CGFloat(4.0)
         cell.scaleRange = CGFloat(1)
         cell.scaleSpeed = CGFloat(-0.1)
         

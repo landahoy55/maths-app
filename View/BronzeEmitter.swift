@@ -10,6 +10,9 @@ import UIKit
 
 class BronzeEmitter {
     
+    
+    //CA Emitter
+    //Ref - https://developer.apple.com/documentation/quartzcore/caemitterlayer
     //static funcs are type func - don't need to create an object to use
     static func createEmitter() -> CAEmitterLayer {
         
@@ -28,16 +31,10 @@ class BronzeEmitter {
         
         var cells = [CAEmitterCell]()
         
-        //array of colours - now using icon image so no longer accurate, but effect is correct
-        let colours = [UIColor(red:0.95, green:0.40, blue:0.27, alpha:1.0),
-                       UIColor(red:1.00, green:0.78, blue:0.36, alpha:1.0),
-                       UIColor(red:0.48, green:0.78, blue:0.64, alpha:1.0),
-                       UIColor(red:0.30, green:0.76, blue:0.85, alpha:1.0),
-                       UIColor(red:0.58, green:0.39, blue:0.55, alpha:1.0)]
+        cells.append(createCells())
+        cells.append(createCells())
+        cells.append(createCells())
         
-        for colour in colours {
-            cells.append(createCells())
-        }
         
         return cells
         
@@ -57,9 +54,8 @@ class BronzeEmitter {
         cell.velocity = CGFloat(350.0)
         cell.velocityRange = CGFloat(80.0)
         
-        //sends cells down
+        //sends cells down - pi used in docs
         cell.emissionLongitude = CGFloat(Double.pi)
-        //creates more dynamic feel
         cell.emissionRange = CGFloat(Double.pi)
         cell.spin = CGFloat(3.5)
         
@@ -67,8 +63,6 @@ class BronzeEmitter {
         cell.spinRange = CGFloat(4.0)
         cell.scaleRange = CGFloat(1)
         cell.scaleSpeed = CGFloat(-0.1)
-        
-//        cell.color = colour.cgColor
         
         return cell
     }
