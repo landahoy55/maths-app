@@ -25,7 +25,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         // self.emailText.delegate = self
     
         //set gradient
-        view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        view.gradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
     }
 
     

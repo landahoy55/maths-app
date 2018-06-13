@@ -18,6 +18,7 @@ import UserNotifications
 class NotificationService: NSObject {
     
     //Requires override as NSObject
+    //IDE added this.
     private override init(){
         
     }

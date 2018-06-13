@@ -40,7 +40,7 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         onboardingScrollView.delegate = self
         
         //set gradient
-        view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        view.gradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
     }
 
     //each time screen is shown

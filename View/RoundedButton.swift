@@ -1,6 +1,6 @@
 //
 //  RoundedButton.swift
-//  maths-app
+//  Egg Timer
 //
 //  Created by P Malone on 20/02/2018.
 //  Copyright © 2018 landahoy55. All rights reserved.
@@ -17,10 +17,11 @@ class RoundedButton: UIButton {
     
     func setUp() {
         //style
-//        print("here")
-        self.layer.borderColor = UIColor.white.cgColor
-        self.layer.borderWidth = 2.0
-        self.layer.cornerRadius = self.frame.height / 2
+        //print("here")
+        //self.layer.borderColor = UIColor.white.cgColor
+        //self.layer.borderWidth = 2.0
+        //self.layer.cornerRadius = self.frame.height / 2
+        self.layer.cornerRadius = 10
         self.clipsToBounds = true
     }
     

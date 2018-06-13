@@ -19,7 +19,7 @@ class slightRoundedView: UIView {
         layer.borderWidth = 2.0
         
         //gradient
-        self.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        self.gradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
     }
 
 }

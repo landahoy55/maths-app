@@ -19,7 +19,7 @@ class ResultsPopUpView: UIView {
         layer.borderWidth = 4
         
         //gradient
-        self.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        self.gradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
     }
 
 }

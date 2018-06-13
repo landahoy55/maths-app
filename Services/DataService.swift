@@ -31,7 +31,7 @@ class DataService {
     
     
     //register device token
-    func registerDeviceToken(device token: String){
+    func sendToken(device token: String){
         
         let json = ["device":token]
         
@@ -135,7 +135,7 @@ class DataService {
 
         //get token - need to handle error here.
         let token = UserDefaults.standard.object(forKey: DEFAULTS_TOKEN) as! String
-        
+        //Bearer string required to auth token in headerfields
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         let task = session.dataTask(with: request) { (data, response, err) in

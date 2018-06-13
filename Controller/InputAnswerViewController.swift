@@ -74,7 +74,7 @@ class InputAnswerViewController: UIViewController {
         print("***** view did appear")
         startTimer()
 
-        answerLabel.startBlinkTwoSeconds()
+        answerLabel.startFlashTwoSeconds()
   
 //        if let subT = subTopic {
 //            print(subT)
@@ -138,11 +138,11 @@ class InputAnswerViewController: UIViewController {
         
         //Is this the most appropriate place
         if questionIndex >= 3 {
-            countdownLabel.blink()
+            countdownLabel.flashing()
         }
         
         if isHalfTime {
-            countdownLabel.blink()
+            countdownLabel.flashing()
         }
         
     }
@@ -206,15 +206,7 @@ class InputAnswerViewController: UIViewController {
         // timer.invalidate()
         //update score label
         scoreLabel.text = String(questionIndex)
-        
-        //add emitter to view
-//        if questionIndex >= 4 {
-//            let emitter = Emitter.createEmitter()
-//            emitter.emitterPosition = CGPoint(x: resultsPopUp.frame.width / 2.0, y: 0)
-//            emitter.emitterSize = CGSize(width: resultsPopUp.frame.width, height: 1)
-//            resultsPopUp.layer.addSublayer(emitter)
-//        }
-        
+                
         if questionIndex < 3 {
             print("Standard Emitter")
             let emitter = Emitter.createEmitter()
@@ -492,7 +484,7 @@ class InputAnswerViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIButton) {
         
        
-        answerLabel.nukeAllAnimations()
+        answerLabel.stopAnimation()
         
         //removes leading 0
         if answerLabel.text == "0" {
@@ -505,7 +497,7 @@ class InputAnswerViewController: UIViewController {
     
     //reset var and label
     @IBAction func clearButtonTapped(_ sender: UIButton) {
-        sender.pulsate()
+        sender.wobble()
         reset()
     }
     
@@ -515,7 +507,7 @@ class InputAnswerViewController: UIViewController {
         //if correct move to next question and clear inputAnswer
         if inputAnswer == currentQuestion.correctAnswer {
             print("confirm")
-            sender.pulsate()
+            sender.wobble()
             
             //haptic feedback
             let generator = UINotificationFeedbackGenerator()

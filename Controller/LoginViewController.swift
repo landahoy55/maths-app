@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         //set gradient
-        view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        view.gradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
     }
 
     //Login

@@ -190,11 +190,11 @@ class MultipleChoiceImagesViewController: UIViewController {
         
         //Extra emphasis on time remaining
         if questionIndex >= 3 {
-            timerLbl.blink()
+            timerLbl.flashing()
         }
         
         if isHalfTime {
-            timerLbl.blink()
+            timerLbl.flashing()
         }
         
     }
@@ -498,7 +498,7 @@ class MultipleChoiceImagesViewController: UIViewController {
         //check to see if correct answer pressed
         if sender.titleLabel?.text == currentQuestion.correctAnswer {
             
-            sender.pulsate()
+            sender.wobble()
             print("correct answer pressed")
             
             //haptic feedback

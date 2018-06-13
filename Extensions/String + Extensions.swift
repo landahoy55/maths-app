@@ -11,7 +11,6 @@ import Foundation
 extension String {
     
     //Check if email is correct.
-    
     func isValidEmail() -> Bool {
         
         //http://emailregex.com

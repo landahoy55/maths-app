@@ -81,10 +81,12 @@ class SubTopicViewController: UIViewController {
                         constraints[index] = constraint
                         
                     } else {
-                        UIView.animate(withDuration: 0.7) {
-                            self.noResultsPanel.alpha = 0.4
+                        print("INDEX COUNT", index)
+                        if (index <= 0) {
+                            UIView.animate(withDuration: 0.7) {
+                                self.noResultsPanel.alpha = 0.4
+                            }
                         }
-                        
                     }
                 }
             }

@@ -15,6 +15,7 @@ class MultipleChoiceViewController: UIViewController {
     var subTopic: SubTopic?
     var subResult: RetreivedSubtopicResult?
     
+    
     //daily challenge inject
     var dailyChallenge: DailyChallenge?
     
@@ -186,11 +187,11 @@ class MultipleChoiceViewController: UIViewController {
         
         //Is this the most appropriate place
         if questionIndex >= 3 {
-            countdownLabel.blink()
+            countdownLabel.flashing()
         }
         
         if isHalfTime {
-            countdownLabel.blink()
+            countdownLabel.flashing()
         }
         
     }
@@ -521,7 +522,7 @@ class MultipleChoiceViewController: UIViewController {
         //check to see if correct answer pressed
         if sender.titleLabel?.text == currentQuestion.correctAnswer {
             
-            sender.pulsate()
+            sender.wobble()
             print("correct answer pressed")
             
             //haptic feedback

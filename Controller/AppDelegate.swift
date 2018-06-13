@@ -19,12 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    //As indicated in docs.
+    //Way to retreive it.
+    //REF - https://stackoverflow.com/questions/9372815/how-can-i-convert-my-device-token-nsdata-into-an-nsstring
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("************ /nDID REGISTER FOR NOTIFICATIONS/n ****************")
+        //Reduces data array. Converts second element to string.
+        //print(deviceToken)
         let token = deviceToken.reduce(""){$0 + String(format: "%02X", $1) }
         print(token)
         //send token.
-        DataService.instance.registerDeviceToken(device: token)
+        DataService.instance.sendToken(device: token)
         
     }
 

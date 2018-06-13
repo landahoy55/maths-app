@@ -25,6 +25,7 @@ extension UIImageView {
             //put back on main thread
             DispatchQueue.main.async {
                 print("DATA...", data as Any)
+                //show image defaul.
                 self.image = data != nil ? UIImage(data: data!) : UIImage(named: "Silver.png")
             }
         }

@@ -21,7 +21,7 @@ class HelpPromptViewController: UIViewController {
 
         titleLabel.text = topic.title
         descriptionLabel.text = topic.description
-        topView.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        topView.gradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
     }
     
     @IBAction func close(_ sender: UIButton) {

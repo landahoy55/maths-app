@@ -79,6 +79,7 @@
 		F0BC026020ADF38F00CACD8E /* microphone-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC025720ADF38E00CACD8E /* microphone-1.png */; };
 		F0BC026120ADF38F00CACD8E /* microphone-0@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC025820ADF38E00CACD8E /* microphone-0@3x.png */; };
 		F0BC026220ADF38F00CACD8E /* microphone-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC025920ADF38F00CACD8E /* microphone-2.png */; };
+		F0BC026620AF034200CACD8E /* VCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC026520AF034200CACD8E /* VCTests.swift */; };
 		F0BF7F362052CE93005D4A27 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BF7F352052CE93005D4A27 /* Account.swift */; };
 		F0BF7F502052F98E005D4A27 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = F0BF7F382052F98E005D4A27 /* Contents.json */; };
 		F0BF7F512052F98E005D4A27 /* Icon-App-20x20@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BF7F392052F98E005D4A27 /* Icon-App-20x20@1x.png */; };
@@ -124,7 +125,6 @@
 		F0F854C72045B3D1007A794A /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854C62045B3D1007A794A /* Answer.swift */; };
 		F0F854CB2046C483007A794A /* slightRoundedButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854CA2046C483007A794A /* slightRoundedButtons.swift */; };
 		F0F854CD2046C71D007A794A /* slightRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854CC2046C71D007A794A /* slightRoundedView.swift */; };
-		F0F854CF2046DB1A007A794A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854CE2046DB1A007A794A /* UIView+Extensions.swift */; };
 		F0F854D120470640007A794A /* InputAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854D020470640007A794A /* InputAnswerViewController.swift */; };
 		F0F854D520470811007A794A /* MultipleChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F854D420470811007A794A /* MultipleChoiceViewController.swift */; };
 /* End PBXBuildFile section */
@@ -221,6 +221,7 @@
 		F0BC025720ADF38E00CACD8E /* microphone-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone-1.png"; path = "../../../Computing Project Report/medals/microphone-1.png"; sourceTree = "<group>"; };
 		F0BC025820ADF38E00CACD8E /* microphone-0@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone-0@3x.png"; path = "../../../Computing Project Report/medals/microphone-0@3x.png"; sourceTree = "<group>"; };
 		F0BC025920ADF38F00CACD8E /* microphone-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "microphone-2.png"; path = "../../../Computing Project Report/medals/microphone-2.png"; sourceTree = "<group>"; };
+		F0BC026520AF034200CACD8E /* VCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTests.swift; sourceTree = "<group>"; };
 		F0BF7F352052CE93005D4A27 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		F0BF7F382052F98E005D4A27 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		F0BF7F392052F98E005D4A27 /* Icon-App-20x20@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@1x.png"; sourceTree = "<group>"; };
@@ -270,7 +271,6 @@
 		F0F854C62045B3D1007A794A /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		F0F854CA2046C483007A794A /* slightRoundedButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = slightRoundedButtons.swift; sourceTree = "<group>"; };
 		F0F854CC2046C71D007A794A /* slightRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = slightRoundedView.swift; sourceTree = "<group>"; };
-		F0F854CE2046DB1A007A794A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		F0F854D020470640007A794A /* InputAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAnswerViewController.swift; sourceTree = "<group>"; };
 		F0F854D420470811007A794A /* MultipleChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleChoiceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -339,6 +339,7 @@
 			children = (
 				F00EBDF7203C1F1600125618 /* maths_appTests.swift */,
 				F00EBDF9203C1F1600125618 /* Info.plist */,
+				F0BC026520AF034200CACD8E /* VCTests.swift */,
 			);
 			path = "maths-appTests";
 			sourceTree = "<group>";
@@ -453,7 +454,6 @@
 			children = (
 				F00EBE24203C792600125618 /* View+Extension.swift */,
 				F00EBE28203C808B00125618 /* UIButton+Extensions.swift */,
-				F0F854CE2046DB1A007A794A /* UIView+Extensions.swift */,
 				F07AFCEC2048436000F37658 /* UILabel+Extensions.swift */,
 				F073B57C20A592910046FA85 /* UIImageView+Extension.swift */,
 				F073B58220A9DE850046FA85 /* String + Extensions.swift */,
@@ -749,7 +749,6 @@
 				F00EBE1E203C4B3B00125618 /* LoginViewController.swift in Sources */,
 				F037D17E205AA8E4004BE224 /* RoundButton.swift in Sources */,
 				F0C872062059881900B5AC34 /* ChallengeNo.swift in Sources */,
-				F0F854CF2046DB1A007A794A /* UIView+Extensions.swift in Sources */,
 				F07AFCEF204D5ADE00F37658 /* menuCollectionViewCell.swift in Sources */,
 				F0F854BD20459B8B007A794A /* DataService.swift in Sources */,
 				F037D17A205A9635004BE224 /* Emitter.swift in Sources */,
@@ -804,6 +803,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0BC026620AF034200CACD8E /* VCTests.swift in Sources */,
 				F00EBE34203D9BAB00125618 /* AuthorisationService.swift in Sources */,
 				F00EBDF8203C1F1600125618 /* maths_appTests.swift in Sources */,
 				F00EBE36203D9BD000125618 /* Constants.swift in Sources */,
@@ -1007,7 +1007,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maths-app.app/maths-app";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maths App.app/Maths App";
 			};
 			name = Debug;
 		};
@@ -1024,7 +1024,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/maths-app.app/maths-app";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maths App.app/Maths App";
 			};
 			name = Release;
 		};

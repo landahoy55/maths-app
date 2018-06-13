@@ -13,9 +13,7 @@ class AuthorisationService {
     //singleton instance to get up and running
     static let instance = AuthorisationService()
     
-    //Computed Getters and Setters for UserDefaults - Persistent flags and token storage
-    
-    //computed property - check to see if user is registered
+    //Computed Getters and Setters for UserDefaults to access or set
     var isRegistered: Bool? {
         get {
             return UserDefaults.standard.bool(forKey: DEFAULTS_REGISTERED) == true
@@ -87,9 +85,9 @@ class AuthorisationService {
         
         //carry out request
         do {
-            //could this be done with Swift 4 encode? - it is
+            
             request.httpBody = try JSONSerialization.data(withJSONObject: json, options: [])
-            //completion handler code can be reduced.
+           
             let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
                 if (error == nil) {
                     //success
@@ -140,12 +138,15 @@ class AuthorisationService {
         // - Request - throws error
         // - Sessions run async so handle correctly
     func logIn(email username: String, password: String, completion: @escaping callback) {
+        
+        //JSON to send. email and password.
         let json = ["email": username, "password": password]
         
         let sessionConfig = URLSessionConfiguration.default
     
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
         
+        //exit if issue with URL
         guard let URL = URL(string: POST_LOGIN) else {
             isAuthenticated = false
             completion(false)
@@ -220,7 +221,7 @@ class AuthorisationService {
         }
     }
 
-    //crude logout for testing
+    //logout
     func logOut() {
         isRegistered = false
         isAuthenticated = false

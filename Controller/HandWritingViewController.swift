@@ -46,6 +46,9 @@ class HandWritingViewController: UIViewController {
     
     var subTopic: SubTopic?
     var subResult: RetreivedSubtopicResult?
+    var isFromHomeScreen: Bool?
+    
+    
     var currentQuestion: Question!
     var questionIndex = 0
     var timer = Timer()
@@ -80,7 +83,7 @@ class HandWritingViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        //fade out label... using dispatchAfter. Could use a timer
+        //fade out label
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             
             UIView.animate(withDuration: 0.5, animations: {
@@ -321,8 +324,19 @@ class HandWritingViewController: UIViewController {
     
         timer.invalidate()
         
+        if isFromHomeScreen == true {
+            
+            print("Is from home screen block")
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.popUpCloseBtn.alpha = 1
+                self.popUpCloseBtn.isEnabled = true
+            })
+            
+            return
+        }
+        
         //networking
-        //MARK: LOGGING RESULTS HERE
         if subTopic != nil {
             recordSubTopicResult()
             

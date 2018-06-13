@@ -81,6 +81,7 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
     //questions
     var subTopic: SubTopic?
     var subResult: RetreivedSubtopicResult?
+    var isFromHomeScreen: Bool?
     
     var questionIndex = 0
     var currentQuestion: Question!
@@ -275,8 +276,20 @@ class VoiceInputViewController: UIViewController, SFSpeechRecognizerDelegate {
         
         popupScoreLabel.text = "\(questionIndex)/5"
         
+        //if from the main screen animate close button - do not network to avoid additional results!
+        if isFromHomeScreen == true {
+            
+            print("Is from home screen block")
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.popupCloseBtn.alpha = 1
+                self.popupCloseBtn.isEnabled = true
+            })
+            
+            return
+        }
+        
         //networking
-    
         if subTopic != nil {
             recordSubTopicResult()
             

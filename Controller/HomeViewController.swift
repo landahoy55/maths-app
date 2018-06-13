@@ -37,9 +37,6 @@ class HomeViewController: UIViewController {
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
-
-        //set gradient
-        //view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         
         //collectionview delegate conformance
         collectionView.delegate = self
@@ -126,11 +123,13 @@ class HomeViewController: UIViewController {
             case "voiceSegue":
                 let voiceInputViewController = segue.destination as! VoiceInputViewController
                 voiceInputViewController.subTopic = DataService.instance.downloadedTopics[2].subTopics[0]
-            
+                voiceInputViewController.isFromHomeScreen = true
+                
             
             case "handWritingSegue":
                 let handWritingViewController = segue.destination as! HandWritingViewController
                 handWritingViewController.subTopic = DataService.instance.downloadedTopics[2].subTopics[1]
+                handWritingViewController.isFromHomeScreen = true
                 
             
             case "multipleChoiceImageSegue":
